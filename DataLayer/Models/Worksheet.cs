@@ -15,6 +15,7 @@ namespace DataLayer.Models
         public ConstructionSiteManager GetConstructionSiteManager { get; set; }
         public List<WorksheetMaterial> WorksheetMaterials { get; set; }
         public List<WorksheetEquipment> WorksheetEquipment { get; set; }
+        public int ConstructionSiteId { get; set; }
         public ConstructionSite ConstructionSite { get; set; }
     }
 }

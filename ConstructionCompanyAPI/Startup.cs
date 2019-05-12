@@ -1,3 +1,5 @@
+using ConstructionCompanyAPI.BR.Worksheets.Implementation;
+using ConstructionCompanyAPI.BR.Worksheets.Interfaces;
 using DataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +24,8 @@ namespace ConstructionCompanyAPI
         {
             services.AddDbContext<ConstructionCompanyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("local")));
+
+            services.AddTransient<IWorksheetService, WorksheetService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson();
