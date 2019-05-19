@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using ConstructionCompanyAPI.BR.Worksheets.Interfaces;
-using ConstructionCompanyAPI.ViewModels.Worksheets;
-using DataLayer;
-using DataLayer.Models;
+using AutoMapper;
+using ConstructionCompany.BR.Worksheets.Interfaces;
+using ConstructionCompanyDataLayer.Models;
+using ConstructionCompanyModel.ViewModels.Worksheets;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers
@@ -14,70 +12,43 @@ namespace ConstructionCompanyAPI.Controllers
     [ApiController]
     public class WorksheetsController : ControllerBase
     {
-        private readonly IWorksheetService worksheetService;
+        private readonly IWorksheetService _worksheetService;
+        private readonly IMapper _mapper;
 
 
-        public WorksheetsController(IWorksheetService worksheetService)
+        public WorksheetsController(IWorksheetService worksheetService, IMapper mapper)
         {
-            this.worksheetService = worksheetService;
+            _worksheetService = worksheetService;
+            _mapper = mapper;
         }
 
 
         [HttpPost]
         public WorksheetVM Add(WorksheetAddVM model)
         {
-            Worksheet worksheet = new Worksheet
-            {
-                ConstructionSiteId = model.ConstructionSiteId,
-                Date = model.Date,
-                Remarks = model.Remark,
-            };
-            Worksheet inserted = worksheetService.AddWorksheet(worksheet);
-            return new WorksheetVM(inserted);
+            Worksheet worksheet = _mapper.Map<Worksheet>(model);
+            Worksheet inserted = _worksheetService.AddWorksheet(worksheet);
+            return _mapper.Map<WorksheetVM>(inserted);
         }
+        [HttpDelete]
         public void Delete(int worksheetId)
         {
-            worksheetService.RemoveWorksheet(worksheetId);
+            _worksheetService.RemoveWorksheet(worksheetId);
         }
 
-        ///Worksheets/Complete? worksheetId = @Model.WorkSheetId
-        public IActionResult Complete(int worksheetId)
+        [HttpGet]
+        public List<WorksheetVM> GetAllWorksheets()
         {
-            worksheetService.CompleteWorksheet(worksheetId);
-            return RedirectToAction("Add", new { worksheetId = worksheetId });
+            return _worksheetService.GetAll().Select(w => _mapper.Map<WorksheetVM>(w)).ToList();
         }
 
-        /////Worksheets/DeleteControlEntity? entityId = @item.ControleEntitiesId
-        //public IActionResult DeleteControlEntity(int entityId)
-        //{
-        //    int worksheetId = worksheetService.RemoveControlEntity(entityId);
-        //    return RedirectToAction("ControlEntities", new { worksheetId = worksheetId });
-        //}
-
-
-        ////http://localhost:52140/Worksheets/ControlEntities?worksheetId=1
-        //public IActionResult ControlEntities(int worksheetId)
-        //{
-        //    ControlEntitiesAddVM vm = new ControlEntitiesAddVM
-        //    {
-        //        DateTime = DateTime.Now,
-        //        Text = "",
-        //        WorksheetId = worksheetId
-        //    };
-        //    return View(vm);
-        //}
-        //public async Task<ActionResult> AddControlEntity(ControlEntitiesAddVM vm, IFormFile file)
-        //{
-        //    await worksheetService.AddControlEntity(vm, file);
-        //    return RedirectToAction("ControlEntities", new { worksheetId = vm.WorksheetId });
-        //}
-
-        //public FileResult DownloadEntries(int entryId)
-        //{
-        //    Document d = worksheetService.GetDocument(entryId);
-        //    byte[] fileBytes = System.IO.File.ReadAllBytes(d.Location);
-        //    return File(fileBytes, d.ContentType, d.FileName);
-        //}
+        [HttpGet]
+        [Route("/api/[controller]/{id}")]
+        public WorksheetVM GetWorksheetById([FromRoute]int Id)
+        {
+            Worksheet worksheet = _worksheetService.GetById(Id);
+            return _mapper.Map<WorksheetVM>(worksheet);
+        }
 
     }
 }

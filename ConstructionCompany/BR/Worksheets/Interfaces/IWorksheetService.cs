@@ -1,11 +1,13 @@
-﻿using DataLayer.Models;
+﻿using System.Collections.Generic;
+using ConstructionCompanyDataLayer.Models;
 
-namespace ConstructionCompanyAPI.BR.Worksheets.Interfaces
+namespace ConstructionCompany.BR.Worksheets.Interfaces
 {
     public interface IWorksheetService
     {
         Worksheet AddWorksheet(Worksheet worksheet);
         void RemoveWorksheet(int worksheetId);
-        void CompleteWorksheet(int worksheetId);
+        Worksheet GetById(int id);
+        List<Worksheet> GetAll();
     }
 }

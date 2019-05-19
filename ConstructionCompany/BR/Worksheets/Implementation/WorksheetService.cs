@@ -1,27 +1,34 @@
-﻿using ConstructionCompanyAPI.BR.Worksheets.Interfaces;
-using DataLayer;
-using DataLayer.Models;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using ConstructionCompany.BR.Worksheets.Interfaces;
+using ConstructionCompanyDataLayer;
+using ConstructionCompanyDataLayer.Models;
 
-namespace ConstructionCompanyAPI.BR.Worksheets.Implementation
+namespace ConstructionCompany.BR.Worksheets.Implementation
 {
     public class WorksheetService : IWorksheetService
     {
-        private readonly ConstructionCompanyContext constructionCompanyContext;
+        private readonly ConstructionCompanyContext _constructionCompanyContext;
         public WorksheetService(ConstructionCompanyContext constructionCompanyContext)
         {
-            this.constructionCompanyContext = constructionCompanyContext;
+            _constructionCompanyContext = constructionCompanyContext;
         }
         public Worksheet AddWorksheet(Worksheet worksheet)
         {
-            var inserted = constructionCompanyContext.Worksheets.Add(worksheet);
-            constructionCompanyContext.SaveChanges();
+            var inserted = _constructionCompanyContext.Worksheets.Add(worksheet);
+            _constructionCompanyContext.SaveChanges();
             return inserted.Entity;
         }
 
-        public void CompleteWorksheet(int worksheetId)
+        public Worksheet GetById(int id)
         {
-            throw new NotImplementedException();
+            return _constructionCompanyContext.Worksheets.Find(id);
+        }
+
+        public List<Worksheet> GetAll()
+        {
+            return _constructionCompanyContext.Worksheets.ToList();
         }
 
         public void RemoveWorksheet(int worksheetId)

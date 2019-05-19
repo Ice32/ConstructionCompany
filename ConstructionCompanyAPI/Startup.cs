@@ -1,12 +1,14 @@
-using ConstructionCompanyAPI.BR.Worksheets.Implementation;
-using ConstructionCompanyAPI.BR.Worksheets.Interfaces;
-using DataLayer;
+using AutoMapper;
+using ConstructionCompany.BR.Worksheets.Implementation;
+using ConstructionCompany.BR.Worksheets.Interfaces;
+using ConstructionCompanyDataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace ConstructionCompanyAPI
 {
@@ -22,13 +24,20 @@ namespace ConstructionCompanyAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(cfg => cfg.AddProfile<Mappers.Mapper>());
+            
             services.AddDbContext<ConstructionCompanyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("local")));
 
-            services.AddTransient<IWorksheetService, WorksheetService>();
+            services.AddScoped<IWorksheetService, WorksheetService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson();
+            
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +58,17 @@ namespace ConstructionCompanyAPI
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
 
             app.UseEndpoints(endpoints =>
             {
