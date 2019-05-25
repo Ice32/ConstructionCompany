@@ -10,8 +10,10 @@ namespace ConstructionCompanyAPI.Mappers
         public Mapper()
         {
             CreateMap<Worksheet, WorksheetVM>().ReverseMap();
+            CreateMap<WorksheetAddVM, Worksheet>().ReverseMap();
             
-            CreateMap<WorksheetAddVM, Worksheet>();
+            CreateMap<TaskAddVM, Task>().ReverseMap();
+            CreateMap<TaskVM, Task>().ReverseMap();
         }
     }
 }

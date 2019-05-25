@@ -41,6 +41,13 @@ namespace ConstructionCompanyAPITests
             WorksheetAddVM worksheetVM = new WorksheetAddVM
             {
                 Remarks = remarks,
+                Tasks = new List<TaskAddVM>
+                {
+                    new TaskAddVM
+                    {
+                        Title = "Title",
+                    },
+                }
             };
             string data = JsonConvert.SerializeObject(worksheetVM);
 

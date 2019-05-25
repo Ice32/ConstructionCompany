@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConstructionCompanyWinDesktop.Worksheets;
+using System;
 using System.Windows.Forms;
 
 namespace ConstructionCompanyWinDesktop
@@ -109,6 +103,16 @@ namespace ConstructionCompanyWinDesktop
             var korisniciPretraga = new Form1();
             korisniciPretraga.MdiParent = this;
             korisniciPretraga.Show();
+        }
+        
+
+        private void KreirajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewWorksheet
+            {
+                MdiParent = this
+            };
+            creationForm.Show();
         }
     }
 }
