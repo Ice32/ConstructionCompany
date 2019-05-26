@@ -1,5 +1,6 @@
 using AutoMapper;
 using ConstructionCompanyDataLayer.Models;
+using ConstructionCompanyModel.ViewModels.ConstructionSites;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 
 namespace ConstructionCompanyAPI.Mappers
@@ -14,6 +15,8 @@ namespace ConstructionCompanyAPI.Mappers
             
             CreateMap<TaskAddVM, Task>().ReverseMap();
             CreateMap<TaskVM, Task>().ReverseMap();
+
+            CreateMap<ConstructionSiteVM, ConstructionSite>().ReverseMap();
         }
     }
 }

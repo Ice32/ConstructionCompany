@@ -4,6 +4,7 @@ using System.Linq;
 using ConstructionCompany.BR.Worksheets.Interfaces;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConstructionCompany.BR.Worksheets.Implementation
 {
@@ -28,7 +29,7 @@ namespace ConstructionCompany.BR.Worksheets.Implementation
 
         public List<Worksheet> GetAll()
         {
-            return _constructionCompanyContext.Worksheets.ToList();
+            return _constructionCompanyContext.Worksheets.Include("ConstructionSite").ToList();
         }
 
         public void RemoveWorksheet(int worksheetId)

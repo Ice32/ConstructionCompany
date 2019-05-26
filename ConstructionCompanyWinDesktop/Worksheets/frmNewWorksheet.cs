@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Util;
@@ -23,13 +24,28 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private readonly List<TaskAddVM> _tasks = new List<TaskAddVM> {
             new TaskAddVM(),
         };
+        private Form _parent;
 
         private readonly List<Control> _controls = new List<Control>();
-        public frmNewWorksheet()
+        public frmNewWorksheet(WorksheetAddVM worksheet = null, Form parent = null)
         {
             InitializeComponent();
+            _parent = parent;
+            if (worksheet != null)
+            {
+                _tasks = worksheet.Tasks.Select(task => new TaskAddVM
+                {
+                    Title = task.Title,
+                })
+                    .ToList();
+                dtWorksheetDate.Value = worksheet.Date;
+                lblWorksheetCreateEditHeader.Text = "Uredi radni list";
+
+            }
             RerenderTaskInputs();
         }
+
+
 
         private void BtnDodajZadatak_Click(object sender, EventArgs e)
         {
@@ -68,6 +84,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 },
                 Height =  TextInputHeight,
                 Text = task.Title,
+                ReadOnly = true,
             };
             textBox.KeyUp += (sender, args) =>
             {
@@ -127,10 +144,14 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         {
             WorksheetAddVM worksheet = new WorksheetAddVM
             {
+                Date = dtWorksheetDate.Value,
                 Tasks = _tasks,
                 ConstructionSiteId = 3,
             };
-            WorksheetVM created = await _apiClient.Post<WorksheetVM>("", worksheet);
+            await _apiClient.Post<WorksheetVM>("", worksheet);
+            Form listForm = new frmWorksheetsList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
+            Close();
+            listForm.Show();
         }
     }
 }

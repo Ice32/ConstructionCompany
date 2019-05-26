@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConstructionCompanyModel.ViewModels.ConstructionSites;
+using System;
 using System.Collections.Generic;
 
 namespace ConstructionCompanyModel.ViewModels.Worksheets
@@ -6,7 +7,7 @@ namespace ConstructionCompanyModel.ViewModels.Worksheets
     public class WorksheetVM
     {
         public int Id { get; set; }
-        public int ConstructionSiteId { get; set; }
+        public ConstructionSiteVM ConstructionSite { get; set; }
         public DateTime Date { get; set; }
         public string Remarks { get; set; }
         public List<TaskVM> Tasks { get; set; }

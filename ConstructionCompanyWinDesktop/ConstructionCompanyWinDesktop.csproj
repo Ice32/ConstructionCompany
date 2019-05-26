@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmWorksheetsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmWorksheetsList.Designer.cs">
+      <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
@@ -77,8 +77,8 @@
     <Compile Include="Worksheets\frmTaskCreateEdit.Designer.cs">
       <DependentUpon>frmTaskCreateEdit.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmWorksheetsList.resx">
+      <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>

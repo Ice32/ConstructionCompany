@@ -100,19 +100,20 @@ namespace ConstructionCompanyWinDesktop
 
         private void PretragaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var korisniciPretraga = new Form1();
-            korisniciPretraga.MdiParent = this;
+            var korisniciPretraga = new frmWorksheetsList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+                AutoSize = true
+            };
             korisniciPretraga.Show();
         }
         
 
         private void KreirajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var creationForm = new frmNewWorksheet
-            {
-                MdiParent = this
-            };
-            creationForm.Show();
+            var creationForm = new frmNewWorksheet(null, this);
+            creationForm.ShowDialog();
         }
     }
 }
