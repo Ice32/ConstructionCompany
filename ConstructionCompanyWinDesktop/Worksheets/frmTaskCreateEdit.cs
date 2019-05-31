@@ -1,16 +1,81 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.Worksheets;
+using ConstructionCompanyWinDesktop.Util;
 
 namespace ConstructionCompanyWinDesktop.Worksheets
 {
     public partial class frmTaskCreateEdit : Form
     {
+        private TaskAddVM _originalTask;
+        private TaskAddVM _taskCopy = new TaskAddVM();
+        private APIClient _workersClient = new APIClient("workers");
+        private ValidationUtil _validationUtil;
         public frmTaskCreateEdit(TaskAddVM task)
         {
             InitializeComponent();
-            txtTaskName.Text = task.Title;
 
-            txtTaskName.KeyUp += (sender, args) => { task.Title = txtTaskName.Text; };
+            _originalTask = task;
+            _taskCopy.Title = task.Title;
+
+            txtTaskName.Text = task.Title;
+            txtTaskName.KeyUp += (sender, args) => { _taskCopy.Title = txtTaskName.Text; };
+
+            _validationUtil = new ValidationUtil(errorProviderTaskCreateEdit);
+            LoadWorkers();
+        }
+
+        private async void LoadWorkers()
+        {
+            List<WorkerVM> workers = await _workersClient.Get<List<WorkerVM>>("");
+            listTaskWorkers.DataSource = workers.Select(w => new ListBoxItem
+            {
+                Id = w.Id,
+                Name = w.FirstName + " " + w.LastName,
+            }).ToList();
+            listTaskWorkers.DisplayMember = "Name";
+            listTaskWorkers.ValueMember = "Id";
+            if (_originalTask.WorkerIds != null)
+            {
+                listTaskWorkers.SelectedIndices.Clear();
+                foreach (int workerId in _originalTask.WorkerIds)
+                {
+                    int indexInList = -1;
+                    for (var j = 0; j < listTaskWorkers.Items.Count; j++)
+                    {
+                        if (((ListBoxItem) listTaskWorkers.Items[j]).Id == workerId)
+                        {
+                            indexInList = j;
+                        }
+                    }
+
+                    if (indexInList != -1)
+                    {
+                        listTaskWorkers.SelectedIndices.Add(indexInList);
+                    }
+                }
+            }
+        }
+        
+
+        private void BtnTaskSave_Click(object sender, EventArgs e)
+        {
+            _originalTask.Title = _taskCopy.Title;
+            _originalTask.WorkerIds = new List<int>();
+            foreach (ListBoxItem selectedItem in listTaskWorkers.SelectedItems)
+            {
+                _originalTask.WorkerIds.Add(selectedItem.Id);
+            }
+            Close();
+        }
+
+        private void TxtTaskName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            _validationUtil.AssertLength(3, textBox, e);
         }
     }
 }

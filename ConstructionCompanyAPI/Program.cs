@@ -1,4 +1,7 @@
+using ConstructionCompanyAPI.Util;
+using ConstructionCompanyDataLayer;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace ConstructionCompanyAPI
@@ -7,7 +10,18 @@ namespace ConstructionCompanyAPI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            IHostBuilder hostBuilder = CreateHostBuilder(args);
+            IHost host = hostBuilder.Build();
+            
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<ConstructionCompanyContext>();
+
+                DBInitializer.Initialize(context);
+            }
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

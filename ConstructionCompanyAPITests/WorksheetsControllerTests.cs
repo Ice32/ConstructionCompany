@@ -52,7 +52,6 @@ namespace ConstructionCompanyAPITests
             string data = JsonConvert.SerializeObject(worksheetVM);
 
 
-
             // act
             var httpResponse = await _client.PostAsync("/api/worksheets", new StringContent(data, Encoding.UTF8, "application/json"));
             httpResponse.EnsureSuccessStatusCode();

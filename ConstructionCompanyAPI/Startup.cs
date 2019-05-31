@@ -1,4 +1,6 @@
 using AutoMapper;
+using ConstructionCompany.BR.Workers.Implementation;
+using ConstructionCompany.BR.Workers.Interfaces;
 using ConstructionCompany.BR.Worksheets.Implementation;
 using ConstructionCompany.BR.Worksheets.Interfaces;
 using ConstructionCompanyDataLayer;
@@ -30,6 +32,8 @@ namespace ConstructionCompanyAPI
             options.UseSqlServer(Configuration.GetConnectionString("local")));
 
             services.AddScoped<IWorksheetService, WorksheetService>();
+            services.AddScoped<IWorkersService, WorkersService>();
+            services.AddScoped<ITasksService, TasksService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson();

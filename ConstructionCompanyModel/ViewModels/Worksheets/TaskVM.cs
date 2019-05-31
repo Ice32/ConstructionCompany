@@ -9,6 +9,6 @@ namespace ConstructionCompanyModel.ViewModels.Worksheets
 
         public string Description { get; set; }
 
-        public List<int> WorkerIds { get; set; }
+        public List<WorkerVM> Workers { get; set; }
     }
 }

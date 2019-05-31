@@ -18,15 +18,16 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private const int TextInputHeight = 20;
         private const int ButtonInputHeight = 24;
         private const int FormStartY = 93;
-        
-        private readonly APIClient _apiClient = new APIClient("worksheets");
 
         private readonly List<TaskAddVM> _tasks = new List<TaskAddVM> {
             new TaskAddVM(),
         };
-        private Form _parent;
 
-        private readonly List<Control> _controls = new List<Control>();
+        private readonly APIClient _apiClient = new APIClient("worksheets");
+        private readonly Form _parent;
+
+        private readonly ListRenderer<TaskAddVM> _taskRenderer;
+
         public frmNewWorksheet(WorksheetAddVM worksheet = null, Form parent = null)
         {
             InitializeComponent();
@@ -42,7 +43,9 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 lblWorksheetCreateEditHeader.Text = "Uredi radni list";
 
             }
-            RerenderTaskInputs();
+            _taskRenderer = new ListRenderer<TaskAddVM>(ref _tasks, Controls, AddNewTaskInput);
+            
+            _taskRenderer.RerenderTaskInputs();
         }
 
 
@@ -51,29 +54,13 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         {
             _tasks.Add(new TaskAddVM());
             
-            RerenderTaskInputs();
+            _taskRenderer.RerenderTaskInputs();
            
         }
 
-        private void ClearTaskInputs()
+        private List<Control> AddNewTaskInput(TaskAddVM task, int i, Action rerenderTaskInputs)
         {
-            _controls.ForEach(control =>
-            {
-                Controls.Remove(control);
-            });
-        }
-
-        private void RerenderTaskInputs()
-        {
-            ClearTaskInputs();  
-            for (var i = 0; i < _tasks.Count; i++)
-            {
-                AddNewTaskInput(_tasks[i], FormStartY + ( i * RowSize ));
-            }
-        }
-
-        private void AddNewTaskInput(TaskAddVM task, int rowStart)
-        {
+            int rowStart = FormStartY + (i * RowSize);
             int secondRowStart = rowStart + 38;
             TextBox textBox = new TextBox
             {
@@ -105,7 +92,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             {
                 Form editForm = new frmTaskCreateEdit(task);
                 editForm.FormClosing += (o, eventArgs) => {
-                    RerenderTaskInputs();
+                    rerenderTaskInputs();
                 };
                 editForm.Show();
             };
@@ -123,7 +110,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             btnRemove.Click += (sender, args) =>
             {
                 _tasks.Remove(task);
-                RerenderTaskInputs();
+                rerenderTaskInputs();
             };
 
             btnDodajZadatak.Location = new Point
@@ -131,13 +118,12 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 X = TxtNameX,
                 Y = secondRowStart + RowSize
             };
-            Controls.Add(btnEdit);
-            Controls.Add(btnRemove);
-            Controls.Add(textBox);
-
-            _controls.Add(btnEdit);
-            _controls.Add(btnRemove);
-            _controls.Add(textBox);
+            return new List<Control>
+            {
+                btnEdit,
+                btnRemove,
+                textBox,
+            };
         }
 
         private async void BtnSaveEditWorksheet_Click(object sender, EventArgs e)

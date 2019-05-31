@@ -13,7 +13,11 @@ namespace ConstructionCompanyAPITests.Helpers
         }
         public Worksheet CreateWorksheet()
         {
-            Worksheet worksheet = new Worksheet();
+            ConstructionSite constructionSite = new ConstructionSiteHelpers(_persistence).CreateConstructionSite();
+            var worksheet = new Worksheet
+            {
+                ConstructionSiteId = constructionSite.Id,
+            };
             var inserted = _persistence.Worksheets.Add(worksheet);
             _persistence.SaveChanges();
 

@@ -9,6 +9,7 @@ namespace ConstructionCompanyModel.ViewModels.ConstructionSites
     };
     public class ConstructionSiteVM
     {
+        public int Id { get; set; }
         public string Title { get; set; }
 
         public decimal ProjectWorth { get; set; }
