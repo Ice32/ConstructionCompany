@@ -77,5 +77,12 @@ namespace ConstructionCompanyWinDesktop.Worksheets
 
             _validationUtil.AssertLength(3, textBox, e);
         }
+
+        private void ListTaskWorkers_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ListBox listBox = (ListBox)sender;
+
+            _validationUtil.AssertItemSelected(listBox, e);
+        }
     }
 }

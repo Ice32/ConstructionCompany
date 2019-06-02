@@ -49,6 +49,7 @@ namespace ConstructionCompanyAPITests
 
         public HttpClient Client { get; }
         public ConstructionCompanyContext Persistence { get; set; }
+        public IServiceProvider ServiceProvider { get; set; }
 
         public void Dispose()
         {
@@ -98,8 +99,9 @@ namespace ConstructionCompanyAPITests
 
             services.AddSingleton(manager);
 
-            var scope = services.BuildServiceProvider().CreateScope().ServiceProvider;
+            IServiceProvider scope = services.BuildServiceProvider().CreateScope().ServiceProvider;
             Persistence = scope.GetRequiredService<ConstructionCompanyContext>();
+            ServiceProvider = scope;
         }
 
         protected TestFixture(string relativeTargetProjectParentDir)

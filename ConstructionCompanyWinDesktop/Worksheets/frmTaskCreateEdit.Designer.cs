@@ -80,6 +80,7 @@
             this.listTaskWorkers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listTaskWorkers.Size = new System.Drawing.Size(259, 104);
             this.listTaskWorkers.TabIndex = 4;
+            this.listTaskWorkers.Validating += new System.ComponentModel.CancelEventHandler(this.ListTaskWorkers_Validating);
             // 
             // btnTaskSave
             // 

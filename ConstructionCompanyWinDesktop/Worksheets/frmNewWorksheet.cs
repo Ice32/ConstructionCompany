@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.Worksheets;
-using ConstructionCompanyWinDesktop.Util;
+using ConstructionCompanyWinDesktop.Services;
 
 namespace ConstructionCompanyWinDesktop.Worksheets
 {
@@ -23,20 +23,24 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             new TaskAddVM(),
         };
 
-        private readonly APIClient _apiClient = new APIClient("worksheets");
+        private readonly WorksheetsService _worksheetsService = new WorksheetsService();
         private readonly Form _parent;
 
         private readonly ListRenderer<TaskAddVM> _taskRenderer;
+        private readonly int _worksheetId;
 
-        public frmNewWorksheet(WorksheetAddVM worksheet = null, Form parent = null)
+        public frmNewWorksheet(WorksheetVM worksheet = null, Form parent = null)
         {
             InitializeComponent();
             _parent = parent;
             if (worksheet != null)
             {
+                _worksheetId = worksheet.Id;
                 _tasks = worksheet.Tasks.Select(task => new TaskAddVM
                 {
+                    Id = task.Id,
                     Title = task.Title,
+                    WorkerIds = task.Workers.Select(w => w.Id).ToList()
                 })
                     .ToList();
                 dtWorksheetDate.Value = worksheet.Date;
@@ -132,9 +136,17 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             {
                 Date = dtWorksheetDate.Value,
                 Tasks = _tasks,
-                ConstructionSiteId = 3,
+                ConstructionSiteId = 1,
             };
-            await _apiClient.Post<WorksheetVM>("", worksheet);
+            if (_worksheetId != 0)
+            {
+                worksheet.Id = _worksheetId;
+                await _worksheetsService.UpdateWorksheet(_worksheetId, worksheet);
+            }
+            else
+            {
+                await _worksheetsService.CreateWorksheet(worksheet);
+            }
             Form listForm = new frmWorksheetsList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
             Close();
             listForm.Show();

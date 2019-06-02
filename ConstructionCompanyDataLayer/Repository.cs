@@ -28,8 +28,8 @@ namespace ConstructionCompanyDataLayer
         public virtual IEnumerable<T> List(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
             return _dbContext.Set<T>()
-                   .Where(predicate)
-                   .AsEnumerable();
+                .Where(predicate)
+                .AsEnumerable();
         }
 
         public void Add(T entity)
@@ -40,7 +40,7 @@ namespace ConstructionCompanyDataLayer
 
         public void Update(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbContext.Set<T>().Update(entity);
             _dbContext.SaveChanges();
         }
 

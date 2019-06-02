@@ -6,6 +6,7 @@ namespace ConstructionCompany.BR.Worksheets.Interfaces
     public interface IWorksheetService
     {
         Worksheet AddWorksheet(Worksheet worksheet);
+        Worksheet UpdateWorksheet(Worksheet worksheet);
         void RemoveWorksheet(int worksheetId);
         Worksheet GetById(int id);
         List<Worksheet> GetAll();

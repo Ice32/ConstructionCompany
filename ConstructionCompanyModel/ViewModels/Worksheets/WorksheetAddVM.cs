@@ -5,6 +5,7 @@ namespace ConstructionCompanyModel.ViewModels.Worksheets
 {
     public class WorksheetAddVM
     {
+        public int? Id;
         public int ConstructionSiteId { get; set; }
         public DateTime Date { get; set; }
         public string Remarks { get; set; }
@@ -13,6 +14,5 @@ namespace ConstructionCompanyModel.ViewModels.Worksheets
         public List<EquipmentVM> Equipment { get; set; }
         public bool IsLocked { get; set; }
         public string WeatherConditions { get; set; }
-        public List<WorkerVM> Workers { get; set; }
     }
 }

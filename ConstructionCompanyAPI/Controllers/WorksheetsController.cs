@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using AutoMapper;
 using ConstructionCompany.BR.Worksheets.Interfaces;
 using ConstructionCompanyDataLayer.Models;
@@ -39,15 +40,35 @@ namespace ConstructionCompanyAPI.Controllers
         [HttpGet]
         public List<WorksheetVM> GetAllWorksheets()
         {
-            return _worksheetService.GetAll().Select(w => _mapper.Map<WorksheetVM>(w)).ToList();
+            var worksheets = _worksheetService.GetAll();
+                
+                var mapped = worksheets.Select(w => _mapper.Map<WorksheetVM>(w)).ToList();
+
+            return mapped;
         }
 
         [HttpGet]
         [Route("/api/[controller]/{id}")]
-        public WorksheetVM GetWorksheetById([FromRoute]int Id)
+        public WorksheetVM GetWorksheetById([FromRoute]int id)
         {
-            Worksheet worksheet = _worksheetService.GetById(Id);
+            Worksheet worksheet = _worksheetService.GetById(id);
             return _mapper.Map<WorksheetVM>(worksheet);
+        }
+        
+        [HttpPost]
+        [Route("/api/[controller]/{id}")]
+        public WorksheetVM Update([FromRoute]int id, WorksheetAddVM model)
+        {
+            Worksheet existing = _worksheetService.GetById(id);
+            if (existing == null)
+            {
+                throw new HttpRequestException();
+            }
+            Worksheet worksheet = _mapper.Map(model, existing);
+            worksheet.Id = id;
+            _worksheetService.UpdateWorksheet(worksheet);
+            Worksheet updated = _worksheetService.GetById(id);
+            return _mapper.Map<WorksheetVM>(updated);
         }
 
     }

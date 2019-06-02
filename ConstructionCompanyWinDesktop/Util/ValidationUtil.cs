@@ -22,5 +22,18 @@ namespace ConstructionCompanyWinDesktop.Util
             _errorProvider.SetError(textBox, null);
             return true;
         }
+        
+        public bool AssertItemSelected(ListBox listBox, System.ComponentModel.CancelEventArgs e)
+        {
+            if (listBox.SelectedItems.Count == 0)
+            {
+                _errorProvider.SetError(listBox, "Odaberite bar jednu vrijednost");
+                e.Cancel = true;
+                return false;
+            }
+
+            _errorProvider.SetError(listBox, null);
+            return true;
+        }
     }
 }

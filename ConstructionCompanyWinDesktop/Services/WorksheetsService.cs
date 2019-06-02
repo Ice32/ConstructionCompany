@@ -13,5 +13,15 @@ namespace ConstructionCompanyWinDesktop.Services
         {
             return _client.Get<List<WorksheetVM>>();
         }
+        
+        public Task<WorksheetVM> CreateWorksheet(WorksheetAddVM worksheet)
+        {
+            return _client.Post<WorksheetVM>("", worksheet);
+        }
+        
+        public Task<WorksheetVM> UpdateWorksheet(int id, WorksheetAddVM worksheet)
+        {
+            return _client.Post<WorksheetVM>($"/{id}", worksheet);
+        }
     }
 }

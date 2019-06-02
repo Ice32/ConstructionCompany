@@ -34,6 +34,8 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IWorksheetService, WorksheetService>();
             services.AddScoped<IWorkersService, WorkersService>();
             services.AddScoped<ITasksService, TasksService>();
+            
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddControllers()
                 .AddNewtonsoftJson();

@@ -59,7 +59,6 @@
             this.dgvMain.Size = new System.Drawing.Size(1512, 783);
             this.dgvMain.TabIndex = 1;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMain_CellClick);
-            this.dgvMain.SelectionChanged += new System.EventHandler(this.DgvMain_SelectionChanged);
             // 
             // Id
             // 
