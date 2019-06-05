@@ -42,9 +42,7 @@ namespace ConstructionCompanyAPI.Controllers
         {
             var worksheets = _worksheetService.GetAll();
                 
-                var mapped = worksheets.Select(w => _mapper.Map<WorksheetVM>(w)).ToList();
-
-            return mapped;
+            return worksheets.Select(w => _mapper.Map<WorksheetVM>(w)).ToList();
         }
 
         [HttpGet]

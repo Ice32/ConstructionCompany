@@ -1,9 +1,12 @@
 using AutoMapper;
+using ConstructionCompany.BR;
 using ConstructionCompany.BR.Workers.Implementation;
 using ConstructionCompany.BR.Workers.Interfaces;
 using ConstructionCompany.BR.Worksheets.Implementation;
 using ConstructionCompany.BR.Worksheets.Interfaces;
 using ConstructionCompanyDataLayer;
+using ConstructionCompanyDataLayer.Models;
+using ConstructionCompanyModel.ViewModels.ConstructionSites;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Mapper = ConstructionCompanyAPI.Mappers.Mapper;
 
 namespace ConstructionCompanyAPI
 {
@@ -26,7 +30,7 @@ namespace ConstructionCompanyAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(cfg => cfg.AddProfile<Mappers.Mapper>());
+            services.AddAutoMapper(cfg => cfg.AddProfile<Mapper>());
             
             services.AddDbContext<ConstructionCompanyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("local")));
@@ -34,6 +38,10 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IWorksheetService, WorksheetService>();
             services.AddScoped<IWorkersService, WorkersService>();
             services.AddScoped<ITasksService, TasksService>();
+            
+            services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object>>();
+            
+            services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object>>();
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

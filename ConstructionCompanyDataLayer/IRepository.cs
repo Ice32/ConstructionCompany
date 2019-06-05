@@ -10,9 +10,9 @@ namespace ConstructionCompanyDataLayer
         T GetById(int id);
         IEnumerable<T> List();
         IEnumerable<T> List(Expression<Func<T, bool>> predicate);
-        void Add(T entity);
+        T Add(T entity);
         void Delete(T entity);
-        void Update(T entity);
+        T Update(T entity);
         IEnumerable<T> List(ISpecification<T> spec);
         T GetSingle(ISpecification<T> spec);
     }

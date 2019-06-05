@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ConstructionCompanyDataLayer
 {
@@ -32,16 +33,20 @@ namespace ConstructionCompanyDataLayer
                 .AsEnumerable();
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
-            _dbContext.Set<T>().Add(entity);
+            EntityEntry<T> entityEntry = _dbContext.Set<T>().Add(entity);
             _dbContext.SaveChanges();
+
+            return entityEntry.Entity;
         }
 
-        public void Update(T entity)
+        public T Update(T entity)
         {
-            _dbContext.Set<T>().Update(entity);
+            EntityEntry<T> entityEntry = _dbContext.Set<T>().Update(entity);
             _dbContext.SaveChanges();
+
+            return entityEntry.Entity;
         }
 
         public void Delete(T entity)

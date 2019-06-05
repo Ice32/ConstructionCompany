@@ -1,0 +1,18 @@
+﻿using System;
+
+namespace ConstructionCompanyModel.ViewModels.ConstructionSites
+{
+    public class ConstructionSiteAddVM
+    {
+        public int? Id { get; set; }
+        public string Title { get; set; }
+
+        public decimal ProjectWorth { get; set; }
+
+
+        public DateTime? DateStart { get; set; }
+        public DateTime? DateFinish { get; set; }
+
+        //public List<ConstructionSiteSiteManager> ConstructionSiteManagers { get; set; }
+    }
+}

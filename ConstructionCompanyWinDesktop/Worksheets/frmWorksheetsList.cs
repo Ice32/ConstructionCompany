@@ -9,19 +9,18 @@ namespace ConstructionCompanyWinDesktop
 {
     public partial class frmWorksheetsList : Form
     {
-        private readonly WorksheetsService _worksheetsService;
+        private readonly APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM> _worksheetsService = new APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM>("worksheets");
         private List<WorksheetVM> _worksheets;
 
         public frmWorksheetsList()
         {
             InitializeComponent();
-            _worksheetsService = new WorksheetsService();
             LoadData();
         }
 
         private async void LoadData()
         {
-            _worksheets = await _worksheetsService.GetAllWorksheets();
+            _worksheets = await _worksheetsService.GetAll();
             var mappedResults = _worksheets.Select(w => new
             {
                 ConstructionSite = w.ConstructionSite.Title,

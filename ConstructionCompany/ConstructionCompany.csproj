@@ -8,4 +8,19 @@
     <ProjectReference Include="..\ConstructionCompanyDataLayer\ConstructionCompanyDataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\..\..\..\.nuget\packages\automapper\8.1.1\lib\netstandard2.0\AutoMapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BR\ConstructionSites\Implementation" />
+    <Folder Include="BR\ConstructionSites\Interfaces" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BR\ConstructionSites\Implementation\ConstructionSitesService.cs" />
+  </ItemGroup>
+
 </Project>
