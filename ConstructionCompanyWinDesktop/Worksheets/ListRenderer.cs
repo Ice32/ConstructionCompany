@@ -34,7 +34,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             for (var i = 0; i < _data.Count; i++)
             {
                 List<Control> controls = _renderer(_data[i], i, RerenderTaskInputs);
-                foreach (var t in controls)
+                foreach (Control t in controls)
                 {
                     _controls.Add(t);
                     _formControls.Add(t);

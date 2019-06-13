@@ -38,7 +38,10 @@ namespace ConstructionCompanyWinDesktop
         {
             DataGridView dataGridView = (DataGridView)sender;
 
-            //object selectedId = dataGridView.SelectedRows[0].Cells[0].Value;
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             int selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
             WorksheetVM worksheet = _worksheets.FirstOrDefault(w => w.Id == selectedId);
             frmNewWorksheet worksheetForm = new frmNewWorksheet(worksheet, MdiParent);

@@ -81,6 +81,18 @@
       <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Worksheets\ListRenderer.cs" />
+    <Compile Include="Worksheets\worksheetTasksUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Worksheets\worksheetTasksUserControl.Designer.cs">
+      <DependentUpon>worksheetTasksUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Worksheets\worksheetTaskUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Worksheets\worksheetTaskUserControl.Designer.cs">
+      <DependentUpon>worksheetTaskUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\frmWorksheetsList.resx">
       <DependentUpon>frmWorksheetsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Worksheets\worksheetTasksUserControl.resx">
+      <DependentUpon>worksheetTasksUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Worksheets\worksheetTaskUserControl.resx">
+      <DependentUpon>worksheetTaskUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
