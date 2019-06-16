@@ -96,10 +96,10 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 Materials = _materials,
                 ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id
             };
-            if (_worksheetId != 0)
+            if (_originalWorksheet != null)
             {
-                worksheet.Id = _worksheetId;
-                await _worksheetsService.Update(_worksheetId, worksheet);
+                worksheet.Id = _originalWorksheet.Id;
+                await _worksheetsService.Update(_originalWorksheet.Id, worksheet);
             }
             else
             {

@@ -1,32 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
-using ConstructionCompany.BR.Workers.Interfaces;
+﻿using AutoMapper;
+using ConstructionCompany.BR;
+using ConstructionCompanyAPI.Controllers.Generics;
+using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.Worksheets;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class WorkersController : ControllerBase
+    public class WorkersController : BaseController<WorkerVM, Worker, object>
     {
-        private readonly IWorkersService _workersService;
-        private readonly IMapper _mapper;
-
-
-        public WorkersController(IWorkersService workersService, IMapper mapper)
+        public WorkersController(IService<Worker, object> service, IMapper mapper) : base(service, mapper)
         {
-            _workersService = workersService;
-            _mapper = mapper;
-        }
-
-
-        [HttpGet]
-        public List<WorkerVM> GetAllWorksheets()
-        {
-            var workers = _workersService.GetAll().Select(w => _mapper.Map<WorkerVM>(w)).ToList();
-            return workers;
         }
     }
 }

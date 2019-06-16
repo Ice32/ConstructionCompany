@@ -1,7 +1,7 @@
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 
-namespace ConstructionCompany.BR.Worksheets.Implementation.Specifications
+namespace ConstructionCompany.BR.Specifications
 {
 
     public class WorksheetAllRelatedDataSpecification : BaseSpecification<Worksheet>
@@ -10,7 +10,7 @@ namespace ConstructionCompany.BR.Worksheets.Implementation.Specifications
             : base(c => true)
         {
             AddInclude(w => w.ConstructionSite);
-            AddInclude("Tasks.WorkerTasks.Worker");
+            AddInclude("Tasks.WorkerTasks.Worker.User");
             AddInclude("WorksheetMaterials.Material");
         }
 
@@ -18,7 +18,7 @@ namespace ConstructionCompany.BR.Worksheets.Implementation.Specifications
             : base(c => c.Id == id)
         {
             AddInclude(w => w.ConstructionSite);
-            AddInclude("Tasks.WorkerTasks.Worker");
+            AddInclude("Tasks.WorkerTasks.Worker.User");
             AddInclude("WorksheetMaterials.Material");
         }
     }

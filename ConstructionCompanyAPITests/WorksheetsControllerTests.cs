@@ -136,7 +136,7 @@ namespace ConstructionCompanyAPITests
 
 
             // act
-            HttpResponseMessage httpResponse = await _client.PostAsync($"/api/worksheets/{worksheet.Id}", new StringContent(data, Encoding.UTF8, "application/json"));
+            HttpResponseMessage httpResponse = await _client.PutAsync($"/api/worksheets/{worksheet.Id}", new StringContent(data, Encoding.UTF8, "application/json"));
             httpResponse.EnsureSuccessStatusCode();
             
             // assert

@@ -1,12 +1,9 @@
 using AutoMapper;
 using ConstructionCompany.BR;
-using ConstructionCompany.BR.Workers.Implementation;
-using ConstructionCompany.BR.Workers.Interfaces;
-using ConstructionCompany.BR.Worksheets.Implementation;
-using ConstructionCompany.BR.Worksheets.Interfaces;
+using ConstructionCompany.BR.Specifications;
+using ConstructionCompany.BR.Worksheets;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
-using ConstructionCompanyModel.ViewModels.ConstructionSites;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -35,15 +32,17 @@ namespace ConstructionCompanyAPI
             services.AddDbContext<ConstructionCompanyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("local")));
 
-            services.AddScoped<IWorksheetService, WorksheetService>();
-            services.AddScoped<IWorkersService, WorkersService>();
-            services.AddScoped<ITasksService, TasksService>();
+            services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
+            services.AddScoped<IService<Material, object>, BaseService<Material, object, MaterialAllRelatedDataSpecification>>();
+            services.AddScoped<IService<Task, object>, BaseService<Task, object, TasksAllRelatedDataSpecification>>();
+            services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
+            services.AddScoped<IService<Worksheet, object>, WorksheetService>();
             
-            services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object>>();
-            services.AddScoped<IService<Material, object>, BaseService<Material, object>>();
-            
-            services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object>>();
-            services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object>>();
+            services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<Task, object>, BaseCRUDService<Task, object, TasksAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

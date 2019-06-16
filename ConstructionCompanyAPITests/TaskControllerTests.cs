@@ -44,7 +44,7 @@ namespace ConstructionCompanyAPITests
             string data = JsonConvert.SerializeObject(task);
 
             // act
-            var httpResponse = await _client.PostAsync(
+            HttpResponseMessage httpResponse = await _client.PostAsync(
                 "/api/tasks",
                 new StringContent(data, Encoding.UTF8, "application/json")
             );

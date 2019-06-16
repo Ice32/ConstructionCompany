@@ -15,12 +15,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BR\ConstructionSites\Implementation" />
-    <Folder Include="BR\ConstructionSites\Interfaces" />
+    <Compile Remove="BR\ConstructionSites\Implementation\ConstructionSitesService.cs" />
+    <Compile Remove="BR\ConstructionSites\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="BR\ConstructionSites\Implementation\ConstructionSitesService.cs" />
+    <EmbeddedResource Remove="BR\ConstructionSites\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="BR\ConstructionSites\**" />
   </ItemGroup>
 
 </Project>

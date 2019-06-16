@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ConstructionCompany.BR;
+using ConstructionCompanyAPI.Controllers.Generics;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
 

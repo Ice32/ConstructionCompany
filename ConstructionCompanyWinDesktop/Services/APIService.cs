@@ -27,7 +27,7 @@ namespace ConstructionCompanyWinDesktop.Services
         
         public Task<T> Update(int id, TUpdate data)
         {
-            return _client.Post<T>($"/{id}", data);
+            return _client.Put<T>($"/{id}", data);
         }
     }
 }

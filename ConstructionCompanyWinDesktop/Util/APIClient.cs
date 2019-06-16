@@ -19,7 +19,8 @@ namespace ConstructionCompanyWinDesktop.Util
 
         public async Task<T> Get<T>(string url = "")
         {
-            var response = await _client.GetAsync(_route + url);
+            HttpResponseMessage response = await _client.GetAsync(_route + url);
+            response.EnsureSuccessStatusCode();
             string responseData = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseData);
         }
@@ -27,7 +28,17 @@ namespace ConstructionCompanyWinDesktop.Util
         public async Task<T> Post<T>(string url, object data)
         {
             string serializedData = JsonConvert.SerializeObject(data);
-            var response = await _client.PostAsync(_route + url, new StringContent(serializedData, Encoding.UTF8, "application/json"));
+            HttpResponseMessage response = await _client.PostAsync(_route + url, new StringContent(serializedData, Encoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();
+            string responseData = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(responseData);
+        }
+        
+        public async Task<T> Put<T>(string url, object data)
+        {
+            string serializedData = JsonConvert.SerializeObject(data);
+            HttpResponseMessage response = await _client.PutAsync(_route + url, new StringContent(serializedData, Encoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();
             string responseData = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseData);
         }

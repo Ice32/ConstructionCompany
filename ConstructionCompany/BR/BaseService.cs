@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using ConstructionCompanyDataLayer;
 
 namespace ConstructionCompany.BR
 {
-    public class BaseService<TDatabase, TSearch> : IService<TDatabase, TSearch> where TDatabase: class
+    public class BaseService<TDatabase, TSearch, TDefaultSpecification> : IService<TDatabase, TSearch> where TDatabase: class where TDefaultSpecification : BaseSpecification<TDatabase>, new()
 
     {
 
@@ -20,29 +20,20 @@ namespace ConstructionCompany.BR
 
 
         public virtual List<TDatabase> Get(TSearch search)
-
         {
 
-            var list = _repository.List().ToList();
+            var list = _repository.List(new TDefaultSpecification()).ToList();
 
             return list;
-//            return _mapper.Map<List<TModel>>(list);
 
         }
 
 
 
         public virtual TDatabase GetById(int id)
-
         {
 
-            var entity = _repository.GetById(id);
-
-            return entity;
-
-
-//            return _mapper.Map<TModel>(entity);
-
+            return _repository.GetSingle((TDefaultSpecification)Activator.CreateInstance(typeof(TDefaultSpecification), id));
         }
 
     }

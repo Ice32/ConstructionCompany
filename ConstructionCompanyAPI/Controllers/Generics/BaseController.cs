@@ -3,7 +3,7 @@ using AutoMapper;
 using ConstructionCompany.BR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ConstructionCompanyAPI.Controllers
+namespace ConstructionCompanyAPI.Controllers.Generics
 {
     [Route("api/[controller]")]
     [ApiController]
