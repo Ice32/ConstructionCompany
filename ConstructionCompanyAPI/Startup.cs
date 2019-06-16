@@ -40,8 +40,10 @@ namespace ConstructionCompanyAPI
             services.AddScoped<ITasksService, TasksService>();
             
             services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object>>();
+            services.AddScoped<IService<Material, object>, BaseService<Material, object>>();
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object>>();
+            services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object>>();
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

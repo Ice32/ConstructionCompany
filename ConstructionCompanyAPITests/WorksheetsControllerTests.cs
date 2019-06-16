@@ -22,17 +22,18 @@ namespace ConstructionCompanyAPITests
         private readonly ConstructionCompanyContext _persistence;
         private readonly WorksheetHelpers _worksheetHelpers;
         private readonly WorkerHelpers _workerHelpers;
+        private readonly MaterialHelpers _materialHelpers;
 
 
 
         public WorksheetsControllerIntegrationTests(TestFixture<Startup> fixture)
-
         {
 
             _client = fixture.Client;
             _persistence = fixture.Persistence;
             _worksheetHelpers = new WorksheetHelpers(fixture.ServiceProvider, fixture.Client);
             _workerHelpers = new WorkerHelpers(fixture.Persistence);
+            _materialHelpers = new MaterialHelpers(fixture.Persistence, fixture.Client);
         }
 
 
@@ -205,6 +206,71 @@ namespace ConstructionCompanyAPITests
             Assert.NotEmpty(responseWorksheets[0].Tasks);
             Assert.NotNull(
                 responseWorksheets.Single(w => w.Tasks.Single(t => t.Id == taskEntry.Entity.Id) != null ));
+        }
+        
+        [Fact]
+        public async void CanStoreMaterials()
+        {
+            // arrange
+            const int amount = 3;
+            Material material = _materialHelpers.CreateMaterial();
+            var worksheetVM = new WorksheetAddVM
+            {
+                Materials = new List<WorksheetMaterialVM>
+                {
+                    new WorksheetMaterialVM
+                    {
+                       Amount = amount,
+                       MaterialId = material.Id
+                    }
+                }
+            };
+            string data = JsonConvert.SerializeObject(worksheetVM);
+
+
+            // act
+            HttpResponseMessage httpResponse = await _client.PostAsync("/api/worksheets", new StringContent(data, Encoding.UTF8, "application/json"));
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var responseWorksheet = JsonConvert.DeserializeObject<WorksheetVM>(stringResponse);
+            
+            // assert
+            Worksheet inserted = _persistence.Worksheets.Include("WorksheetMaterials").Single(w => w.Id == responseWorksheet.Id);
+
+            Assert.NotNull(inserted.WorksheetMaterials);
+            Assert.Single(inserted.WorksheetMaterials);
+            Assert.Equal(material.Id, inserted.WorksheetMaterials[0].MaterialId);
+            Assert.Equal(amount, inserted.WorksheetMaterials[0].Amount);
+        }
+        
+        [Fact]
+        public async void AddingMaterialsToWorksheetReducesTheirAmount()
+        {
+            // arrange
+            const int amount = 3;
+            Material material = _materialHelpers.CreateMaterial();
+            var worksheetVM = new WorksheetAddVM
+            {
+                Materials = new List<WorksheetMaterialVM>
+                {
+                    new WorksheetMaterialVM
+                    {
+                        Amount = amount,
+                        MaterialId = material.Id,
+                    }
+                }
+            };
+            string data = JsonConvert.SerializeObject(worksheetVM);
+
+
+            // act
+            HttpResponseMessage httpResponse = await _client.PostAsync("/api/worksheets", new StringContent(data, Encoding.UTF8, "application/json"));
+            httpResponse.EnsureSuccessStatusCode();
+            
+            // assert
+//            Material updated = _persistence.Material.Single(m => m.Id == material.Id);
+            MaterialVM updated = await _materialHelpers.GetMaterialById(material.Id);
+            Assert.NotEqual(material.Amount, updated.Amount);
         }
 
     }

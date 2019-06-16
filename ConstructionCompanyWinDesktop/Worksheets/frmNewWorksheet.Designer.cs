@@ -39,13 +39,17 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.lblWorksheetConstructionSite = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.userControlWorksheetTasks = new ConstructionCompanyWinDesktop.Worksheets.worksheetTasksUserControl();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.userControlWorksheetTasks = new ConstructionCompanyWinDesktop.Worksheets.worksheetTasksUserControl();
+            this.userControlWorksheetMaterials = new ConstructionCompanyWinDesktop.Worksheets.worksheetMaterialsUserControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +81,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             // 
             // btnSaveEditWorksheet
             // 
-            this.btnSaveEditWorksheet.Location = new System.Drawing.Point(699, 880);
+            this.btnSaveEditWorksheet.Location = new System.Drawing.Point(3, 718);
             this.btnSaveEditWorksheet.Name = "btnSaveEditWorksheet";
             this.btnSaveEditWorksheet.Size = new System.Drawing.Size(143, 47);
             this.btnSaveEditWorksheet.TabIndex = 8;
@@ -119,17 +123,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(3, 109);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(704, 200);
+            this.panel2.Size = new System.Drawing.Size(793, 209);
             this.panel2.TabIndex = 14;
-            // 
-            // userControlWorksheetTasks
-            // 
-            this.userControlWorksheetTasks.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.userControlWorksheetTasks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControlWorksheetTasks.Location = new System.Drawing.Point(290, 6);
-            this.userControlWorksheetTasks.Name = "userControlWorksheetTasks";
-            this.userControlWorksheetTasks.Size = new System.Drawing.Size(411, 191);
-            this.userControlWorksheetTasks.TabIndex = 13;
             // 
             // label3
             // 
@@ -145,21 +140,65 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.panel2);
+            this.flowLayoutPanel2.Controls.Add(this.panel4);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
+            this.flowLayoutPanel2.Controls.Add(this.btnSaveEditWorksheet);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(477, 132);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(788, 610);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1299, 1168);
             this.flowLayoutPanel2.TabIndex = 16;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.userControlWorksheetMaterials);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Location = new System.Drawing.Point(3, 324);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(793, 206);
+            this.panel4.TabIndex = 16;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lblWorksheetConstructionSite);
             this.panel3.Controls.Add(this.listWorksheetConstructionSite);
-            this.panel3.Location = new System.Drawing.Point(3, 315);
+            this.panel3.Location = new System.Drawing.Point(3, 536);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(716, 176);
             this.panel3.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Materijali";
+            // 
+            // userControlWorksheetTasks
+            // 
+            this.userControlWorksheetTasks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlWorksheetTasks.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userControlWorksheetTasks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControlWorksheetTasks.Location = new System.Drawing.Point(290, 6);
+            this.userControlWorksheetTasks.MinimumSize = new System.Drawing.Size(500, 200);
+            this.userControlWorksheetTasks.Name = "userControlWorksheetTasks";
+            this.userControlWorksheetTasks.Size = new System.Drawing.Size(500, 200);
+            this.userControlWorksheetTasks.TabIndex = 13;
+            // 
+            // userControlWorksheetMaterials
+            // 
+            this.userControlWorksheetMaterials.AutoSize = true;
+            this.userControlWorksheetMaterials.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlWorksheetMaterials.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userControlWorksheetMaterials.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControlWorksheetMaterials.Location = new System.Drawing.Point(290, 3);
+            this.userControlWorksheetMaterials.MinimumSize = new System.Drawing.Size(500, 200);
+            this.userControlWorksheetMaterials.Name = "userControlWorksheetMaterials";
+            this.userControlWorksheetMaterials.Size = new System.Drawing.Size(500, 200);
+            this.userControlWorksheetMaterials.TabIndex = 1;
             // 
             // frmNewWorksheet
             // 
@@ -168,7 +207,6 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1629, 939);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.btnSaveEditWorksheet);
             this.Controls.Add(this.lblWorksheetCreateEditHeader);
             this.Name = "frmNewWorksheet";
             this.ShowInTaskbar = false;
@@ -179,6 +217,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.panel2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,5 +239,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private worksheetMaterialsUserControl userControlWorksheetMaterials;
+        private System.Windows.Forms.Label label1;
     }
 }

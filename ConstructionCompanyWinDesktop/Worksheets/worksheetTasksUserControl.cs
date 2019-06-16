@@ -50,7 +50,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
 
         private void Rerender()
         {
-            _taskRenderer.RerenderTaskInputs();
+            _taskRenderer.RerenderInputs();
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
@@ -14,6 +13,9 @@ namespace ConstructionCompanyWinDesktop.Worksheets
     {
         private readonly List<TaskAddVM> _tasks = new List<TaskAddVM> {
             new TaskAddVM()
+        };
+        private readonly List<WorksheetMaterialVM> _materials = new List<WorksheetMaterialVM> {
+            new WorksheetMaterialVM()
         };
 
         private readonly WorksheetVM _originalWorksheet;
@@ -39,6 +41,12 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                         WorkerIds = task.Workers.Select(w => w.Id).ToList()
                     })
                     .ToList();
+                _materials = worksheet.Materials.Select(m => new WorksheetMaterialVM
+                    {
+                        MaterialId = m.Id,
+                        Amount = m.Amount
+                    })
+                    .ToList();
                 dtWorksheetDate.Value = worksheet.Date;
                 lblWorksheetCreateEditHeader.Text = "Uredi radni list";
 
@@ -47,6 +55,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             LoadConstructionSites();
 
             userControlWorksheetTasks.SetTasks(_tasks);
+            userControlWorksheetMaterials.SetMaterials(_materials);
         }
 
         private async void LoadConstructionSites()
@@ -84,6 +93,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             {
                 Date = dtWorksheetDate.Value,
                 Tasks = _tasks,
+                Materials = _materials,
                 ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id
             };
             if (_worksheetId != 0)

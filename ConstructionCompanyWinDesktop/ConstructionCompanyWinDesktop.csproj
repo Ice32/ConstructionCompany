@@ -81,11 +81,23 @@
       <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Worksheets\ListRenderer.cs" />
+    <Compile Include="Worksheets\worksheetMaterialsUserControl .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Worksheets\worksheetMaterialsUserControl .Designer.cs">
+      <DependentUpon>worksheetMaterialsUserControl .cs</DependentUpon>
+    </Compile>
     <Compile Include="Worksheets\worksheetTasksUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Worksheets\worksheetTasksUserControl.Designer.cs">
       <DependentUpon>worksheetTasksUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Worksheets\worksheetMaterialUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Worksheets\worksheetMaterialUserControl.Designer.cs">
+      <DependentUpon>worksheetMaterialUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Worksheets\worksheetTaskUserControl.cs">
       <SubType>UserControl</SubType>
@@ -115,8 +127,14 @@
     <EmbeddedResource Include="Worksheets\frmWorksheetsList.resx">
       <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Worksheets\worksheetMaterialsUserControl .resx">
+      <DependentUpon>worksheetMaterialsUserControl .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\worksheetTasksUserControl.resx">
       <DependentUpon>worksheetTasksUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Worksheets\worksheetMaterialUserControl.resx">
+      <DependentUpon>worksheetMaterialUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\worksheetTaskUserControl.resx">
       <DependentUpon>worksheetTaskUserControl.cs</DependentUpon>

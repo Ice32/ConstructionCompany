@@ -12,17 +12,28 @@ namespace ConstructionCompany.BR.Worksheets.Implementation
     {
         private readonly ConstructionCompanyContext _constructionCompanyContext;
         private readonly IRepository<Worksheet> _worksheetsRepository;
+        private readonly IRepository<Material> _materialsRepository;
 
         public WorksheetService(
             ConstructionCompanyContext constructionCompanyContext,
-            IRepository<Worksheet> worksheetsRepository)
+            IRepository<Worksheet> worksheetsRepository, IRepository<Material> materialsRepository)
         {
             _constructionCompanyContext = constructionCompanyContext;
             _worksheetsRepository = worksheetsRepository;
+            _materialsRepository = materialsRepository;
         }
         public Worksheet AddWorksheet(Worksheet worksheet)
         {
             var inserted = _constructionCompanyContext.Worksheets.Add(worksheet);
+            if (worksheet.WorksheetMaterials != null)
+            {
+                foreach (WorksheetMaterial worksheetWorksheetMaterial in worksheet.WorksheetMaterials)
+                {
+                    Material material = _materialsRepository.GetById(worksheetWorksheetMaterial.MaterialId);
+                    material.Amount -= worksheetWorksheetMaterial.Amount;
+                    _materialsRepository.Update(material);
+                }
+            }
             _constructionCompanyContext.SaveChanges();
             return inserted.Entity;
         }

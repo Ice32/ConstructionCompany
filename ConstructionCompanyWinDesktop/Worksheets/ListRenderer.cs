@@ -28,12 +28,12 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             });
         }
 
-        public void RerenderTaskInputs()
+        public void RerenderInputs()
         {
             ClearTaskInputs();  
             for (var i = 0; i < _data.Count; i++)
             {
-                List<Control> controls = _renderer(_data[i], i, RerenderTaskInputs);
+                List<Control> controls = _renderer(_data[i], i, RerenderInputs);
                 foreach (Control t in controls)
                 {
                     _controls.Add(t);
