@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />
+    <Compile Remove="Migrations\20190616181326_ConstructionSitesAddedProperties.cs" />
+    <Compile Remove="Migrations\20190616181326_ConstructionSitesAddedProperties.Designer.cs" />
+    <Compile Remove="Migrations\20190616182614_ConstructionSitesAddedProperties.cs" />
+    <Compile Remove="Migrations\20190616182614_ConstructionSitesAddedProperties.Designer.cs" />
+    <Compile Remove="Migrations\20190616182936_ConstructionSitesAddedProperties.cs" />
+    <Compile Remove="Migrations\20190616182936_ConstructionSitesAddedProperties.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

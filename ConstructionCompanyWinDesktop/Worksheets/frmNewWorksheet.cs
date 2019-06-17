@@ -24,8 +24,6 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private readonly APIService<ConstructionSiteVM, object, object> _constructionSitesService = new APIService<ConstructionSiteVM, object, object>("constructionsites");
         private readonly Form _parent;
 
-        private readonly int _worksheetId;
-
         public frmNewWorksheet(WorksheetVM worksheet = null, Form parent = null)
         {
             InitializeComponent();
@@ -33,7 +31,6 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             if (worksheet != null)
             {
                 _originalWorksheet = worksheet;
-                _worksheetId = worksheet.Id;
                 _tasks = worksheet.Tasks.Select(task => new TaskAddVM
                     {
                         Id = task.Id,

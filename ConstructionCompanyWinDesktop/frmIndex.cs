@@ -1,6 +1,7 @@
 ﻿using ConstructionCompanyWinDesktop.Worksheets;
 using System;
 using System.Windows.Forms;
+using ConstructionCompanyWinDesktop.ConstructionSites;
 
 namespace ConstructionCompanyWinDesktop
 {
@@ -114,6 +115,16 @@ namespace ConstructionCompanyWinDesktop
         {
             var creationForm = new frmNewWorksheet(null, this);
             creationForm.ShowDialog();
+        }
+
+        private void PretragaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var constructionSitesForm = new frmConstructionSitesList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            constructionSitesForm.Show();
         }
     }
 }

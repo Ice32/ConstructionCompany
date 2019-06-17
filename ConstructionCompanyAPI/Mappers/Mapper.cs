@@ -2,6 +2,7 @@ using System.Linq;
 using AutoMapper;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
+using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using MeasurementUnit = ConstructionCompanyModel.ViewModels.Worksheets.MeasurementUnit;
 
@@ -60,6 +61,7 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<WorkerVM, Worker>();
             
             CreateMap<MaterialVM, Material>().ReverseMap();
+            CreateMap<UserVM, User>().ReverseMap();
         }
     }
 }
