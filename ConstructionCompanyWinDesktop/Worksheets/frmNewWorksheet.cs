@@ -21,7 +21,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private readonly WorksheetVM _originalWorksheet;
 
         private readonly APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM> _worksheetsService = new APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM>("worksheets");
-        private readonly APIService<ConstructionSiteVM, object, object> _constructionSitesService = new APIService<ConstructionSiteVM, object, object>("constructionsites");
+        private readonly APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM> _constructionSitesService = new APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM>("constructionSites");
         private readonly Form _parent;
 
         public frmNewWorksheet(WorksheetVM worksheet = null, Form parent = null)

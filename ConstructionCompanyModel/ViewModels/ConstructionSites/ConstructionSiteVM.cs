@@ -1,4 +1,5 @@
 ﻿using System;
+using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.Users;
 
 namespace ConstructionCompanyModel.ViewModels.ConstructionSites
@@ -27,6 +28,6 @@ namespace ConstructionCompanyModel.ViewModels.ConstructionSites
         public DateTime? DateStart { get; set; }
         public DateTime? DateFinish { get; set; }
 
-        //public List<ConstructionSiteSiteManager> ConstructionSiteManagers { get; set; }
+        public ConstructionSiteManagerVM ConstructionSiteManager { get; set; }
     }
 }

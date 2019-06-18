@@ -37,12 +37,14 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IService<Task, object>, BaseService<Task, object, TasksAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worksheet, object>, WorksheetService>();
+            services.AddScoped<IService<ConstructionSiteManager, object>, BaseService<ConstructionSiteManager, object, ConstructionSiteManagerAllRelatedDataSpecification>>();
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Task, object>, BaseCRUDService<Task, object, TasksAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();
+            services.AddScoped<ICRUDService<ConstructionSiteManager, object>, BaseCRUDService<ConstructionSiteManager, object, ConstructionSiteManagerAllRelatedDataSpecification>>();
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

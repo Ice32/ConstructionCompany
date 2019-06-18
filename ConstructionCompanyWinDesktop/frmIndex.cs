@@ -126,5 +126,11 @@ namespace ConstructionCompanyWinDesktop
             };
             constructionSitesForm.Show();
         }
+
+        private void DodajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewConstructionSite(this);
+            creationForm.ShowDialog();
+        }
     }
 }

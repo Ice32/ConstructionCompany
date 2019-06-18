@@ -21,10 +21,11 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
             _constructionSites = await _constructionSitesService.GetAll();
             var mappedResults = _constructionSites.Select(cs => new
             {
+                cs.Id,
                 cs.Title,
                 cs.Address,
                 cs.ProjectWorth,
-                CreatedBy = cs.CreatedBy.FullName
+                ConstructionSiteManager = cs.ConstructionSiteManager.User.FullName
             }).ToList();
             dgvConstructionSitesList.DataSource = mappedResults;
         }
@@ -39,9 +40,9 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
                 return;
             }
             int selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
-            ConstructionSiteVM worksheet = _constructionSites.FirstOrDefault(w => w.Id == selectedId);
-//            frmNewWorksheet worksheetForm = new frmNewWorksheet(worksheet, MdiParent);
-//            worksheetForm.Show();
+            ConstructionSiteVM constructionSite = _constructionSites.FirstOrDefault(w => w.Id == selectedId);
+            frmNewConstructionSite editForm = new frmNewConstructionSite(constructionSite, MdiParent);
+            editForm.Show();
         }
     }
 }

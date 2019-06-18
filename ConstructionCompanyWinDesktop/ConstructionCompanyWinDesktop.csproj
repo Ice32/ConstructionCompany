@@ -59,6 +59,12 @@
     <Compile Include="ConstructionSites\frmConstructionSitesList.Designer.cs">
       <DependentUpon>frmConstructionSitesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConstructionSites\frmNewConstructionSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConstructionSites\frmNewConstructionSite.Designer.cs">
+      <DependentUpon>frmNewConstructionSite.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="ConstructionSites\frmConstructionSitesList.resx">
       <DependentUpon>frmConstructionSitesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConstructionSites\frmNewConstructionSite.resx">
+      <DependentUpon>frmNewConstructionSite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>

@@ -32,6 +32,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
         private void InitializeComponent()
         {
             this.dgvConstructionSitesList = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectWorth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,18 +46,32 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
             this.dgvConstructionSitesList.AllowUserToDeleteRows = false;
             this.dgvConstructionSitesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConstructionSitesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.Title,
             this.Address,
             this.ProjectWorth,
             this.CreatedBy});
             this.dgvConstructionSitesList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConstructionSitesList.Location = new System.Drawing.Point(0, 0);
+            this.dgvConstructionSitesList.MultiSelect = false;
             this.dgvConstructionSitesList.Name = "dgvConstructionSitesList";
             this.dgvConstructionSitesList.ReadOnly = true;
             this.dgvConstructionSitesList.RowHeadersWidth = 82;
             this.dgvConstructionSitesList.RowTemplate.Height = 33;
+            this.dgvConstructionSitesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConstructionSitesList.Size = new System.Drawing.Size(892, 430);
             this.dgvConstructionSitesList.TabIndex = 0;
+            this.dgvConstructionSitesList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMain_CellClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 10;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 200;
             // 
             // Title
             // 
@@ -87,8 +102,8 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
             // 
             // CreatedBy
             // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "äef gradiliöta";
+            this.CreatedBy.DataPropertyName = "ConstructionSiteManager";
+            this.CreatedBy.HeaderText = "≈†ef gradili≈°ta";
             this.CreatedBy.MinimumWidth = 10;
             this.CreatedBy.Name = "CreatedBy";
             this.CreatedBy.ReadOnly = true;
@@ -111,10 +126,11 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvConstructionSitesList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectWorth;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
+        private System.Windows.Forms.DataGridView dgvConstructionSitesList;
     }
 }

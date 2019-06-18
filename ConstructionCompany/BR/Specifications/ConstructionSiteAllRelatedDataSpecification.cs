@@ -9,13 +9,13 @@ namespace ConstructionCompany.BR.Specifications
         public ConstructionSiteAllRelatedDataSpecification()
             : base(c => true)
         {
-            AddInclude(cs => cs.CreatedBy);
+            AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
         }
 
         public ConstructionSiteAllRelatedDataSpecification(int id)
             : base(c => c.Id == id)
         {
-            AddInclude(cs => cs.CreatedBy);
+            AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
         }
     }
 }
