@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructionCompanyWinDeskt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConstructionCompanyDataLayer", "ConstructionCompanyDataLayer\ConstructionCompanyDataLayer.csproj", "{638D2C7C-909A-4989-8669-A104A5BE6792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructionCompanyModel", "ConstructionCompanyModel\ConstructionCompanyModel.csproj", "{F41A0D26-C08B-4A40-86CF-5E13B9CF3284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConstructionCompanyModel", "ConstructionCompanyModel\ConstructionCompanyModel.csproj", "{F41A0D26-C08B-4A40-86CF-5E13B9CF3284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testni1", "Testni1\Testni1.csproj", "{6330A716-6C03-4C48-B1B6-5CA0867E0EA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{F41A0D26-C08B-4A40-86CF-5E13B9CF3284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F41A0D26-C08B-4A40-86CF-5E13B9CF3284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F41A0D26-C08B-4A40-86CF-5E13B9CF3284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6330A716-6C03-4C48-B1B6-5CA0867E0EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6330A716-6C03-4C48-B1B6-5CA0867E0EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6330A716-6C03-4C48-B1B6-5CA0867E0EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6330A716-6C03-4C48-B1B6-5CA0867E0EA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

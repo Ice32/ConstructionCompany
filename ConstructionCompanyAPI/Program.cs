@@ -1,8 +1,8 @@
 using ConstructionCompanyAPI.Util;
 using ConstructionCompanyDataLayer;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace ConstructionCompanyAPI
 {
@@ -10,8 +10,8 @@ namespace ConstructionCompanyAPI
     {
         public static void Main(string[] args)
         {
-            IHostBuilder hostBuilder = CreateHostBuilder(args);
-            IHost host = hostBuilder.Build();
+            IWebHostBuilder hostBuilder = CreateHostBuilder(args);
+            IWebHost host = hostBuilder.Build();
             
             using (var scope = host.Services.CreateScope())
             {
@@ -24,11 +24,8 @@ namespace ConstructionCompanyAPI
             host.Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IWebHostBuilder CreateHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
     }
 }

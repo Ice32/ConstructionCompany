@@ -48,9 +48,12 @@ namespace ConstructionCompanyAPI
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-            services.AddControllers()
-                .AddNewtonsoftJson();
-            
+            //services.AddControllers()
+            //    .AddNewtonsoftJson();
+            services.AddMvcCore()
+              .AddApiExplorer()
+              .AddJsonFormatters();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Construction company API", Version = "v1" });
@@ -58,7 +61,7 @@ namespace ConstructionCompanyAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -72,9 +75,9 @@ namespace ConstructionCompanyAPI
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            //app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
             
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -87,10 +90,12 @@ namespace ConstructionCompanyAPI
             });
 
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseMvc();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
         }
     }
 }
