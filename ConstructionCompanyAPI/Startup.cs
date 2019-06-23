@@ -1,3 +1,4 @@
+using System;
 using AutoMapper;
 using ConstructionCompany.BR;
 using ConstructionCompany.BR.Specifications;
@@ -51,7 +52,7 @@ namespace ConstructionCompanyAPI
 
         private void ConfigureServicesCommon(IServiceCollection services)
         {
-            services.AddAutoMapper(cfg => cfg.AddProfile<Mapper>());
+            services.AddAutoMapper(cfg => cfg.AddProfile<Mapper>(), AppDomain.CurrentDomain.GetAssemblies());
             
             services.AddSwaggerGen(c =>
             {
