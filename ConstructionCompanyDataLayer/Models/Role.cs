@@ -12,7 +12,11 @@ namespace ConstructionCompanyDataLayer.Models
             ConstructionSiteManager,
             DefaultUser
         }
+        public int Id { get; set; }
+        
         public string Description { get; set; }
-        public RoleEnum UserRole { get; set; }
+        public RoleEnum Name { get; set; }
+        
+        public List<UserRole> UserRoles { get; set; }
     }
 }

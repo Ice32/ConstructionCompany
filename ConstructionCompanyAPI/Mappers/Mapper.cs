@@ -88,7 +88,10 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<WorkerVM, Worker>();
             
             CreateMap<MaterialVM, Material>().ReverseMap();
+            
             CreateMap<UserVM, User>().ReverseMap();
+            CreateMap<UserAddVM, User>().ReverseMap();
+            
             CreateMap<ConstructionSiteManagerVM, ConstructionSiteManager>().ReverseMap();
         }
     }

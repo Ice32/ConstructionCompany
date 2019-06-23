@@ -15,7 +15,7 @@ namespace ConstructionCompanyDataLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0-preview5.19227.1")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -133,6 +133,21 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.ToTable("Material");
                 });
 
+            modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
+
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Task", b =>
                 {
                     b.Property<int>("Id")
@@ -171,11 +186,26 @@ namespace ConstructionCompanyDataLayer.Migrations
 
                     b.Property<string>("PasswordHash");
 
+                    b.Property<string>("PasswordSalt");
+
                     b.Property<string>("UserName");
 
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("ConstructionCompanyDataLayer.Models.UserRole", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<int>("RoleId");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Worker", b =>
@@ -278,8 +308,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.User", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.ConstructionSiteManager", b =>
@@ -287,8 +316,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.ConstructionSiteSiteManager", b =>
@@ -296,14 +324,12 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.ConstructionSite", "ConstructionSite")
                         .WithMany("ConstructionSiteManagers")
                         .HasForeignKey("ConstructionSiteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ConstructionCompanyDataLayer.Models.ConstructionSiteManager", "ConstructionSiteManager")
                         .WithMany("ConstructionSites")
                         .HasForeignKey("ConstructionSiteManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Manager", b =>
@@ -311,8 +337,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Task", b =>
@@ -320,8 +345,20 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.Worksheet", "Worksheet")
                         .WithMany("Tasks")
                         .HasForeignKey("WorksheetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ConstructionCompanyDataLayer.Models.UserRole", b =>
+                {
+                    b.HasOne("ConstructionCompanyDataLayer.Models.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ConstructionCompanyDataLayer.Models.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Worker", b =>
@@ -329,8 +366,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.WorkerTask", b =>
@@ -338,14 +374,12 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.Task", "Task")
                         .WithMany("WorkerTasks")
                         .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ConstructionCompanyDataLayer.Models.Worker", "Worker")
                         .WithMany("WorkerTasks")
                         .HasForeignKey("WorkerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.Worksheet", b =>
@@ -353,8 +387,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.ConstructionSite", "ConstructionSite")
                         .WithMany()
                         .HasForeignKey("ConstructionSiteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ConstructionCompanyDataLayer.Models.ConstructionSiteManager", "ConstructionSiteManager")
                         .WithMany("Worksheets")
@@ -366,14 +399,12 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.Equipment", "Equipment")
                         .WithMany("WorksheetEquipment")
                         .HasForeignKey("EquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ConstructionCompanyDataLayer.Models.Worksheet", "Worksheet")
                         .WithMany("WorksheetEquipment")
                         .HasForeignKey("WorksheetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ConstructionCompanyDataLayer.Models.WorksheetMaterial", b =>
@@ -381,14 +412,12 @@ namespace ConstructionCompanyDataLayer.Migrations
                     b.HasOne("ConstructionCompanyDataLayer.Models.Material", "Material")
                         .WithMany("WorksheetMaterials")
                         .HasForeignKey("MaterialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ConstructionCompanyDataLayer.Models.Worksheet", "Worksheet")
                         .WithMany("WorksheetMaterials")
                         .HasForeignKey("WorksheetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

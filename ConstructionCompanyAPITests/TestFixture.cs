@@ -117,7 +117,7 @@ namespace ConstructionCompanyAPITests
                 .UseContentRoot(contentRoot)
                 .ConfigureServices(InitializeServices)
                 .UseConfiguration(configurationBuilder.Build())
-                .UseEnvironment("Development")
+                .UseEnvironment("test")
                 .UseStartup(typeof(TStartup));
 
             // Create instance of test server

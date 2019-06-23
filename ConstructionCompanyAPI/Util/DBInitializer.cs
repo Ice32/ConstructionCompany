@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 using System.Linq;
@@ -15,11 +16,6 @@ namespace ConstructionCompanyAPI.Util
                 return;   // DB has been seeded
             }
 
-            ConstructionSite[] constructionSites = {
-                new ConstructionSite{Title= "Construction site"},
-            
-            };
-
             User[] users = {
                 new User
                 {
@@ -31,14 +27,50 @@ namespace ConstructionCompanyAPI.Util
                     FirstName = "second",
                     LastName = "worker"
                 },
+                // used in tests
+                new User
+                {
+                    FirstName = "manager",
+                    LastName = "manager",
+                    UserName = "manager",
+                    PasswordHash = "ZkAEkrkIixbsdvgZKVbzxmTTdNY=",
+                    PasswordSalt = "tTs76CTiFJv2Ui4DbCKGhA=="
+                },
+                new User
+                {
+                    FirstName = "fourth",
+                    LastName = "csm"
+                }
             };
             Worker[] workers = {
                 new Worker{ User = users[0]},
                 new Worker{ User = users[1]},
+            };
+            context.Workers.AddRange(workers);
             
+            Manager[] managers = {
+                new Manager{ User = users[2]}
+            };
+            context.Manager.AddRange(managers);
+
+            ConstructionSiteManager[] constructionSiteManagers = {
+                new ConstructionSiteManager{ User = users[3]}
+            };
+            
+            ConstructionSite[] constructionSites = {
+                new ConstructionSite{
+                    Title = "Construction site",
+                    CreatedBy = managers[0].User,
+                    ConstructionSiteManagers = new List<ConstructionSiteSiteManager>
+                    {
+                        new ConstructionSiteSiteManager
+                        {
+                            ConstructionSiteManager = constructionSiteManagers[0]
+                        }
+                    }
+                }
             };
             context.ConstructionSites.AddRange(constructionSites);
-            context.Workers.AddRange(workers);
 
             context.SaveChanges();
         }

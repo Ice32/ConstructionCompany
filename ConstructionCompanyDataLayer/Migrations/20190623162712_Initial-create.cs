@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ConstructionCompanyDataLayer.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,6 +41,20 @@ namespace ConstructionCompanyDataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Role",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: true),
+                    Name = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Role", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -50,6 +64,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                     LastName = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(nullable: true),
                     PasswordHash = table.Column<string>(nullable: true),
+                    PasswordSalt = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     NeedToChangePassword = table.Column<bool>(nullable: false)
@@ -65,18 +80,17 @@ namespace ConstructionCompanyDataLayer.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<string>(nullable: true),
-                    UserId1 = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ConstructionSiteManagers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ConstructionSiteManagers_User_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_ConstructionSiteManagers_User_UserId",
+                        column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,12 +100,13 @@ namespace ConstructionCompanyDataLayer.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     ProjectWorth = table.Column<decimal>(nullable: false),
                     OpenStatus = table.Column<int>(nullable: false),
                     DateStart = table.Column<DateTime>(nullable: true),
                     DateFinish = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<string>(nullable: true),
-                    CreatedById = table.Column<int>(nullable: true)
+                    CreatedById = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,7 +116,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                         column: x => x.CreatedById,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -117,6 +132,30 @@ namespace ConstructionCompanyDataLayer.Migrations
                     table.PrimaryKey("PK_Manager", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Manager_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRole",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false),
+                    RoleId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRole", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_UserRole_Role_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Role",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserRole_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -165,7 +204,7 @@ namespace ConstructionCompanyDataLayer.Migrations
                         column: x => x.ConstructionSiteManagerId,
                         principalTable: "ConstructionSiteManagers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -293,13 +332,13 @@ namespace ConstructionCompanyDataLayer.Migrations
                         column: x => x.WorkerId,
                         principalTable: "Workers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ConstructionSiteManagers_UserId1",
+                name: "IX_ConstructionSiteManagers_UserId",
                 table: "ConstructionSiteManagers",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ConstructionSites_CreatedById",
@@ -320,6 +359,11 @@ namespace ConstructionCompanyDataLayer.Migrations
                 name: "IX_Tasks_WorksheetId",
                 table: "Tasks",
                 column: "WorksheetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRole_RoleId",
+                table: "UserRole",
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Workers_UserId",
@@ -361,6 +405,9 @@ namespace ConstructionCompanyDataLayer.Migrations
                 name: "Manager");
 
             migrationBuilder.DropTable(
+                name: "UserRole");
+
+            migrationBuilder.DropTable(
                 name: "WorkerTask");
 
             migrationBuilder.DropTable(
@@ -368,6 +415,9 @@ namespace ConstructionCompanyDataLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "WorksheetMaterial");
+
+            migrationBuilder.DropTable(
+                name: "Role");
 
             migrationBuilder.DropTable(
                 name: "Tasks");

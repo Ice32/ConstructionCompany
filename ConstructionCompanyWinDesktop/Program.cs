@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConstructionCompanyWinDesktop.Users;
 
 namespace ConstructionCompanyWinDesktop
 {
@@ -16,7 +14,7 @@ namespace ConstructionCompanyWinDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIndex());
+            Application.Run(new frmLogin());
         }
     }
 }

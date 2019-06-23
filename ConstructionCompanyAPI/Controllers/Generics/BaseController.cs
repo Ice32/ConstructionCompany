@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using AutoMapper;
 using ConstructionCompany.BR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers.Generics
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<T, TDatabase, TSearch> : ControllerBase

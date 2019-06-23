@@ -86,6 +86,19 @@ namespace ConstructionCompanyDataLayer
                 .HasOne(cssm => cssm.ConstructionSiteManager)
                 .WithMany(csm => csm.ConstructionSites)
                 .HasForeignKey(cssm => cssm.ConstructionSiteManagerId);
+            
+            modelBuilder.Entity<UserRole>()
+                .HasKey(ur => new { ur.UserId, ur.RoleId});
+            
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.Role)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.RoleId);
+            
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(ur => ur.UserId);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using ConstructionCompanyWinDesktop.ConstructionSites;
+using ConstructionCompanyWinDesktop.Users;
 
 namespace ConstructionCompanyWinDesktop
 {
@@ -130,6 +131,12 @@ namespace ConstructionCompanyWinDesktop
         private void DodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var creationForm = new frmNewConstructionSite(this);
+            creationForm.ShowDialog();
+        }
+
+        private void DodajToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewUser(this);
             creationForm.ShowDialog();
         }
     }
