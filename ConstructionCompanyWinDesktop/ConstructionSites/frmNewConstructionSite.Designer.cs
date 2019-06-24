@@ -33,8 +33,9 @@
             this.txtConstructionSiteTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtConstructionSiteAddress = new System.Windows.Forms.TextBox();
             this.lblConstructionSiteAddress = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNewConstructionSite = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtConstructionSiteDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblConstructionSiteWorth = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtConstructionSiteAddress = new System.Windows.Forms.TextBox();
             this.numConstructionSiteWorth = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -98,6 +98,13 @@
             this.panel2.Size = new System.Drawing.Size(554, 104);
             this.panel2.TabIndex = 1;
             // 
+            // txtConstructionSiteAddress
+            // 
+            this.txtConstructionSiteAddress.Location = new System.Drawing.Point(264, 38);
+            this.txtConstructionSiteAddress.Name = "txtConstructionSiteAddress";
+            this.txtConstructionSiteAddress.Size = new System.Drawing.Size(235, 31);
+            this.txtConstructionSiteAddress.TabIndex = 1;
+            // 
             // lblConstructionSiteAddress
             // 
             this.lblConstructionSiteAddress.AutoSize = true;
@@ -107,15 +114,15 @@
             this.lblConstructionSiteAddress.TabIndex = 0;
             this.lblConstructionSiteAddress.Text = "Adresa";
             // 
-            // label1
+            // lblNewConstructionSite
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(572, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Novo gradilište";
+            this.lblNewConstructionSite.AutoSize = true;
+            this.lblNewConstructionSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConstructionSite.Location = new System.Drawing.Point(572, 23);
+            this.lblNewConstructionSite.Name = "lblNewConstructionSite";
+            this.lblNewConstructionSite.Size = new System.Drawing.Size(229, 37);
+            this.lblNewConstructionSite.TabIndex = 1;
+            this.lblNewConstructionSite.Text = "Novo gradilište";
             // 
             // panel3
             // 
@@ -198,13 +205,6 @@
             this.panel4.Size = new System.Drawing.Size(554, 104);
             this.panel4.TabIndex = 3;
             // 
-            // txtConstructionSiteAddress
-            // 
-            this.txtConstructionSiteAddress.Location = new System.Drawing.Point(264, 38);
-            this.txtConstructionSiteAddress.Name = "txtConstructionSiteAddress";
-            this.txtConstructionSiteAddress.Size = new System.Drawing.Size(235, 31);
-            this.txtConstructionSiteAddress.TabIndex = 1;
-            // 
             // numConstructionSiteWorth
             // 
             this.numConstructionSiteWorth.Location = new System.Drawing.Point(267, 26);
@@ -225,7 +225,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.btnSaveConstructionSite);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNewConstructionSite);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmNewConstructionSite";
@@ -250,7 +250,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNewConstructionSite;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtConstructionSiteTitle;
         private System.Windows.Forms.Label label2;

@@ -24,7 +24,7 @@ namespace ConstructionCompanyWinDesktop.Users
             txtUserFirstName.Text = user.FirstName;
             txtUserLastName.Text = user.LastName;
             txtUserUsername.Text = user.UserName;
-
+            lblNewUser.Text = "Uredi korisnika";
         }
 
         private async void Button1_Click(object sender, EventArgs e)

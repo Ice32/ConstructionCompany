@@ -32,6 +32,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
             txtConstructionSiteDescription.Text = constructionSite.Description;
             numConstructionSiteWorth.Value = constructionSite.ProjectWorth;
 
+            lblNewConstructionSite.Text = "Uredi gradilište";
         }
         
         private async void LoadConstructionSiteManagers()
