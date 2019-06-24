@@ -25,6 +25,7 @@ namespace ConstructionCompanyWinDesktop.Users
             {
                 await _service.GetAll();
                 new frmIndex().Show();
+                Hide();
             }
             catch
             {

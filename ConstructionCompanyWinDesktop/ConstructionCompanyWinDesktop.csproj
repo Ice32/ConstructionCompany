@@ -92,6 +92,12 @@
     <Compile Include="Users\frmNewUser.Designer.cs">
       <DependentUpon>frmNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmUsersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUsersList.Designer.cs">
+      <DependentUpon>frmUsersList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\APIClient.cs" />
     <Compile Include="Util\ListBoxItem.cs" />
     <Compile Include="Util\ListRenderer.cs" />
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmNewUser.resx">
       <DependentUpon>frmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUsersList.resx">
+      <DependentUpon>frmUsersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\frmNewWorksheet.resx">
       <DependentUpon>frmNewWorksheet.cs</DependentUpon>

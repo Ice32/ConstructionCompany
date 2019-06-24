@@ -45,9 +45,9 @@ namespace ConstructionCompanyWinDesktop.Users
             {
                 await _usersService.Create(user);
             }
-//            Form listForm = new frmConstructionSitesList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
+            Form listForm = new frmUsersList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };
             Close();
-//            listForm.Show();
+            listForm.Show();
         }
     }
 }

@@ -61,5 +61,13 @@ namespace ConstructionCompany.BR.Users
 
             return _usersRepository.Add(user);
         }
+        
+        public User Update(User user, string password)
+        {
+            user.PasswordSalt = GenerateSalt();
+            user.PasswordHash = GenerateHash(user.PasswordSalt, password);
+
+            return _usersRepository.Update(user);
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace ConstructionCompany.BR.Users
     {
         User GetUserFromCredentials(string username, string password);
         User Insert(User user, string password);
+        User Update(User user, string password);
     }
 }

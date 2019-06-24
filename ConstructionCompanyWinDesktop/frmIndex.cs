@@ -139,5 +139,15 @@ namespace ConstructionCompanyWinDesktop
             var creationForm = new frmNewUser(this);
             creationForm.ShowDialog();
         }
+
+        private void PretragaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var usersForm = new frmUsersList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            usersForm.Show();
+        }
     }
 }

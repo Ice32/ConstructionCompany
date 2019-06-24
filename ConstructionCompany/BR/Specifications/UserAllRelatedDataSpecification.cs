@@ -17,5 +17,11 @@ namespace ConstructionCompany.BR.Specifications
         {
             AddInclude("UserRoles.Role");
         }
+        
+        public UserAllRelatedDataSpecification(int id)
+            : base(u => u.Id == id)
+        {
+            AddInclude("UserRoles.Role");
+        }
     }
 }

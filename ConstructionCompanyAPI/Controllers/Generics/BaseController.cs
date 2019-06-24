@@ -13,7 +13,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
 
     {
 
-        private readonly IService<TDatabase, TSearch> _service;
+        protected readonly IService<TDatabase, TSearch> _service;
         protected readonly IMapper _mapper;
 
         public BaseController(IService<TDatabase, TSearch> service, IMapper mapper)
