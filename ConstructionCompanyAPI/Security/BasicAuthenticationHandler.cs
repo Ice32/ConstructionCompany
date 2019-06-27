@@ -5,7 +5,9 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using ConstructionCompany.BR.Specifications;
 using ConstructionCompany.BR.Users;
+using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
@@ -17,16 +19,22 @@ namespace ConstructionCompanyAPI.Security
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IUsersService _userService;
+        private readonly IRepository<ConstructionSiteManager> _constructionSiteManagersRepository;
+        private readonly IRepository<Manager> _managersRepository;
 
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            IUsersService userService)
+            IUsersService userService,
+            IRepository<ConstructionSiteManager> constructionSiteManagersRepository,
+            IRepository<Manager> managersRepository)
             : base(options, logger, encoder, clock)
         {
             _userService = userService;
+            _constructionSiteManagersRepository = constructionSiteManagersRepository;
+            _managersRepository = managersRepository;
         }
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -37,11 +45,11 @@ namespace ConstructionCompanyAPI.Security
             User user;
             try
             {
-                var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
-                var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
-                var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
-                var username = credentials[0];
-                var password = credentials[1];
+                AuthenticationHeaderValue authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
+                byte[] credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+                string[] credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
+                string username = credentials[0];
+                string password = credentials[1];
                 user = _userService.GetUserFromCredentials(username, password);
             }
             catch
@@ -56,10 +64,20 @@ namespace ConstructionCompanyAPI.Security
                 new Claim(ClaimTypes.NameIdentifier, user.UserName),
                 new Claim(ClaimTypes.Name, user.FullName),
             };
+
+            bool userIsManager = _managersRepository.GetSingle(new ManagerSpecification(user)) != null;
+            bool userIsConstructionSiteManager = _constructionSiteManagersRepository.GetSingle(new ConstructionSiteManagerSpecification(user)) != null;
             
-            foreach(var userRole in user.UserRoles)
+            if (userIsManager)
             {
-                claims.Add(new Claim(ClaimTypes.Role, userRole.Role.Name.ToString()));
+                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Manager.ToString()));
+            } else if (userIsConstructionSiteManager)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.ConstructionSiteManager.ToString()));
+            }
+            else
+            {
+                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Worker.ToString()));
             }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

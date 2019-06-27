@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConstructionCompanyDataLayer.Models
+﻿namespace ConstructionCompanyDataLayer.Models
 {
-    public class Manager
+    public class Manager: IUserType
     {
         public int Id { get; set; }
         public int UserId { get; set; }

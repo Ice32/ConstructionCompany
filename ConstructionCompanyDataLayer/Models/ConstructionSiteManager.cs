@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ConstructionCompanyDataLayer.Models
 {
-    public class ConstructionSiteManager
+    public class ConstructionSiteManager: IUserType
     {
         public int Id { get; set; }
         public int UserId { get; set; }

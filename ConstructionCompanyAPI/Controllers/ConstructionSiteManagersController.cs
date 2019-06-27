@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using ConstructionCompany.BR;
+using ConstructionCompany.BR.Users;
 using ConstructionCompanyAPI.Controllers.Generics;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 
 namespace ConstructionCompanyAPI.Controllers
 {
-    public class ConstructionSiteManagersController : BaseController<ConstructionSiteManagerVM, ConstructionSiteManager, object>
+    public class ConstructionSiteManagersController : BaseUserTypeController<ConstructionSiteManagerVM, ConstructionSiteManager, ConstructionSiteManagerAddVM>
     {
-        public ConstructionSiteManagersController(IService<ConstructionSiteManager, object> service, IMapper mapper) : base(service, mapper)
+        public ConstructionSiteManagersController(IMapper mapper, IUserTypeService<ConstructionSiteManager> constructionSiteManagersService) : base(constructionSiteManagersService, mapper)
         {
         }
     }

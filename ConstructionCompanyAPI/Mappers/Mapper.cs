@@ -4,7 +4,9 @@ using AutoMapper;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
+using ConstructionCompanyModel.ViewModels.Managers;
 using ConstructionCompanyModel.ViewModels.Users;
+using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using MeasurementUnit = ConstructionCompanyModel.ViewModels.Worksheets.MeasurementUnit;
 
@@ -83,15 +85,22 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<ConstructionSite, ConstructionSiteAddVM>();
 
             CreateMap<Worker, WorkerVM>()
-                .ForMember(workerVM => workerVM.FirstName, mo => mo.MapFrom(worker => worker.User.FirstName))
-                .ForMember(workerVM => workerVM.LastName, mo => mo.MapFrom(worker => worker.User.LastName));
+                .ForPath(workerVM => workerVM.User.FirstName, mo => mo.MapFrom(worker => worker.User.FirstName))
+                .ForPath(workerVM => workerVM.User.LastName, mo => mo.MapFrom(worker => worker.User.LastName));
             CreateMap<WorkerVM, Worker>();
             
             CreateMap<MaterialVM, Material>().ReverseMap();
-            
+
             CreateMap<UserVM, User>().ReverseMap();
             CreateMap<UserAddVM, User>().ReverseMap();
             
+            CreateMap<WorkerAddVM, Worker>().ReverseMap();
+            CreateMap<WorkerVM, Worker>().ReverseMap();
+            
+            CreateMap<ManagerAddVM, Manager>().ReverseMap();
+            CreateMap<ManagerVM, Manager>().ReverseMap();
+            
+            CreateMap<ConstructionSiteManagerAddVM, ConstructionSiteManager>().ReverseMap();
             CreateMap<ConstructionSiteManagerVM, ConstructionSiteManager>().ReverseMap();
         }
     }

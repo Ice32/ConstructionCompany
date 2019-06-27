@@ -1,4 +1,5 @@
 using System;
+using ConstructionCompanyModel.ViewModels.Roles;
 
 namespace ConstructionCompanyModel.ViewModels.Users
 {
@@ -13,6 +14,8 @@ namespace ConstructionCompanyModel.ViewModels.Users
         public string UserName { get; set; }
         
         public DateTime DateOfBirth { get; set; }
+
+        public RoleVM.RoleEnum Role { get; set; }
 
         public string FullName
         {

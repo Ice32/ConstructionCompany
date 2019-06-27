@@ -1,44 +1,30 @@
-using System;
 using System.Net.Http;
 using AutoMapper;
-using ConstructionCompany.BR;
+using ConstructionCompany.BR.Users;
+using ConstructionCompanyModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers.Generics
 {
-    public class BaseCRUDController<T, TDatabase, TSearch, TInsert, TUpdate> : BaseController<T, TDatabase, TSearch>
-
+    public class BaseUserTypeController<T, TDatabase, TInsert>: BaseController<T, TDatabase, object> where TInsert : IUserTypeAddVM
     {
-
-        private new readonly ICRUDService<TDatabase, TSearch> _service;
-
-        public BaseCRUDController(ICRUDService<TDatabase, TSearch> service, IMapper mapper) : base(service, mapper)
-
+        private readonly IUserTypeService<TDatabase> _userTypeService;
+        public BaseUserTypeController(IUserTypeService<TDatabase> service, IMapper mapper) : base(service, mapper)
         {
-
-            _service = service;
-
+            _userTypeService = service;
         }
-
-
-
+        
         [HttpPost]
-
         public T Insert(TInsert request)
-
         {
-
             var toInsert = _mapper.Map<TDatabase>(request);
-            TDatabase inserted = _service.Insert(toInsert);
+            TDatabase inserted = _userTypeService.Insert(toInsert, request.User.Password);
 
             return _mapper.Map<T>(inserted);
         }
-
-
-
+        
         [HttpPut("{id}")]
-
-        public T Update(int id, [FromBody]TUpdate request)
+        public T Update(int id, [FromBody]TInsert request)
 
         {
             TDatabase existing = _service.GetById(id);
@@ -47,11 +33,9 @@ namespace ConstructionCompanyAPI.Controllers.Generics
                 throw new HttpRequestException();
             }
             TDatabase toUpdate = _mapper.Map(request, existing);
-            _service.Update(id, toUpdate);
+            _userTypeService.Update(toUpdate, request.User.Password);
             TDatabase updated = _service.GetById(id);
             return _mapper.Map<T>(updated);
         }
-
     }
-
 }

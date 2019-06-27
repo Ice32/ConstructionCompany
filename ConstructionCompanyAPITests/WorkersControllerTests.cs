@@ -3,7 +3,7 @@ using System.Net.Http;
 using ConstructionCompanyAPI;
 using ConstructionCompanyAPITests.Helpers;
 using ConstructionCompanyDataLayer.Models;
-using ConstructionCompanyModel.ViewModels.Worksheets;
+using ConstructionCompanyModel.ViewModels.Workers;
 using Newtonsoft.Json;
 using Xunit;
 

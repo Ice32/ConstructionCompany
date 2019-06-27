@@ -78,7 +78,7 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IService<Task, object>, BaseService<Task, object, TasksAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worksheet, object>, WorksheetService>();
-            services.AddScoped<IService<ConstructionSiteManager, object>, BaseService<ConstructionSiteManager, object, ConstructionSiteManagerAllRelatedDataSpecification>>();
+            services.AddScoped<IService<ConstructionSiteManager, object>, BaseService<ConstructionSiteManager, object, ConstructionSiteManagerSpecification>>();
             services.AddScoped<IService<User, object>, BaseService<User, object, UserAllRelatedDataSpecification>>();
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
@@ -86,8 +86,10 @@ namespace ConstructionCompanyAPI
             services.AddScoped<ICRUDService<Task, object>, BaseCRUDService<Task, object, TasksAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();
-            services.AddScoped<ICRUDService<ConstructionSiteManager, object>, BaseCRUDService<ConstructionSiteManager, object, ConstructionSiteManagerAllRelatedDataSpecification>>();
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IUserTypeService<Worker>, BaseUserTypeService<Worker, WorkerAllRelatedDataSpecification>>();
+            services.AddScoped<IUserTypeService<ConstructionSiteManager>, BaseUserTypeService<ConstructionSiteManager, ConstructionSiteManagerSpecification>>();
+            services.AddScoped<IUserTypeService<Manager>, BaseUserTypeService<Manager, ManagerSpecification>>();
             
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

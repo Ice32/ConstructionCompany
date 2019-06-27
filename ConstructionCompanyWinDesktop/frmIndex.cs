@@ -1,7 +1,9 @@
 ﻿using ConstructionCompanyWinDesktop.Worksheets;
 using System;
 using System.Windows.Forms;
+using ConstructionCompanyWinDesktop.ConstructionSiteManagers;
 using ConstructionCompanyWinDesktop.ConstructionSites;
+using ConstructionCompanyWinDesktop.Managers;
 using ConstructionCompanyWinDesktop.Users;
 
 namespace ConstructionCompanyWinDesktop
@@ -136,18 +138,50 @@ namespace ConstructionCompanyWinDesktop
 
         private void DodajToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var creationForm = new frmNewUser(this);
+            var creationForm = new frmNewWorker(this);
             creationForm.ShowDialog();
         }
 
         private void PretragaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            var usersForm = new frmUsersList
+            var usersForm = new frmWorkersList
             {
                 MdiParent = this,
                 Dock = DockStyle.Fill,
             };
             usersForm.Show();
+        }
+
+        private void PretrageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var usersForm = new frmConstructionSiteManagersList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            usersForm.Show();
+        }
+
+        private void pretragaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            var usersForm = new frmManagersList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            usersForm.Show();
+        }
+
+        private void MenuAddConstructionSiteManager_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewConstructionSiteManager(this);
+            creationForm.ShowDialog();
+        }
+
+        private void MenuAddNewManager_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewManager(this);
+            creationForm.ShowDialog();
         }
     }
 }

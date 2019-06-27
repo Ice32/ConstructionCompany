@@ -25,7 +25,7 @@ namespace ConstructionCompanyWinDesktop
             {
                 ConstructionSite = w.ConstructionSite.Title,
                 Equipment = w.Equipment != null ? string.Join(", ", w.Equipment.Select(e => e.Name)) : "",
-                Workers = w.Workers != null ? string.Join(", ", w.Workers.Select(worker => worker.FirstName + ' ' + worker.LastName)) : "",
+                Workers = w.Workers != null ? string.Join(", ", w.Workers.Select(worker => worker.User.FirstName + ' ' + worker.User.LastName)) : "",
                 w.Remarks,
                 w.Date,
                 w.Id,

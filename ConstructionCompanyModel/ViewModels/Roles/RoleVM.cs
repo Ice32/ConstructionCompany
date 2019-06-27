@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConstructionCompanyDataLayer.Models
+namespace ConstructionCompanyModel.ViewModels.Roles
 {
-    public class Role
+    public class RoleVM
     {
         public enum RoleEnum
         {
@@ -16,7 +12,5 @@ namespace ConstructionCompanyDataLayer.Models
         
         public string Description { get; set; }
         public RoleEnum Name { get; set; }
-        
-        public List<UserRole> UserRoles { get; set; }
     }
 }

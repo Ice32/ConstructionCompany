@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
-using ConstructionCompany.BR;
+using ConstructionCompany.BR.Users;
 using ConstructionCompanyAPI.Controllers.Generics;
 using ConstructionCompanyDataLayer.Models;
-using ConstructionCompanyModel.ViewModels.Worksheets;
+using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
+using ConstructionCompanyModel.ViewModels.Workers;
 
 namespace ConstructionCompanyAPI.Controllers
 {
-    public class WorkersController : BaseController<WorkerVM, Worker, object>
+    public class WorkersController : BaseUserTypeController<WorkerVM, Worker, WorkerAddVM>
     {
-        public WorkersController(IService<Worker, object> service, IMapper mapper) : base(service, mapper)
+        public WorkersController(IUserTypeService<Worker> service, IMapper mapper) : base(service, mapper)
         {
         }
     }

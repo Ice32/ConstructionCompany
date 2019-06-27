@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ConstructionCompanyDataLayer.Models
 {
-    public class Worker
+    public class Worker: IUserType
     {
         public int Id { get; set; }
         public string JobDescription { get; set; }

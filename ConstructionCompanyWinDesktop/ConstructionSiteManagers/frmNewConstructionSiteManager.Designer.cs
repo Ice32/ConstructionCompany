@@ -1,6 +1,6 @@
-﻿namespace ConstructionCompanyWinDesktop.Users
+﻿namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
 {
-    partial class frmNewUser
+    partial class frmNewConstructionSiteManager
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtUserPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUserSubmit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -74,7 +74,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(195, 138);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(567, 483);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(563, 597);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -210,16 +210,16 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Potvrdi lozinku";
             // 
-            // button1
+            // btnUserSubmit
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(486, 798);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 47);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Spremi";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnUserSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUserSubmit.Location = new System.Drawing.Point(486, 798);
+            this.btnUserSubmit.Name = "btnUserSubmit";
+            this.btnUserSubmit.Size = new System.Drawing.Size(143, 47);
+            this.btnUserSubmit.TabIndex = 4;
+            this.btnUserSubmit.Text = "Spremi";
+            this.btnUserSubmit.UseVisualStyleBackColor = true;
+            this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
             // 
             // frmNewUser
             // 
@@ -228,8 +228,8 @@
             this.ClientSize = new System.Drawing.Size(1230, 857);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblNewUser);
-            this.Controls.Add(this.button1);
-            this.Name = "frmNewUser";
+            this.Controls.Add(this.btnUserSubmit);
+            this.Name = "frmNewConstructionSiteManager";
             this.Text = "frmNewUser";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -264,7 +264,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtUserPassword;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUserSubmit;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtUserPasswordConfirmation;
         private System.Windows.Forms.Label label6;

@@ -1,8 +1,8 @@
 using ConstructionCompanyModel.ViewModels.Users;
 
-namespace ConstructionCompanyModel.ViewModels.ConstructionSiteManagers
+namespace ConstructionCompanyModel.ViewModels.Managers
 {
-    public class ConstructionSiteManagerVM: IUserType
+    public class ManagerVM: IUserType
     {
         public int Id { get; set; }
         public int UserId { get; set; }

@@ -37,11 +37,17 @@
             this.pretragaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.šefoviGradilištaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretrageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddConstructionSiteManager = new System.Windows.Forms.ToolStripMenuItem();
+            this.administratoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAddNewManager = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pretragaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +58,9 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.korisniciToolStripMenuItem,
             this.gradilisToolStripMenuItem,
-            this.korisniciToolStripMenuItem1});
+            this.korisniciToolStripMenuItem1,
+            this.šefoviGradilištaToolStripMenuItem,
+            this.administratoriToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
@@ -66,8 +74,7 @@
             this.pretragaToolStripMenuItem,
             this.kreirajToolStripMenuItem});
             this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(164, 38);
-            this.korisniciToolStripMenuItem.Text = global::ConstructionCompanyWinDesktop.Properties.Resources.menu_worksheets_item;
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(20, 38);
             // 
             // pretragaToolStripMenuItem
             // 
@@ -80,7 +87,6 @@
             // 
             this.kreirajToolStripMenuItem.Name = "kreirajToolStripMenuItem";
             this.kreirajToolStripMenuItem.Size = new System.Drawing.Size(237, 44);
-            this.kreirajToolStripMenuItem.Text = global::ConstructionCompanyWinDesktop.Properties.Resources.menu_new_worksheet_item;
             this.kreirajToolStripMenuItem.Click += new System.EventHandler(this.KreirajToolStripMenuItem_Click);
             // 
             // gradilisToolStripMenuItem
@@ -95,14 +101,14 @@
             // pretragaToolStripMenuItem1
             // 
             this.pretragaToolStripMenuItem1.Name = "pretragaToolStripMenuItem1";
-            this.pretragaToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.pretragaToolStripMenuItem1.Size = new System.Drawing.Size(237, 44);
             this.pretragaToolStripMenuItem1.Text = "Pretraga";
             this.pretragaToolStripMenuItem1.Click += new System.EventHandler(this.PretragaToolStripMenuItem1_Click);
             // 
             // dodajToolStripMenuItem
             // 
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(237, 44);
             this.dodajToolStripMenuItem.Text = "Dodaj";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.DodajToolStripMenuItem_Click);
             // 
@@ -112,15 +118,68 @@
             this.pretragaToolStripMenuItem2,
             this.dodajToolStripMenuItem1});
             this.korisniciToolStripMenuItem1.Name = "korisniciToolStripMenuItem1";
-            this.korisniciToolStripMenuItem1.Size = new System.Drawing.Size(123, 38);
-            this.korisniciToolStripMenuItem1.Text = "Korisnici";
+            this.korisniciToolStripMenuItem1.Size = new System.Drawing.Size(112, 38);
+            this.korisniciToolStripMenuItem1.Text = "Radnici";
+            // 
+            // pretragaToolStripMenuItem2
+            // 
+            this.pretragaToolStripMenuItem2.Name = "pretragaToolStripMenuItem2";
+            this.pretragaToolStripMenuItem2.Size = new System.Drawing.Size(237, 44);
+            this.pretragaToolStripMenuItem2.Text = "Pretraga";
+            this.pretragaToolStripMenuItem2.Click += new System.EventHandler(this.PretragaToolStripMenuItem2_Click);
             // 
             // dodajToolStripMenuItem1
             // 
             this.dodajToolStripMenuItem1.Name = "dodajToolStripMenuItem1";
-            this.dodajToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.dodajToolStripMenuItem1.Size = new System.Drawing.Size(237, 44);
             this.dodajToolStripMenuItem1.Text = "Dodaj";
             this.dodajToolStripMenuItem1.Click += new System.EventHandler(this.DodajToolStripMenuItem1_Click);
+            // 
+            // šefoviGradilištaToolStripMenuItem
+            // 
+            this.šefoviGradilištaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretrageToolStripMenuItem,
+            this.menuAddConstructionSiteManager});
+            this.šefoviGradilištaToolStripMenuItem.Name = "šefoviGradilištaToolStripMenuItem";
+            this.šefoviGradilištaToolStripMenuItem.Size = new System.Drawing.Size(204, 38);
+            this.šefoviGradilištaToolStripMenuItem.Text = "Šefovi gradilišta";
+            // 
+            // pretrageToolStripMenuItem
+            // 
+            this.pretrageToolStripMenuItem.Name = "pretrageToolStripMenuItem";
+            this.pretrageToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.pretrageToolStripMenuItem.Text = "Pretraga";
+            this.pretrageToolStripMenuItem.Click += new System.EventHandler(this.PretrageToolStripMenuItem_Click);
+            // 
+            // menuAddConstructionSiteManager
+            // 
+            this.menuAddConstructionSiteManager.Name = "menuAddConstructionSiteManager";
+            this.menuAddConstructionSiteManager.Size = new System.Drawing.Size(359, 44);
+            this.menuAddConstructionSiteManager.Text = "Dodaj";
+            this.menuAddConstructionSiteManager.Click += new System.EventHandler(this.MenuAddConstructionSiteManager_Click);
+            // 
+            // administratoriToolStripMenuItem
+            // 
+            this.administratoriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem3,
+            this.menuAddNewManager});
+            this.administratoriToolStripMenuItem.Name = "administratoriToolStripMenuItem";
+            this.administratoriToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
+            this.administratoriToolStripMenuItem.Text = "Administratori";
+            // 
+            // pretragaToolStripMenuItem3
+            // 
+            this.pretragaToolStripMenuItem3.Name = "pretragaToolStripMenuItem3";
+            this.pretragaToolStripMenuItem3.Size = new System.Drawing.Size(359, 44);
+            this.pretragaToolStripMenuItem3.Text = "Pretraga";
+            this.pretragaToolStripMenuItem3.Click += new System.EventHandler(this.pretragaToolStripMenuItem3_Click);
+            // 
+            // menuAddNewManager
+            // 
+            this.menuAddNewManager.Name = "menuAddNewManager";
+            this.menuAddNewManager.Size = new System.Drawing.Size(359, 44);
+            this.menuAddNewManager.Text = "Dodaj";
+            this.menuAddNewManager.Click += new System.EventHandler(this.MenuAddNewManager_Click);
             // 
             // statusStrip
             // 
@@ -140,13 +199,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(79, 32);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // pretragaToolStripMenuItem2
-            // 
-            this.pretragaToolStripMenuItem2.Name = "pretragaToolStripMenuItem2";
-            this.pretragaToolStripMenuItem2.Size = new System.Drawing.Size(359, 44);
-            this.pretragaToolStripMenuItem2.Text = "Pretraga";
-            this.pretragaToolStripMenuItem2.Click += new System.EventHandler(this.PretragaToolStripMenuItem2_Click);
-            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -156,7 +208,7 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmIndex";
             this.Text = "frmIndex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -184,6 +236,12 @@
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem šefoviGradilištaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretrageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuAddConstructionSiteManager;
+        private System.Windows.Forms.ToolStripMenuItem administratoriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem menuAddNewManager;
     }
 }
 

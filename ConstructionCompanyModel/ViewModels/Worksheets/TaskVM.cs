@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ConstructionCompanyModel.ViewModels.Workers;
 
 namespace ConstructionCompanyModel.ViewModels.Worksheets
 {

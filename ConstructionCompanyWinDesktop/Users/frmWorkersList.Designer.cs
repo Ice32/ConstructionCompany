@@ -1,6 +1,6 @@
 ﻿namespace ConstructionCompanyWinDesktop.Users
 {
-    partial class frmUsersList
+    partial class frmWorkersList
     {
         /// <summary>
         /// Required designer variable.
@@ -89,7 +89,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvUsersList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmUsersList";
+            this.Name = "frmWorkersList";
             this.Text = "frmUsersList";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             this.ResumeLayout(false);

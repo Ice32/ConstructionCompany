@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Util;
 
@@ -33,7 +35,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             listTaskWorkers.DataSource = workers.Select(w => new ListBoxItem
             {
                 Id = w.Id,
-                Name = w.FirstName + " " + w.LastName,
+                Name = w.User.FirstName + " " + w.User.LastName,
             }).ToList();
             listTaskWorkers.DisplayMember = "Name";
             listTaskWorkers.ValueMember = "Id";
@@ -71,14 +73,14 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             Close();
         }
 
-        private void TxtTaskName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtTaskName_Validating(object sender, CancelEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
 
             _validationUtil.AssertLength(3, textBox, e);
         }
 
-        private void ListTaskWorkers_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ListTaskWorkers_Validating(object sender, CancelEventArgs e)
         {
             ListBox listBox = (ListBox)sender;
 

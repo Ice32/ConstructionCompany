@@ -1,6 +1,7 @@
-﻿using ConstructionCompanyModel.ViewModels.ConstructionSites;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ConstructionCompanyModel.ViewModels.ConstructionSites;
+using ConstructionCompanyModel.ViewModels.Workers;
 
 namespace ConstructionCompanyModel.ViewModels.Worksheets
 {

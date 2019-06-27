@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using ConstructionCompanyModel.ViewModels.Users;
+using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyWinDesktop.Services;
 
 namespace ConstructionCompanyWinDesktop.Users
 {
-    public partial class frmUsersList : Form
+    public partial class frmWorkersList : Form
     {
-        private readonly APIService<UserVM, UserAddVM, UserAddVM> _usersService = new APIService<UserVM, UserAddVM, UserAddVM>("users");
-        private List<UserVM> _users;
-        public frmUsersList()
+        private readonly APIService<WorkerVM, WorkerAddVM, WorkerAddVM> _workersService = new APIService<WorkerVM, WorkerAddVM, WorkerAddVM>("workers");
+        private List<WorkerVM> _workers;
+        public frmWorkersList()
         {
             InitializeComponent();
             LoadData();
@@ -18,12 +18,12 @@ namespace ConstructionCompanyWinDesktop.Users
         
         private async void LoadData()
         {
-            _users = await _usersService.GetAll();
-            var mappedResults = _users.Select(u => new
+            _workers = await _workersService.GetAll();
+            var mappedResults = _workers.Select(u => new
             {
                 u.Id,
-                u.FullName,
-                u.UserName
+                u.User.FullName,
+                u.User.UserName
             }).ToList();
             dgvUsersList.DataSource = mappedResults;
         }
@@ -37,9 +37,9 @@ namespace ConstructionCompanyWinDesktop.Users
             {
                 return;
             }
-            int selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
-            UserVM user = _users.First(w => w.Id == selectedId);
-            var editForm = new frmNewUser(user, MdiParent);
+            var selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
+            WorkerVM worker = _workers.First(w => w.Id == selectedId);
+            var editForm = new frmNewWorker(worker, MdiParent);
             editForm.Show();
         }
     }

@@ -59,6 +59,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstructionSiteManagers\frmConstructionSiteManagersList.Designer.cs">
+      <DependentUpon>frmConstructionSiteManagersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConstructionSiteManagers\frmConstructionSiteManagersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConstructionSiteManagers\frmNewConstructionSiteManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConstructionSiteManagers\frmNewConstructionSiteManager.Designer.cs">
+      <DependentUpon>frmNewConstructionSiteManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConstructionSites\frmConstructionSitesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,18 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\frmManagersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\frmConstructionSiteManagersList.Designer.cs">
+      <DependentUpon>frmManagersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\frmNewManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\frmNewWorker.Designer.cs">
+      <DependentUpon>frmNewManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\APIService.cs" />
@@ -86,17 +110,17 @@
     <Compile Include="Users\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\frmNewUser.cs">
+    <Compile Include="Users\frmNewWorker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\frmNewUser.Designer.cs">
-      <DependentUpon>frmNewUser.cs</DependentUpon>
+    <Compile Include="Users\frmNewWorker.Designer.cs">
+      <DependentUpon>frmNewWorker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\frmUsersList.cs">
+    <Compile Include="Users\frmWorkersList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\frmUsersList.Designer.cs">
-      <DependentUpon>frmUsersList.cs</DependentUpon>
+    <Compile Include="Users\frmWorkersList.Designer.cs">
+      <DependentUpon>frmWorkersList.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\APIClient.cs" />
     <Compile Include="Util\ListBoxItem.cs" />
@@ -144,6 +168,12 @@
     <Compile Include="Worksheets\worksheetTaskUserControl.Designer.cs">
       <DependentUpon>worksheetTaskUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConstructionSiteManagers\frmConstructionSiteManagersList.resx">
+      <DependentUpon>frmConstructionSiteManagersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConstructionSiteManagers\frmNewConstructionSiteManager.resx">
+      <DependentUpon>frmNewConstructionSiteManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConstructionSites\frmConstructionSitesList.resx">
       <DependentUpon>frmConstructionSitesList.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\frmConstructionSiteManagersList.resx">
+      <DependentUpon>frmManagersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\frmNewWorker.resx">
+      <DependentUpon>frmNewManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -166,11 +202,11 @@
     <EmbeddedResource Include="Users\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\frmNewUser.resx">
-      <DependentUpon>frmNewUser.cs</DependentUpon>
+    <EmbeddedResource Include="Users\frmNewWorker.resx">
+      <DependentUpon>frmNewWorker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\frmUsersList.resx">
-      <DependentUpon>frmUsersList.cs</DependentUpon>
+    <EmbeddedResource Include="Users\frmWorkersList.resx">
+      <DependentUpon>frmWorkersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\frmNewWorksheet.resx">
       <DependentUpon>frmNewWorksheet.cs</DependentUpon>
