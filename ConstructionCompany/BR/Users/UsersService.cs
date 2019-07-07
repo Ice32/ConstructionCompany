@@ -1,7 +1,7 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
-using ConstructionCompany.BR.Specifications;
+using ConstructionCompany.Specifications;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 

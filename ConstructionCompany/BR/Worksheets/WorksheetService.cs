@@ -1,4 +1,4 @@
-﻿using ConstructionCompany.BR.Specifications;
+﻿using ConstructionCompany.Specifications;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 

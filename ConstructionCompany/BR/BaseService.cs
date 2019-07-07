@@ -22,7 +22,7 @@ namespace ConstructionCompany.BR
         public virtual List<TDatabase> Get(TSearch search)
         {
 
-            var list = _repository.List(new TDefaultSpecification()).ToList();
+            List<TDatabase> list = _repository.List(new TDefaultSpecification()).ToList();
 
             return list;
 

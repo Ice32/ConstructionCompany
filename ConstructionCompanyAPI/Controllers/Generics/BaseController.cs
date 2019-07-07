@@ -9,7 +9,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController<T, TDatabase, TSearch> : ControllerBase
+    public class BaseController<T, TDatabase, TSearchVM, TSearch> : ControllerBase
 
     {
 
@@ -27,10 +27,10 @@ namespace ConstructionCompanyAPI.Controllers.Generics
         
 
         [HttpGet]
-        public List<T> Get([FromQuery]TSearch search)
+        public List<T> Get([FromQuery]TSearchVM searchVM)
 
         {
-
+            var search = _mapper.Map<TSearch>(searchVM);
             List<TDatabase> retrieved = _service.Get(search);
             return _mapper.Map<List<T>>(retrieved);
 

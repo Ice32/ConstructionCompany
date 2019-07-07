@@ -12,7 +12,7 @@ namespace ConstructionCompanyAPI
         {
             IWebHostBuilder hostBuilder = CreateHostBuilder(args);
             IWebHost host = hostBuilder.Build();
-            
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers.Generics
 {
-    public class BaseCRUDController<T, TDatabase, TSearch, TInsert, TUpdate> : BaseController<T, TDatabase, TSearch>
+    public class BaseCRUDController<T, TDatabase, TSearchVM, TSearch, TInsert, TUpdate> : BaseController<T, TDatabase, TSearchVM, TSearch>
 
     {
 

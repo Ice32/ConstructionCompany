@@ -1,9 +1,11 @@
 using System;
 using AutoMapper;
+using ConstructionCompany;
 using ConstructionCompany.BR;
-using ConstructionCompany.BR.Specifications;
+using ConstructionCompany.BR.Tasks;
 using ConstructionCompany.BR.Users;
 using ConstructionCompany.BR.Worksheets;
+using ConstructionCompany.Specifications;
 using ConstructionCompanyAPI.Security;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
@@ -74,16 +76,16 @@ namespace ConstructionCompanyAPI
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
-            services.AddScoped<IService<Material, object>, BaseService<Material, object, MaterialAllRelatedDataSpecification>>();
-            services.AddScoped<IService<Task, object>, BaseService<Task, object, TasksAllRelatedDataSpecification>>();
+            services.AddScoped<IService<Material, object>, BaseService<Material, object, MaterialSpecification>>();
+            services.AddScoped<IService<Task, object>, BaseService<Task, object, TaskSpecification>>();
             services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worksheet, object>, WorksheetService>();
             services.AddScoped<IService<ConstructionSiteManager, object>, BaseService<ConstructionSiteManager, object, ConstructionSiteManagerSpecification>>();
             services.AddScoped<IService<User, object>, BaseService<User, object, UserAllRelatedDataSpecification>>();
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
-            services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialAllRelatedDataSpecification>>();
-            services.AddScoped<ICRUDService<Task, object>, BaseCRUDService<Task, object, TasksAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialSpecification>>();
+            services.AddScoped<ICRUDService<Task, TaskSearch>, TasksService>();
             services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();
             services.AddScoped<IUsersService, UsersService>();
@@ -110,11 +112,9 @@ namespace ConstructionCompanyAPI
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+//            app.UseHttpsRedirection();
 
-            //app.UseRouting();
 
-            
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

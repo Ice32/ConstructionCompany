@@ -1,5 +1,6 @@
 ﻿using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ConstructionCompanyAPITests.Helpers
 {
@@ -13,8 +14,8 @@ namespace ConstructionCompanyAPITests.Helpers
         }
         public Worker CreateTask()
         {
-            Worker worker = new Worker();
-            var inserted = _persistence.Workers.Add(worker);
+            var worker = new Worker();
+            EntityEntry<Worker> inserted = _persistence.Workers.Add(worker);
             _persistence.SaveChanges();
 
             return inserted.Entity;

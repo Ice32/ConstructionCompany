@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.Worksheets;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Task = ConstructionCompanyDataLayer.Models.Task;
@@ -41,12 +43,36 @@ namespace ConstructionCompanyAPITests.Helpers
                     }
                 }
             };
-            var inserted = _persistence.Worksheets.Add(worksheet);
+            return InsertWorksheet(worksheet);
+        }
+        
+        public Worksheet CreateWorksheet(IEnumerable<int> workerIds)
+        {
+            ConstructionSite constructionSite = new ConstructionSiteHelpers(_persistence, _client).CreateConstructionSite();
+            
+            var worksheet = new Worksheet
+            {
+                ConstructionSiteId = constructionSite.Id,
+                Tasks = new List<Task>
+                {
+                    new Task
+                    {
+                        Title = "Title",
+                        WorkerTasks = workerIds.Select(workerId => new WorkerTask { WorkerId = workerId }).ToList()
+                    }
+                }
+            };
+            return InsertWorksheet(worksheet);
+        }
+
+        private Worksheet InsertWorksheet(Worksheet worksheet)
+        {
+            EntityEntry<Worksheet> inserted = _persistence.Worksheets.Add(worksheet);
             _persistence.SaveChanges();
 
             return inserted.Entity;
         }
-        
+
         public async Task<WorksheetVM> GetWorksheetById(int id)
         {
             HttpResponseMessage retrievalHTTPResponse = await _client.GetAsync($"/api/worksheets/{id}");

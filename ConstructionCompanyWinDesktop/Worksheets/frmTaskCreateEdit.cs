@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using ConstructionCompanyModel.ViewModels.Tasks;
 using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Util;

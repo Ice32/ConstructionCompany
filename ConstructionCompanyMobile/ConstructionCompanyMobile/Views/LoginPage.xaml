@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:ConstructionCompanyMobile.ViewModels;assembly=ConstructionCompanyMobile"
+             mc:Ignorable="d"
+             x:Class="ConstructionCompanyMobile.Views.LoginPage">
+    
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Username"/>
+            <Entry Text="{Binding Username}"></Entry>
+            <Label Text="Password"/>
+            <Entry Text="{Binding Password}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

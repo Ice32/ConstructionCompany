@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using ConstructionCompany;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
 using ConstructionCompanyModel.ViewModels.Managers;
+using ConstructionCompanyModel.ViewModels.Tasks;
 using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
@@ -102,6 +104,8 @@ namespace ConstructionCompanyAPI.Mappers
             
             CreateMap<ConstructionSiteManagerAddVM, ConstructionSiteManager>().ReverseMap();
             CreateMap<ConstructionSiteManagerVM, ConstructionSiteManager>().ReverseMap();
+
+            CreateMap<TaskSearchVM, TaskSearch>();
         }
     }
 }

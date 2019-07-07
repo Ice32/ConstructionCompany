@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers.Generics
 {
-    public class BaseUserTypeController<T, TDatabase, TInsert>: BaseController<T, TDatabase, object> where TInsert : IUserTypeAddVM
+    public class BaseUserTypeController<T, TDatabase, TInsert>: BaseController<T, TDatabase, object, object> where TInsert : IUserTypeAddVM
     {
         private readonly IUserTypeService<TDatabase> _userTypeService;
         public BaseUserTypeController(IUserTypeService<TDatabase> service, IMapper mapper) : base(service, mapper)

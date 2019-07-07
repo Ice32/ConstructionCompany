@@ -27,7 +27,7 @@ namespace ConstructionCompanyWinDesktop.Users
                 new frmIndex().Show();
                 Hide();
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("Neispravni podaci");
             }
