@@ -20,14 +20,17 @@ namespace ConstructionCompanyAPI.Util
                 new User
                 {
                     FirstName = "first",
-                    LastName = "worker"
+                    LastName = "worker",
+                    UserName = "first worker"
                 },
                 new User
                 {
                     FirstName = "second",
-                    LastName = "worker"
+                    LastName = "worker",
+                    UserName = "worker",
+                    PasswordHash = "W2Ib07DMfJfwTFOYAZS7d1FMgC4=",
+                    PasswordSalt = "i1sHJ8xUM3GPBovTx8Ih2g=="
                 },
-                // used in tests
                 new User
                 {
                     FirstName = "manager",
@@ -39,7 +42,8 @@ namespace ConstructionCompanyAPI.Util
                 new User
                 {
                     FirstName = "fourth",
-                    LastName = "csm"
+                    LastName = "csm",
+                    UserName = "fourth csm"
                 }
             };
             Worker[] workers = {
@@ -47,6 +51,12 @@ namespace ConstructionCompanyAPI.Util
                 new Worker{ User = users[1]},
             };
             context.Workers.AddRange(workers);
+            
+            Material[] materials = {
+                new Material{ Amount = 100_000, Name = "Wood", Unit = MeasurementUnit.Meter},
+                new Material{ Amount = 100_000, Name = "Iron", Unit = MeasurementUnit.Kilogram},
+            };
+            context.Material.AddRange(materials);
             
             Manager[] managers = {
                 new Manager{ User = users[2]}

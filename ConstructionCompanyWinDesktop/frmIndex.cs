@@ -102,7 +102,7 @@ namespace ConstructionCompanyWinDesktop
             }
         }
 
-        private void PretragaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void WorksheetSearchMenuItem_Click(object sender, EventArgs e)
         {
             var korisniciPretraga = new frmWorksheetsList
             {
@@ -114,13 +114,13 @@ namespace ConstructionCompanyWinDesktop
         }
         
 
-        private void KreirajToolStripMenuItem_Click(object sender, EventArgs e)
+        private void WorksheetAddMenuItem_Click(object sender, EventArgs e)
         {
             var creationForm = new frmNewWorksheet(null, this);
             creationForm.ShowDialog();
         }
 
-        private void PretragaToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ConstructionSitesSearchMenuItem_Click(object sender, EventArgs e)
         {
             var constructionSitesForm = new frmConstructionSitesList
             {
@@ -130,19 +130,19 @@ namespace ConstructionCompanyWinDesktop
             constructionSitesForm.Show();
         }
 
-        private void DodajToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConstructionSiteAddMenuItem_Click(object sender, EventArgs e)
         {
             var creationForm = new frmNewConstructionSite(this);
             creationForm.ShowDialog();
         }
 
-        private void DodajToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void WorkerAddMenuItem_Click(object sender, EventArgs e)
         {
             var creationForm = new frmNewWorker(this);
             creationForm.ShowDialog();
         }
 
-        private void PretragaToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void WorkerSearchMenuItem_Click(object sender, EventArgs e)
         {
             var usersForm = new frmWorkersList
             {
@@ -152,7 +152,7 @@ namespace ConstructionCompanyWinDesktop
             usersForm.Show();
         }
 
-        private void PretrageToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConstructionSiteManagerSearchMenuItem_Click(object sender, EventArgs e)
         {
             var usersForm = new frmConstructionSiteManagersList
             {
@@ -162,7 +162,7 @@ namespace ConstructionCompanyWinDesktop
             usersForm.Show();
         }
 
-        private void pretragaToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void ManagerSearchMenuItem_Click(object sender, EventArgs e)
         {
             var usersForm = new frmManagersList
             {
@@ -172,7 +172,7 @@ namespace ConstructionCompanyWinDesktop
             usersForm.Show();
         }
 
-        private void MenuAddConstructionSiteManager_Click(object sender, EventArgs e)
+        private void ConstructionSiteManagerAddMenuItem_Click(object sender, EventArgs e)
         {
             var creationForm = new frmNewConstructionSiteManager(this);
             creationForm.ShowDialog();

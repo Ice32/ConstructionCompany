@@ -45,8 +45,8 @@ namespace ConstructionCompanyAPITests
         {
             // arrange
             const string remarks = "Test remark";
-            Worker worker = _workerHelpers.CreateWorker();
-            WorksheetAddVM worksheetVM = new WorksheetAddVM
+            (Worker worker, string _) = _workerHelpers.CreateWorker();
+            var worksheetVM = new WorksheetAddVM
             {
                 Remarks = remarks,
                 Tasks = new List<TaskAddVM>
@@ -83,7 +83,7 @@ namespace ConstructionCompanyAPITests
         public async void CanStoreTasksAndWorkers()
         {
             // arrange
-            Worker worker = _workerHelpers.CreateWorker();
+            (Worker worker, string _) = _workerHelpers.CreateWorker();
             var worksheetVM = new WorksheetAddVM
             {
                 Tasks = new List<TaskAddVM>
@@ -118,7 +118,7 @@ namespace ConstructionCompanyAPITests
         {
             // arrange
             Worksheet worksheet = _worksheetHelpers.CreateWorksheet();
-            Worker worker = _workerHelpers.CreateWorker();
+            (Worker worker, string _) = _workerHelpers.CreateWorker();
             const string taskTitle = "Edited task";
             var editedWorksheet = new WorksheetAddVM
             {

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using ConstructionCompanyAPI;
 using ConstructionCompanyAPITests.Helpers;
@@ -32,7 +34,7 @@ namespace ConstructionCompanyAPITests
         public async void CanCreateTask()
         {
             // arrange
-            Worker worker = _workerHelpers.CreateWorker();
+            (Worker worker, string _) = _workerHelpers.CreateWorker();
             TaskAddVM task = new TaskAddVM
             {
                 Title = "Test title",
@@ -67,13 +69,16 @@ namespace ConstructionCompanyAPITests
         public async void ReturnsAllTasksForAWorker()
         {
             // arrange
-            Worker worker = _workerHelpers.CreateWorker();
+            (Worker worker, string password) = _workerHelpers.CreateWorker();
             Worksheet firstWorksheet = _worksheetHelpers.CreateWorksheet(new [] { worker.Id });
             Worksheet secondWorksheet = _worksheetHelpers.CreateWorksheet(new [] { worker.Id });
 
             // act
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes($"{worker.User.UserName}:{password}");
+            string encoded = Convert.ToBase64String(plainTextBytes);
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encoded);
             HttpResponseMessage httpResponse = await _client.GetAsync(
-                $"/api/tasks?workerId={worker.Id}"
+                "/api/tasks"
             );
             httpResponse.EnsureSuccessStatusCode();
             string stringResponse = await httpResponse.Content.ReadAsStringAsync();

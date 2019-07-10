@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using AutoMapper;
 using ConstructionCompany.BR;

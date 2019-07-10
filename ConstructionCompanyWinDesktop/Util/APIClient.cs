@@ -28,8 +28,8 @@ namespace ConstructionCompanyWinDesktop.Util
 
         private void ReadCredentials()
         {
-            var plainTextBytes = Encoding.UTF8.GetBytes($"{_username}:{_password}");
-            var encoded = Convert.ToBase64String(plainTextBytes);
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes($"{_username}:{_password}");
+            string encoded = Convert.ToBase64String(plainTextBytes);
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encoded);
         }
 

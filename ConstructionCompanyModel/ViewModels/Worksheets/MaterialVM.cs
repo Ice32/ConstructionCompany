@@ -4,6 +4,7 @@
     {
         Kilogram,
         Litre,
+        Meter,
     };
     public class MaterialVM
     {

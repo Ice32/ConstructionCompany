@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Claims;
 using AutoMapper;
 using ConstructionCompany.BR;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +28,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
         
 
         [HttpGet]
-        public List<T> Get([FromQuery]TSearchVM searchVM)
+        public virtual List<T> Get([FromQuery]TSearchVM searchVM)
 
         {
             var search = _mapper.Map<TSearch>(searchVM);
@@ -46,6 +47,13 @@ namespace ConstructionCompanyAPI.Controllers.Generics
 
             TDatabase retrieved = _service.GetById(id);
             return _mapper.Map<T>(retrieved);
+        }
+
+        protected int GetCurrentUserId()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            Claim nameClaim = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier);
+            return int.Parse(nameClaim?.Value);
         }
 
     }

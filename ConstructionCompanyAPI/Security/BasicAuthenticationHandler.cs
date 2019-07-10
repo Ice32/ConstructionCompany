@@ -61,7 +61,7 @@ namespace ConstructionCompanyAPI.Security
                 return Task.FromResult(AuthenticateResult.Fail("Invalid Username or Password"));
 
             var claims = new List<Claim> {
-                new Claim(ClaimTypes.NameIdentifier, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.FullName),
             };
 

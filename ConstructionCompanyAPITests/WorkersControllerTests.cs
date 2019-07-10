@@ -24,18 +24,18 @@ namespace ConstructionCompanyAPITests
         public async void CanRetrieveAllWorkers()
         {
             // arrange
-            Worker inserted = _workerHelpers.CreateWorker();
+            (Worker worker, string _) = _workerHelpers.CreateWorker();
 
 
             // act
-            var httpResponse = await _client.GetAsync("/api/workers");
+            HttpResponseMessage httpResponse = await _client.GetAsync("/api/workers");
             httpResponse.EnsureSuccessStatusCode();
-            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            string stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var responseWorkers = JsonConvert.DeserializeObject<List<WorkerVM>>(stringResponse);
 
             // assert
             Assert.Single(responseWorkers);
-            Assert.Equal(inserted.Id, responseWorkers[0].Id);
+            Assert.Equal(worker.Id, responseWorkers[0].Id);
         }
         
     }

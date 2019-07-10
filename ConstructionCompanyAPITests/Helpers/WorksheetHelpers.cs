@@ -26,7 +26,7 @@ namespace ConstructionCompanyAPITests.Helpers
         public Worksheet CreateWorksheet()
         {
             ConstructionSite constructionSite = new ConstructionSiteHelpers(_persistence, _client).CreateConstructionSite();
-            Worker worker = new WorkerHelpers(_persistence).CreateWorker();
+            (Worker worker, string _) = new WorkerHelpers(_persistence).CreateWorker();
             
             var worksheet = new Worksheet
             {

@@ -15,7 +15,7 @@ namespace ConstructionCompanyAPITests.Helpers
         }
         public ConstructionSiteManager CreateConstructionSiteManager()
         {
-            User user = _userHelpers.CreateUser();
+            (User user, string _) = _userHelpers.CreateUser();
             var constructionSiteManager = new ConstructionSiteManager
             {
                 User = user

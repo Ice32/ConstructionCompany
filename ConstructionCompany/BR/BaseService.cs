@@ -32,8 +32,8 @@ namespace ConstructionCompany.BR
 
         public virtual TDatabase GetById(int id)
         {
-
-            return _repository.GetSingle((TDefaultSpecification)Activator.CreateInstance(typeof(TDefaultSpecification), id));
+            var defaultSpecification = (TDefaultSpecification)Activator.CreateInstance(typeof(TDefaultSpecification), id);
+            return _repository.GetSingle(defaultSpecification);
         }
 
     }

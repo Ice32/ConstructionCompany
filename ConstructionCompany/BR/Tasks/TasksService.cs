@@ -12,7 +12,7 @@ namespace ConstructionCompany.BR.Tasks
         {
         }
         
-        public virtual List<Task> Get(TaskSearch search)
+        public override List<Task> Get(TaskSearch search)
         {
             List<Task> list = _repository.List(new TaskSpecification(search)).ToList();
 

@@ -188,9 +188,12 @@ namespace ConstructionCompanyDataLayer.Migrations
 
                     b.Property<string>("PasswordSalt");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserName")
+                        .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasAlternateKey("UserName");
 
                     b.ToTable("User");
                 });

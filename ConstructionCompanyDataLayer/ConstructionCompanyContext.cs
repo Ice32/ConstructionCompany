@@ -99,6 +99,9 @@ namespace ConstructionCompanyDataLayer
                 .HasOne(ur => ur.User)
                 .WithMany(u => u.UserRoles)
                 .HasForeignKey(ur => ur.UserId);
+            
+            modelBuilder.Entity<User>()
+                .HasAlternateKey(u => u.UserName);
         }
     }
 }

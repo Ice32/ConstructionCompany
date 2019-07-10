@@ -12,19 +12,22 @@ namespace ConstructionCompanyAPITests.Helpers
     public class ConstructionSiteHelpers
     {
         private readonly ConstructionCompanyContext _persistence;
+        private readonly UserHelpers _userHelpers;
         private readonly HttpClient _client;
 
         public ConstructionSiteHelpers(ConstructionCompanyContext persistence, HttpClient client)
         {
             _persistence = persistence;
             _client = client;
+            _userHelpers = new UserHelpers(persistence);
         }
         public ConstructionSite CreateConstructionSite()
         {
             var random = new Random();
+            (User user, string password) = _userHelpers.CreateUser();
             var constructionSiteManager = new ConstructionSiteManager
             {
-                User = new User()
+                User = user
             };
             var constructionSite = new ConstructionSite
             {
@@ -50,7 +53,7 @@ namespace ConstructionCompanyAPITests.Helpers
         {
             HttpResponseMessage retrievalHTTPResponse = await _client.GetAsync($"/api/constructionSites/{id}");
             retrievalHTTPResponse.EnsureSuccessStatusCode();
-            var stringResponse = await retrievalHTTPResponse.Content.ReadAsStringAsync();
+            string stringResponse = await retrievalHTTPResponse.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ConstructionSiteVM>(stringResponse);
         }
     }

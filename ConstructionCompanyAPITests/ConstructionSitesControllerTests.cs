@@ -63,7 +63,7 @@ namespace ConstructionCompanyAPITests
                 new StringContent(data, Encoding.UTF8, "application/json")
             );
             httpResponse.EnsureSuccessStatusCode();
-            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            string stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var responseConstructionSite = JsonConvert.DeserializeObject<ConstructionSiteVM>(stringResponse);
 
             // assert

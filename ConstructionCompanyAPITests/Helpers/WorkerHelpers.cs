@@ -1,31 +1,30 @@
 ﻿using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ConstructionCompanyAPITests.Helpers
 {
     public class WorkerHelpers
     {
         private readonly ConstructionCompanyContext _persistence;
+        private readonly UserHelpers _userHelpers;
         
         public WorkerHelpers(ConstructionCompanyContext persistence)
         {
             _persistence = persistence;
+            _userHelpers = new UserHelpers(persistence);
         }
-        public Worker CreateWorker()
+        public (Worker worker, string password) CreateWorker()
         {
-            User user = new User
-            {
-                FirstName = "Name",
-                LastName = "Last name",
-            };
-            Worker worker = new Worker
+            (User user, string password) = _userHelpers.CreateUser();
+            var worker = new Worker
             {
                 User = user
             };
-            var inserted = _persistence.Workers.Add(worker);
+            EntityEntry<Worker> inserted = _persistence.Workers.Add(worker);
             _persistence.SaveChanges();
 
-            return inserted.Entity;
+            return (inserted.Entity, password);
         } 
     }
 }

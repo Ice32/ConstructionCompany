@@ -1,32 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
+using ConstructionCompanyMobile.Services;
+using ConstructionCompanyModel.ViewModels.Tasks;
 using Xamarin.Forms;
-
-using ConstructionCompanyMobile.Models;
-using ConstructionCompanyMobile.Views;
 
 namespace ConstructionCompanyMobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<TaskVM> Tasks { get; set; }
         public Command LoadItemsCommand { get; set; }
 
+        private readonly APIService<TaskVM, TaskAddVM, TaskAddVM> _tasksService = new APIService<TaskVM, TaskAddVM, TaskAddVM>("tasks");
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Tasks = new ObservableCollection<TaskVM>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
+            //MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            //{
+            //    var newItem = item as Item;
+            //    Items.Add(newItem);
+            //    await DataStore.AddItemAsync(newItem);
+            //});
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -38,11 +38,11 @@ namespace ConstructionCompanyMobile.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Tasks.Clear();
+                List<TaskVM> tasks = await _tasksService.GetAll();
+                foreach (TaskVM task in tasks)
                 {
-                    Items.Add(item);
+                    Tasks.Add(task);
                 }
             }
             catch (Exception ex)
