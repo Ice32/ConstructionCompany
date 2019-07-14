@@ -20,6 +20,11 @@ namespace ConstructionCompanyMobile.Services
             return _client.Get<List<T>>();
         }
         
+        public Task<List<T>> GetAll(IDictionary<string, string> search)
+        {
+            return _client.Get<List<T>>("", search);
+        }
+        
         public Task<T> Create(TInsertion data)
         {
             return _client.Post<T>("", data);

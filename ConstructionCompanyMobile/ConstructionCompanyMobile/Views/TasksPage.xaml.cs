@@ -11,13 +11,13 @@ namespace ConstructionCompanyMobile.Views
     [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        TasksViewModel viewModel;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new TasksViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -42,7 +42,11 @@ namespace ConstructionCompanyMobile.Views
             base.OnAppearing();
 
             if (viewModel.Tasks.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+            {
+                //viewModel.LoadTasksCommand.Execute(null);
+                viewModel.InitCommand.Execute(null);
+                    
+            }
         }
     }
 }

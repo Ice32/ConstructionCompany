@@ -9,6 +9,8 @@ namespace ConstructionCompanyDataLayer.Models
 {
     public class Equipment
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]

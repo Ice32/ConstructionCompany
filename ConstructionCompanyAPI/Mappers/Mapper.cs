@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using AutoMapper.EquivalencyExpression;
 using ConstructionCompany;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
@@ -32,17 +33,7 @@ namespace ConstructionCompanyAPI.Mappers
                 });
             CreateMap<WorksheetVM, Worksheet>();
             CreateMap<WorksheetAddVM, Worksheet>()
-                .ForMember(w => w.Tasks, mo =>
-                {
-                    mo.MapFrom(w => w.Tasks.Select(t => new Task
-                    {
-                        Id = t.Id.GetValueOrDefault(),
-                        Description = t.Description,
-                        Title = t.Title,
-                        WorkerTasks = t.WorkerIds.Select(workerId => new WorkerTask {WorkerId = workerId}).ToList()
-                    }));
-                })
-                .ForMember(w => w.WorksheetMaterials, mo => 
+                .ForMember(w => w.WorksheetMaterials, mo =>
                     mo.MapFrom(w => w.Materials.Select(m => new WorksheetMaterial
                     {
                         MaterialId = m.MaterialId,
@@ -53,7 +44,8 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<TaskAddVM, Task>()
                 .ForMember(task => task.WorkerTasks,
                     mo => mo.MapFrom(taskVM =>
-                        taskVM.WorkerIds.Select(workerId => new WorkerTask {WorkerId = workerId}).ToList()));
+                        taskVM.WorkerIds.Select(workerId => new WorkerTask {WorkerId = workerId}).ToList()))
+                .EqualityComparison((n, o) => n.Id == o.Id);
             CreateMap<Task, TaskAddVM>();
             CreateMap<Task, TaskVM>()
                 .ForMember(task => task.Workers, mo => mo.MapFrom(task => task.WorkerTasks.Select<WorkerTask, Worker>(wt => wt.Worker)));

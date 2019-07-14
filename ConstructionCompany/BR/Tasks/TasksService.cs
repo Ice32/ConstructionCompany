@@ -14,10 +14,11 @@ namespace ConstructionCompany.BR.Tasks
         
         public override List<Task> Get(TaskSearch search)
         {
-            List<Task> list = _repository.List(new TaskSpecification(search)).ToList();
-
-            return list;
-
+            if (search.WorkerId != default || search.ConstructionSiteId != default)
+            {
+                return _repository.List(new TaskSpecification(search)).ToList();
+            }
+            return _repository.List().ToList();
         }
     }
 }

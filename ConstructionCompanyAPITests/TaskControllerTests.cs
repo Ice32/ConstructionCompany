@@ -74,11 +74,8 @@ namespace ConstructionCompanyAPITests
             Worksheet secondWorksheet = _worksheetHelpers.CreateWorksheet(new [] { worker.Id });
 
             // act
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes($"{worker.User.UserName}:{password}");
-            string encoded = Convert.ToBase64String(plainTextBytes);
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encoded);
             HttpResponseMessage httpResponse = await _client.GetAsync(
-                "/api/tasks"
+                $"/api/tasks?workerId={worker.Id}"
             );
             httpResponse.EnsureSuccessStatusCode();
             string stringResponse = await httpResponse.Content.ReadAsStringAsync();

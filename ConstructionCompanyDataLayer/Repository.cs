@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ConstructionCompanyDataLayer
@@ -26,7 +26,7 @@ namespace ConstructionCompanyDataLayer
             return _dbContext.Set<T>().AsEnumerable();
         }
 
-        public virtual IEnumerable<T> List(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public virtual IEnumerable<T> List(Expression<Func<T, bool>> predicate)
         {
             return _dbContext.Set<T>()
                 .Where(predicate)

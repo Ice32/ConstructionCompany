@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using AutoMapper.EquivalencyExpression;
 using ConstructionCompany;
 using ConstructionCompany.BR;
 using ConstructionCompany.BR.Tasks;
@@ -54,8 +55,7 @@ namespace ConstructionCompanyAPI
 
         private void ConfigureServicesCommon(IServiceCollection services)
         {
-            services.AddAutoMapper(cfg => cfg.AddProfile<Mapper>(), AppDomain.CurrentDomain.GetAssemblies());
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Construction company API", Version = "v1" });
@@ -97,6 +97,12 @@ namespace ConstructionCompanyAPI
 
             services.AddDbContext<ConstructionCompanyContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("local")));
+            
+            services.AddAutoMapper(cfg => {
+                cfg.AddProfile<Mapper>();
+                cfg.AddCollectionMappers();
+                cfg.UseEntityFrameworkCoreModel<ConstructionCompanyContext>();
+            }, AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
