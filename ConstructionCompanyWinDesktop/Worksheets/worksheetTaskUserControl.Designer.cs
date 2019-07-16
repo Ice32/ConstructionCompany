@@ -41,6 +41,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.txtWorksheetTaskName.Location = new System.Drawing.Point(0, 13);
             this.txtWorksheetTaskName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWorksheetTaskName.Name = "txtWorksheetTaskName";
+            this.txtWorksheetTaskName.ReadOnly = true;
             this.txtWorksheetTaskName.Size = new System.Drawing.Size(163, 31);
             this.txtWorksheetTaskName.TabIndex = 0;
             // 
