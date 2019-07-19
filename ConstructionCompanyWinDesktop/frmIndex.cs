@@ -5,6 +5,7 @@ using ConstructionCompanyWinDesktop.ConstructionSiteManagers;
 using ConstructionCompanyWinDesktop.ConstructionSites;
 using ConstructionCompanyWinDesktop.Managers;
 using ConstructionCompanyWinDesktop.Users;
+using ConstructionCompanyWinDesktop.Util;
 
 namespace ConstructionCompanyWinDesktop
 {
@@ -15,6 +16,11 @@ namespace ConstructionCompanyWinDesktop
         public frmIndex()
         {
             InitializeComponent();
+
+            if (!CurrentUserManager.IsManager())
+            {
+                gradilisToolStripMenuItem.Visible = false;
+            }
         }
 
         private void ShowNewForm(object sender, EventArgs e)

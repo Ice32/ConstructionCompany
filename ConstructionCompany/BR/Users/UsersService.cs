@@ -7,11 +7,11 @@ using ConstructionCompanyDataLayer.Models;
 
 namespace ConstructionCompany.BR.Users
 {
-    public class UsersService: IUsersService
+    public class UsersService: BaseService<User, object, UserAllRelatedDataSpecification>, IUsersService
     {
         private readonly IRepository<User> _usersRepository;
 
-        public UsersService(IRepository<User> usersRepository)
+        public UsersService(IRepository<User> usersRepository): base(usersRepository)
         {
             _usersRepository = usersRepository;
         }

@@ -21,6 +21,7 @@ namespace ConstructionCompanyAPI.Security
         private readonly IUsersService _userService;
         private readonly IRepository<ConstructionSiteManager> _constructionSiteManagersRepository;
         private readonly IRepository<Manager> _managersRepository;
+        private readonly IUserTypeRetriever _userTypeRetriever;
 
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
@@ -29,12 +30,13 @@ namespace ConstructionCompanyAPI.Security
             ISystemClock clock,
             IUsersService userService,
             IRepository<ConstructionSiteManager> constructionSiteManagersRepository,
-            IRepository<Manager> managersRepository)
+            IRepository<Manager> managersRepository, IUserTypeRetriever userTypeRetriever)
             : base(options, logger, encoder, clock)
         {
             _userService = userService;
             _constructionSiteManagersRepository = constructionSiteManagersRepository;
             _managersRepository = managersRepository;
+            _userTypeRetriever = userTypeRetriever;
         }
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -65,19 +67,19 @@ namespace ConstructionCompanyAPI.Security
                 new Claim(ClaimTypes.Name, user.FullName),
             };
 
-            bool userIsManager = _managersRepository.GetSingle(new ManagerSpecification(user)) != null;
-            bool userIsConstructionSiteManager = _constructionSiteManagersRepository.GetSingle(new ConstructionSiteManagerSpecification(user)) != null;
+            IUserType fullUser = _userTypeRetriever.Retrieve(user);
             
-            if (userIsManager)
+            switch (fullUser)
             {
-                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Manager.ToString()));
-            } else if (userIsConstructionSiteManager)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.ConstructionSiteManager.ToString()));
-            }
-            else
-            {
-                claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Worker.ToString()));
+                case Manager _:
+                    claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Manager.ToString()));
+                    break;
+                case ConstructionSiteManager _:
+                    claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.ConstructionSiteManager.ToString()));
+                    break;
+                default:
+                    claims.Add(new Claim(ClaimTypes.Role, Role.RoleEnum.Worker.ToString()));
+                    break;
             }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

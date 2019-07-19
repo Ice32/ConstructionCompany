@@ -17,5 +17,11 @@ namespace ConstructionCompany.Specifications
         {
             AddInclude("User");
         }
+        
+        public WorkerAllRelatedDataSpecification(User user)
+            : base(c => c.UserId == user.Id)
+        {
+            AddInclude(cs => cs.User);
+        }
     }
 }

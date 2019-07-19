@@ -93,6 +93,8 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IUserTypeService<ConstructionSiteManager>, BaseUserTypeService<ConstructionSiteManager, ConstructionSiteManagerSpecification>>();
             services.AddScoped<IUserTypeService<Manager>, BaseUserTypeService<Manager, ManagerSpecification>>();
             
+            services.AddScoped<IUserTypeRetriever, UserTypeRetriever>();
+            
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddDbContext<ConstructionCompanyContext>(options =>

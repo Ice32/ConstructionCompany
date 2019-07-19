@@ -10,7 +10,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController<T, TDatabase, TSearchVM, TSearch> : ControllerBase
+    public class BaseController<T, TDatabase, TSearchVM, TSearch> : CustomControllerBase
 
     {
 
