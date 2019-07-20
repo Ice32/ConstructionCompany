@@ -22,6 +22,11 @@
                     ItemsSource="{Binding Workers}"
                     ItemDisplayBinding="{Binding User.FullName}"
                     SelectedItem="{Binding SelectedWorker}"></Picker>
+            <Picker Title="ConstructionSites"
+                    ItemsSource="{Binding ConstructionSites}"
+                    ItemDisplayBinding="{Binding Title}"
+                    SelectedItem="{Binding SelectedConstructionSite}">
+            </Picker>
         </StackLayout>
         <StackLayout>
             <ListView x:Name="ItemsListView"

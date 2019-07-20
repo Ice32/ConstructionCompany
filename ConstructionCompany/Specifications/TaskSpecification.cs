@@ -19,7 +19,7 @@ namespace ConstructionCompany.Specifications
         }
         
         public TaskSpecification(TaskSearch search)
-            : base(t => t.WorkerTasks.Exists(wt => wt.WorkerId == search.WorkerId))
+            : base(t => (search.WorkerId != 0 ? t.WorkerTasks.Exists(wt => wt.WorkerId == search.WorkerId) : true) && (search.ConstructionSiteId != 0 ? t.Worksheet.ConstructionSiteId == search.ConstructionSiteId : true))
         {
             AddInclude("WorkerTasks.Worker");
         }
