@@ -23,7 +23,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
 
         [HttpPost]
 
-        public T Insert(TInsert request)
+        public virtual T Insert(TInsert request)
 
         {
 
@@ -37,7 +37,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
 
         [HttpPut("{id}")]
 
-        public T Update(int id, [FromBody]TUpdate request)
+        public virtual T Update(int id, [FromBody]TUpdate request)
 
         {
             TDatabase existing = _service.GetById(id);

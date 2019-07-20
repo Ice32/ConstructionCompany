@@ -15,7 +15,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
         }
         
         [HttpPost]
-        public T Insert(TInsert request)
+        public virtual T Insert(TInsert request)
         {
             var toInsert = _mapper.Map<TDatabase>(request);
             TDatabase inserted = _userTypeService.Insert(toInsert, request.User.Password);
@@ -24,7 +24,7 @@ namespace ConstructionCompanyAPI.Controllers.Generics
         }
         
         [HttpPut("{id}")]
-        public T Update(int id, [FromBody]TInsert request)
+        public virtual T Update(int id, [FromBody]TInsert request)
 
         {
             TDatabase existing = _service.GetById(id);

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyWinDesktop.Services;
+using ConstructionCompanyWinDesktop.Util;
 
 namespace ConstructionCompanyWinDesktop.Users
 {
@@ -16,6 +17,10 @@ namespace ConstructionCompanyWinDesktop.Users
         {
             InitializeComponent();
             _parent = parent;
+            if (!CurrentUserManager.IsManager())
+            {
+                btnUserSubmit.Visible = false;
+            }
         }
         
         public frmNewWorker(WorkerVM worker, Form parent) : this(parent)

@@ -20,6 +20,10 @@ namespace ConstructionCompanyWinDesktop
             if (!CurrentUserManager.IsManager())
             {
                 gradilisToolStripMenuItem.Visible = false;
+                ConstructionSitesAddMenuItem.Visible = false;
+                WorkerAddMenuItem.Visible = false;
+                šefoviGradilištaToolStripMenuItem.Visible = false;
+                administratoriToolStripMenuItem.Visible = false;
             }
         }
 

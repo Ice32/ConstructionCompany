@@ -43,7 +43,9 @@ namespace ConstructionCompanyAPI.Util
                 {
                     FirstName = "fourth",
                     LastName = "csm",
-                    UserName = "fourth csm"
+                    UserName = "construction_site_manager",
+                    PasswordHash = "ZJ1FI+0GG8Up3pxR4dvzJp3shCI=",
+                    PasswordSalt = "Gyy8X03oLag0cDzxbzZOmQ=="
                 }
             };
             Worker[] workers = {

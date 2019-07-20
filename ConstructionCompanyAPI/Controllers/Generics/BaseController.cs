@@ -41,19 +41,12 @@ namespace ConstructionCompanyAPI.Controllers.Generics
 
         [HttpGet("{id}")]
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
 
         {
 
             TDatabase retrieved = _service.GetById(id);
             return _mapper.Map<T>(retrieved);
-        }
-
-        protected int GetCurrentUserId()
-        {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-            Claim nameClaim = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier);
-            return int.Parse(nameClaim?.Value);
         }
 
     }

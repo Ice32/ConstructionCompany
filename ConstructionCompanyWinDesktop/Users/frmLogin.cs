@@ -40,9 +40,8 @@ namespace ConstructionCompanyWinDesktop.Users
 
                     case "worker":
                     {
-                        WorkerVM user = await _usersService.GetCurrentUser<WorkerVM>();
-                        CurrentUserManager.SetUser(user);
-                        break;
+                        MessageBox.Show("Pristup nije dozvoljen");
+                        return;
                     }
 
                     default:
