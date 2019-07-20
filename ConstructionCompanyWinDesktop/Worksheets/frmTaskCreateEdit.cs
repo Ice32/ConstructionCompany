@@ -26,6 +26,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             txtTaskName.Text = task.Title;
             txtTaskName.KeyUp += (sender, args) => { _taskCopy.Title = txtTaskName.Text; };
 
+            txtTaskDescription.Text = task.Description;
+
             _validationUtil = new ValidationUtil(errorProviderTaskCreateEdit);
             LoadWorkers();
         }
@@ -71,6 +73,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             {
                 _originalTask.WorkerIds.Add(selectedItem.Id);
             }
+            _originalTask.Description = txtTaskDescription.Text;
             Close();
         }
 

@@ -36,7 +36,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                     {
                         Id = task.Id,
                         Title = task.Title,
-                        WorkerIds = task.Workers.Select(w => w.Id).ToList()
+                        WorkerIds = task.Workers.Select(w => w.Id).ToList(),
+                        Description = task.Description
                     })
                     .ToList();
                 _materials = worksheet.Materials.Select(m => new WorksheetMaterialVM
