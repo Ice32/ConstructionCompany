@@ -11,5 +11,22 @@ namespace ConstructionCompanyModel.ViewModels.Tasks
         public string Description { get; set; }
 
         public List<WorkerVM> Workers { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as TaskVM;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.Id.Equals(item.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Id.GetHashCode();
+        }
     }
 }

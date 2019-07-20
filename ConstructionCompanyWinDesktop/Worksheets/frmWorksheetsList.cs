@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Services;
 using ConstructionCompanyWinDesktop.Worksheets;
@@ -21,14 +22,18 @@ namespace ConstructionCompanyWinDesktop
         private async void LoadData()
         {
             _worksheets = await _worksheetsService.GetAll();
-            var mappedResults = _worksheets.Select(w => new
+            var mappedResults = _worksheets.Select(w =>
             {
-                ConstructionSite = w.ConstructionSite.Title,
-                Equipment = w.Equipment != null ? string.Join(", ", w.Equipment.Select(e => e.Name)) : "",
-                Workers = w.Workers != null ? string.Join(", ", w.Workers.Select(worker => worker.User.FirstName + ' ' + worker.User.LastName)) : "",
-                w.Remarks,
-                w.Date,
-                w.Id,
+                List<WorkerVM> workers = w.Tasks.SelectMany(t => t.Workers).Distinct().ToList();
+                return new
+                {
+                    ConstructionSite = w.ConstructionSite.Title,
+                    Equipment = w.Equipment != null ? string.Join(", ", w.Equipment.Select(e => e.Name)) : "",
+                    Workers = string.Join(", ",workers.Select(worker => worker.User.FirstName + ' ' + worker.User.LastName)),
+                    w.Remarks,
+                    w.Date,
+                    w.Id,
+                };
             }).ToList();
             dgvMain.DataSource = mappedResults;
         }
