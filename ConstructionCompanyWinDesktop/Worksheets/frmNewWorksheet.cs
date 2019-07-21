@@ -48,7 +48,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                     .ToList();
                 dtWorksheetDate.Value = worksheet.Date;
                 lblWorksheetCreateEditHeader.Text = "Uredi radni list";
-
+                txtWorksheetRemarks.Text = worksheet.Remarks;
             }
 
             LoadConstructionSites();
@@ -93,7 +93,8 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 Date = dtWorksheetDate.Value,
                 Tasks = _tasks,
                 Materials = _materials,
-                ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id
+                ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id,
+                Remarks = txtWorksheetRemarks.Text
             };
             if (_originalWorksheet != null)
             {

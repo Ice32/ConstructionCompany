@@ -31,9 +31,10 @@
             this.dgvMain = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionSite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Workers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,9 +46,10 @@
             this.dgvMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.ConstructionSite,
-            this.Remarks,
             this.Workers,
-            this.Equipment});
+            this.Equipment,
+            this.Remarks,
+            this.Date});
             this.dgvMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMain.Location = new System.Drawing.Point(0, 0);
             this.dgvMain.MultiSelect = false;
@@ -79,15 +81,6 @@
             this.ConstructionSite.ReadOnly = true;
             this.ConstructionSite.Width = 200;
             // 
-            // Remarks
-            // 
-            this.Remarks.DataPropertyName = "Remarks";
-            this.Remarks.HeaderText = "Bilješke";
-            this.Remarks.MinimumWidth = 10;
-            this.Remarks.Name = "Remarks";
-            this.Remarks.ReadOnly = true;
-            this.Remarks.Width = 200;
-            // 
             // Workers
             // 
             this.Workers.DataPropertyName = "Workers";
@@ -105,6 +98,24 @@
             this.Equipment.Name = "Equipment";
             this.Equipment.ReadOnly = true;
             this.Equipment.Width = 200;
+            // 
+            // Remarks
+            // 
+            this.Remarks.DataPropertyName = "Remarks";
+            this.Remarks.HeaderText = "Bilješke";
+            this.Remarks.MinimumWidth = 10;
+            this.Remarks.Name = "Remarks";
+            this.Remarks.ReadOnly = true;
+            this.Remarks.Width = 200;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Datum";
+            this.Date.MinimumWidth = 10;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 200;
             // 
             // frmWorksheetsList
             // 
@@ -125,9 +136,10 @@
         private System.Windows.Forms.DataGridView dgvMain;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionSite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Workers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
     }
 }
 
