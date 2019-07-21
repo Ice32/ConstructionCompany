@@ -57,6 +57,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.korisniciToolStripMenuItem,
@@ -207,6 +208,7 @@
             this.MaterialsAddMenuItem.Name = "MaterialsAddMenuItem";
             this.MaterialsAddMenuItem.Size = new System.Drawing.Size(359, 44);
             this.MaterialsAddMenuItem.Text = "Dodaj";
+            this.MaterialsAddMenuItem.Click += new System.EventHandler(this.MaterialsAddMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -235,7 +237,7 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmIndex";
             this.Text = "frmIndex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

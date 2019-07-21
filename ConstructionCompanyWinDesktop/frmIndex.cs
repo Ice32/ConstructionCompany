@@ -1,5 +1,4 @@
-﻿using ConstructionCompanyWinDesktop.Worksheets;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using ConstructionCompanyWinDesktop.ConstructionSiteManagers;
 using ConstructionCompanyWinDesktop.ConstructionSites;
@@ -7,6 +6,7 @@ using ConstructionCompanyWinDesktop.Managers;
 using ConstructionCompanyWinDesktop.Materials;
 using ConstructionCompanyWinDesktop.Users;
 using ConstructionCompanyWinDesktop.Util;
+using ConstructionCompanyWinDesktop.Worksheets;
 
 namespace ConstructionCompanyWinDesktop
 {
@@ -25,6 +25,7 @@ namespace ConstructionCompanyWinDesktop
                 WorkerAddMenuItem.Visible = false;
                 šefoviGradilištaToolStripMenuItem.Visible = false;
                 administratoriToolStripMenuItem.Visible = false;
+                materijaliToolStripMenuItem.Visible = false;
             }
         }
 
@@ -207,7 +208,7 @@ namespace ConstructionCompanyWinDesktop
 
         private void MaterialsAddMenuItem_Click(object sender, EventArgs e)
         {
-            var creationForm = new frmNewConstructionSite(this);
+            var creationForm = new frmNewMaterial(this);
             creationForm.ShowDialog();
         }
         

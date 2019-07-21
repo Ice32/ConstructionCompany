@@ -43,8 +43,8 @@ namespace ConstructionCompanyWinDesktop.Materials
             }
             var selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
             MaterialVM material = _materials.FirstOrDefault(w => w.Id == selectedId);
-//            frmNewConstructionSite editForm = new frmNewConstructionSite(constructionSite, MdiParent);
-//            editForm.Show();
+            var editForm = new frmNewMaterial(material, MdiParent);
+            editForm.Show();
         }
     }
 }
