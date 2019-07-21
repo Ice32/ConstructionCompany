@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ConstructionCompanyWinDesktop.ConstructionSiteManagers;
 using ConstructionCompanyWinDesktop.ConstructionSites;
 using ConstructionCompanyWinDesktop.Managers;
+using ConstructionCompanyWinDesktop.Materials;
 using ConstructionCompanyWinDesktop.Users;
 using ConstructionCompanyWinDesktop.Util;
 
@@ -193,5 +194,22 @@ namespace ConstructionCompanyWinDesktop
             var creationForm = new frmNewManager(this);
             creationForm.ShowDialog();
         }
+
+        private void MaterialsSearchMenuItem_Click(object sender, EventArgs e)
+        {
+            var materialsForm = new frmMaterialsList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            materialsForm.Show();
+        }
+
+        private void MaterialsAddMenuItem_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewConstructionSite(this);
+            creationForm.ShowDialog();
+        }
+        
     }
 }
