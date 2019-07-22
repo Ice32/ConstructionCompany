@@ -27,6 +27,7 @@ namespace ConstructionCompanyWinDesktop
                 šefoviGradilištaToolStripMenuItem.Visible = false;
                 administratoriToolStripMenuItem.Visible = false;
                 materijaliToolStripMenuItem.Visible = false;
+                opremaToolStripMenuItem.Visible = false;
             }
         }
 
@@ -221,6 +222,12 @@ namespace ConstructionCompanyWinDesktop
                 Dock = DockStyle.Fill,
             };
             equipmentForm.Show();
+        }
+
+        private void EquipmentAddMenuItem_Click(object sender, EventArgs e)
+        {
+            var creationForm = new frmNewEquipment(this);
+            creationForm.ShowDialog();
         }
     }
 }

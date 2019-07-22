@@ -45,9 +45,9 @@ namespace ConstructionCompanyWinDesktop.Equipment
                 return;
             }
             var selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
-            EquipmentVM material = _equipment.FirstOrDefault(w => w.Id == selectedId);
-            //var editForm = new frmNewMaterial(material, MdiParent);
-            //editForm.Show();
+            EquipmentVM equipment = _equipment.FirstOrDefault(w => w.Id == selectedId);
+            var editForm = new frmNewEquipment(equipment, MdiParent);
+            editForm.Show();
         }
     }
 }

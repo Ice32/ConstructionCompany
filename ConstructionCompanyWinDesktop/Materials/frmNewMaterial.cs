@@ -49,7 +49,7 @@ namespace ConstructionCompanyWinDesktop.Materials
 
         private async void BtnSaveMaterial_Click(object sender, EventArgs e)
         {
-            var constructionSite = new MaterialAddVM
+            var material = new MaterialAddVM
             {
                 Name = txtMaterialName.Text,
                 Amount = Convert.ToDouble(txtMaterialAmount.Text),
@@ -57,12 +57,12 @@ namespace ConstructionCompanyWinDesktop.Materials
             };
             if (_originalMaterial != null)
             {
-                constructionSite.Id = _originalMaterial.Id;
-                await _materialsService.Update(_originalMaterial.Id, constructionSite);
+                material.Id = _originalMaterial.Id;
+                await _materialsService.Update(_originalMaterial.Id, material);
             }
             else
             {
-                await _materialsService.Create(constructionSite);
+                await _materialsService.Create(material);
             }
             Form listForm = new frmMaterialsList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
             Close();

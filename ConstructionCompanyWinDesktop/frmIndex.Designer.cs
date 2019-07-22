@@ -48,12 +48,12 @@
             this.materijaliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MaterialsSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MaterialsAddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.opremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpremaSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EquipmentAddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -203,34 +203,16 @@
             // MaterialsSearchMenuItem
             // 
             this.MaterialsSearchMenuItem.Name = "MaterialsSearchMenuItem";
-            this.MaterialsSearchMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.MaterialsSearchMenuItem.Size = new System.Drawing.Size(237, 44);
             this.MaterialsSearchMenuItem.Text = "Pretraga";
             this.MaterialsSearchMenuItem.Click += new System.EventHandler(this.MaterialsSearchMenuItem_Click);
             // 
             // MaterialsAddMenuItem
             // 
             this.MaterialsAddMenuItem.Name = "MaterialsAddMenuItem";
-            this.MaterialsAddMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.MaterialsAddMenuItem.Size = new System.Drawing.Size(237, 44);
             this.MaterialsAddMenuItem.Text = "Dodaj";
             this.MaterialsAddMenuItem.Click += new System.EventHandler(this.MaterialsAddMenuItem_Click);
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 829);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1264, 42);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(79, 32);
-            this.toolStripStatusLabel.Text = "Status";
             // 
             // opremaToolStripMenuItem
             // 
@@ -253,6 +235,25 @@
             this.EquipmentAddMenuItem.Name = "EquipmentAddMenuItem";
             this.EquipmentAddMenuItem.Size = new System.Drawing.Size(359, 44);
             this.EquipmentAddMenuItem.Text = "Dodaj";
+            this.EquipmentAddMenuItem.Click += new System.EventHandler(this.EquipmentAddMenuItem_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 829);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1264, 42);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(79, 32);
+            this.toolStripStatusLabel.Text = "Status";
             // 
             // frmIndex
             // 

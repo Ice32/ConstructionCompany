@@ -89,6 +89,12 @@
     <Compile Include="Equipment\frmEquipmentList.Designer.cs">
       <DependentUpon>frmEquipmentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Equipment\frmNewEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment\frmNewEquipment.Designer.cs">
+      <DependentUpon>frmNewEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Equipment\frmEquipmentList.resx">
       <DependentUpon>frmEquipmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipment\frmNewEquipment.resx">
+      <DependentUpon>frmNewEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
