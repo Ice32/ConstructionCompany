@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ConstructionCompanyWinDesktop.ConstructionSiteManagers;
 using ConstructionCompanyWinDesktop.ConstructionSites;
+using ConstructionCompanyWinDesktop.Equipment;
 using ConstructionCompanyWinDesktop.Managers;
 using ConstructionCompanyWinDesktop.Materials;
 using ConstructionCompanyWinDesktop.Users;
@@ -211,6 +212,15 @@ namespace ConstructionCompanyWinDesktop
             var creationForm = new frmNewMaterial(this);
             creationForm.ShowDialog();
         }
-        
+
+        private void OpremaSearchMenuItem_Click(object sender, EventArgs e)
+        {
+            var equipmentForm = new frmEquipmentList
+            {
+                MdiParent = this,
+                Dock = DockStyle.Fill,
+            };
+            equipmentForm.Show();
+        }
     }
 }

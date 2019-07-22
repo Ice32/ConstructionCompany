@@ -77,6 +77,7 @@ namespace ConstructionCompanyAPI
 
             services.AddScoped<IService<ConstructionSite, object>, BaseService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
             services.AddScoped<IService<Material, object>, BaseService<Material, object, MaterialSpecification>>();
+            services.AddScoped<IService<Equipment, object>, BaseService<Equipment, object, EquipmentSpecification>>();
             services.AddScoped<IService<Task, object>, BaseService<Task, object, TaskSpecification>>();
             services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worksheet, object>, WorksheetService>();
@@ -85,6 +86,7 @@ namespace ConstructionCompanyAPI
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialSpecification>>();
+            services.AddScoped<ICRUDService<Equipment, object>, BaseCRUDService<Equipment, object, EquipmentSpecification>>();
             services.AddScoped<ICRUDService<Task, TaskSearch>, TasksService>();
             services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();

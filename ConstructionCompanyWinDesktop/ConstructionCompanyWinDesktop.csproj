@@ -83,6 +83,12 @@
     <Compile Include="ConstructionSites\frmNewConstructionSite.Designer.cs">
       <DependentUpon>frmNewConstructionSite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Equipment\frmEquipmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipment\frmEquipmentList.Designer.cs">
+      <DependentUpon>frmEquipmentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     <EmbeddedResource Include="ConstructionSites\frmNewConstructionSite.resx">
       <DependentUpon>frmNewConstructionSite.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Equipment\frmEquipmentList.resx">
+      <DependentUpon>frmEquipmentList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,5 +278,6 @@
       <Name>ConstructionCompanyModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

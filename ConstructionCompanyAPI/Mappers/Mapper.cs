@@ -86,6 +86,9 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<MaterialVM, Material>().ReverseMap();
             CreateMap<MaterialAddVM, Material>().ReverseMap();
 
+            CreateMap<EquipmentVM, Equipment>().ReverseMap();
+            CreateMap<EquipmentAddVM, Equipment>().ReverseMap();
+
             CreateMap<UserVM, User>().ReverseMap();
             CreateMap<UserAddVM, User>().ReverseMap();
             

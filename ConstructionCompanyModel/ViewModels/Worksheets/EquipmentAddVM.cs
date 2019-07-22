@@ -2,7 +2,7 @@
 
 namespace ConstructionCompanyModel.ViewModels.Worksheets
 {
-    public class EquipmentVM
+    public class EquipmentAddVM
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
@@ -10,5 +10,6 @@ namespace ConstructionCompanyModel.ViewModels.Worksheets
         public string Description { get; set; }
         public string SerialNumber { get; set; }
         public DateTime? PurchaseDate { get; set; }
+
     }
 }

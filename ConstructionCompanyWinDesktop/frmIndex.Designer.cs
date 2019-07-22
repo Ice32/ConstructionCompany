@@ -51,6 +51,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.opremaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpremaSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EquipmentAddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +68,8 @@
             this.korisniciToolStripMenuItem1,
             this.šefoviGradilištaToolStripMenuItem,
             this.administratoriToolStripMenuItem,
-            this.materijaliToolStripMenuItem});
+            this.materijaliToolStripMenuItem,
+            this.opremaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1264, 42);
@@ -228,6 +232,28 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(79, 32);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // opremaToolStripMenuItem
+            // 
+            this.opremaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpremaSearchMenuItem,
+            this.EquipmentAddMenuItem});
+            this.opremaToolStripMenuItem.Name = "opremaToolStripMenuItem";
+            this.opremaToolStripMenuItem.Size = new System.Drawing.Size(121, 38);
+            this.opremaToolStripMenuItem.Text = "Oprema";
+            // 
+            // OpremaSearchMenuItem
+            // 
+            this.OpremaSearchMenuItem.Name = "OpremaSearchMenuItem";
+            this.OpremaSearchMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.OpremaSearchMenuItem.Text = "Pretraga";
+            this.OpremaSearchMenuItem.Click += new System.EventHandler(this.OpremaSearchMenuItem_Click);
+            // 
+            // EquipmentAddMenuItem
+            // 
+            this.EquipmentAddMenuItem.Name = "EquipmentAddMenuItem";
+            this.EquipmentAddMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.EquipmentAddMenuItem.Text = "Dodaj";
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -274,6 +300,9 @@
         private System.Windows.Forms.ToolStripMenuItem materijaliToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MaterialsSearchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MaterialsAddMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opremaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpremaSearchMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EquipmentAddMenuItem;
     }
 }
 
