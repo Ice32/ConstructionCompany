@@ -29,6 +29,7 @@ namespace ConstructionCompanyWinDesktop
                 materijaliToolStripMenuItem.Visible = false;
                 opremaToolStripMenuItem.Visible = false;
             }
+            OpenWorksheetsSearchForm();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -118,13 +119,18 @@ namespace ConstructionCompanyWinDesktop
 
         private void WorksheetSearchMenuItem_Click(object sender, EventArgs e)
         {
-            var korisniciPretraga = new frmWorksheetsList
+            OpenWorksheetsSearchForm();
+        }
+
+        private void OpenWorksheetsSearchForm()
+        {
+            var worksheetSearch = new frmWorksheetsList
             {
                 MdiParent = this,
                 Dock = DockStyle.Fill,
                 AutoSize = true
             };
-            korisniciPretraga.Show();
+            worksheetSearch.Show();
         }
         
 
