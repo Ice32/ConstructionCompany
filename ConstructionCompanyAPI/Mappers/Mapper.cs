@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -30,6 +31,15 @@ namespace ConstructionCompanyAPI.Mappers
                         Name = wm.Material.Name,
                         Unit = (MeasurementUnit) wm.Material.Unit,
                     }));
+                })
+                .ForMember(w => w.Equipment, mo =>
+                {
+                    mo.MapFrom(w => w.WorksheetEquipment.Select(we => new EquipmentVM
+                    {
+                        Id = we.EquipmentId,
+                        Quantity = we.Quantity,
+                        Name = we.Equipment.Name,
+                    }));
                 });
             CreateMap<WorksheetVM, Worksheet>();
             CreateMap<WorksheetAddVM, Worksheet>()
@@ -38,6 +48,12 @@ namespace ConstructionCompanyAPI.Mappers
                     {
                         MaterialId = m.MaterialId,
                         Amount = m.Amount
+                    })))
+                .ForMember(w => w.WorksheetEquipment, mo =>
+                    mo.MapFrom(w => w.Equipment.Select(m => new WorksheetEquipment
+                    {
+                        EquipmentId = m.EquipmentId,
+                        Quantity = Convert.ToInt32(m.Quantity)
                     })));
             CreateMap<Worksheet, WorksheetAddVM>();
 

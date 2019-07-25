@@ -18,6 +18,9 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private readonly List<WorksheetMaterialVM> _materials = new List<WorksheetMaterialVM> {
             new WorksheetMaterialVM()
         };
+        private readonly List<WorksheetEquipmentVM> _equipment = new List<WorksheetEquipmentVM> {
+            new WorksheetEquipmentVM()
+        };
 
         private readonly WorksheetVM _originalWorksheet;
 
@@ -46,6 +49,12 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                         Amount = m.Amount
                     })
                     .ToList();
+                _equipment = worksheet.Equipment.Select(e => new WorksheetEquipmentVM
+                {
+                    EquipmentId = e.Id,
+                    Quantity = e.Quantity
+                })
+                    .ToList();
                 dtWorksheetDate.Value = worksheet.Date;
                 lblWorksheetCreateEditHeader.Text = "Uredi radni list";
                 txtWorksheetRemarks.Text = worksheet.Remarks;
@@ -55,6 +64,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
 
             userControlWorksheetTasks.SetTasks(_tasks);
             userControlWorksheetMaterials.SetMaterials(_materials);
+            userControlWorksheetEquipment.SetEquipment(_equipment);
         }
 
         private async void LoadConstructionSites()
@@ -93,6 +103,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
                 Date = dtWorksheetDate.Value,
                 Tasks = _tasks,
                 Materials = _materials,
+                Equipment = _equipment,
                 ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id,
                 Remarks = txtWorksheetRemarks.Text
             };

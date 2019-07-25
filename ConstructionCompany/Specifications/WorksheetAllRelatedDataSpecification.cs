@@ -12,6 +12,7 @@ namespace ConstructionCompany.Specifications
             AddInclude(w => w.ConstructionSite);
             AddInclude("Tasks.WorkerTasks.Worker.User");
             AddInclude("WorksheetMaterials.Material");
+            AddInclude("WorksheetEquipment.Equipment");
         }
 
         public WorksheetAllRelatedDataSpecification(int id)
@@ -20,6 +21,7 @@ namespace ConstructionCompany.Specifications
             AddInclude(w => w.ConstructionSite);
             AddInclude("Tasks.WorkerTasks.Worker.User");
             AddInclude("WorksheetMaterials.Material");
+            AddInclude("WorksheetEquipment.Equipment");
         }
     }
 }

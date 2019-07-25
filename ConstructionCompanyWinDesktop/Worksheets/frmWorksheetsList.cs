@@ -50,6 +50,7 @@ namespace ConstructionCompanyWinDesktop
             int selectedId = (int)dataGridView.Rows[e.RowIndex].Cells["Id"].Value;
             WorksheetVM worksheet = _worksheets.FirstOrDefault(w => w.Id == selectedId);
             frmNewWorksheet worksheetForm = new frmNewWorksheet(worksheet, MdiParent);
+            worksheetForm.StartPosition = FormStartPosition.CenterScreen;
             worksheetForm.Show();
         }
     }
