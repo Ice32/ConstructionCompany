@@ -17,12 +17,12 @@
         <viewModels:TasksViewModel />
     </ContentPage.BindingContext>
     <StackLayout Orientation="Vertical">
-        <StackLayout Orientation="Horizontal">
-            <Picker Title="Workers"
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Picker Title="Radnici"
                     ItemsSource="{Binding Workers}"
                     ItemDisplayBinding="{Binding User.FullName}"
                     SelectedItem="{Binding SelectedWorker}"></Picker>
-            <Picker Title="ConstructionSites"
+            <Picker Title="Gradilišta"
                     ItemsSource="{Binding ConstructionSites}"
                     ItemDisplayBinding="{Binding Title}"
                     SelectedItem="{Binding SelectedConstructionSite}">

@@ -40,7 +40,7 @@ namespace ConstructionCompanyMobile.ViewModels
 
         public TasksViewModel()
         {
-            Title = "Tasks for today";
+            Title = "Današnji zadaci";
             Tasks = new ObservableCollection<TaskVM>();
             Workers = new ObservableCollection<WorkerVM>();
             ConstructionSites = new ObservableCollection<ConstructionSiteVM>();
