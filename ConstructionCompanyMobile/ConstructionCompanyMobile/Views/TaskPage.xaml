@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="clr-namespace:ConstructionCompanyMobile.Views"
+             mc:Ignorable="d"
+             x:Class="ConstructionCompanyMobile.Views.TaskPage"
+             Title="{Binding Title}">
+
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+    </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Text="Naziv:" FontSize="Medium" Grid.Row="0" Grid.Column="0" />
+        <Label Text="{Binding Task.Title}" d:Text="Item name" FontSize="Medium" Grid.Row="0" Grid.Column="1"/>
+        
+        <Label Text="Gradilište:" FontSize="Medium" Grid.Row="1" Grid.Column="0" />
+        <Label Text="{Binding Task.Worksheet.ConstructionSite.Title}" d:Text="Construction site" FontSize="Medium" Grid.Row="1" Grid.Column="1"/>
+
+        <Label Text="Radnici:" FontSize="Medium" Grid.Row="2" Grid.Column="0" />
+        <control:WorkersContentView Grid.Row="2" Grid.Column="1" />
+
+        <Label Text="Materijali:" FontSize="Medium" Grid.Row="3" Grid.Column="0" />
+        <control:MaterialsContentView Grid.Row="3" Grid.Column="1" />
+
+        <Label Text="Oprema:" FontSize="Medium" Grid.Row="4" Grid.Column="0" />
+        <control:EquipmentContentView Grid.Row="4" Grid.Column="1" />
+
+        <Label Text="Datum:" FontSize="Medium" Grid.Row="5" Grid.Column="0" />
+        <Label Text="{Binding Task.Worksheet.Date, StringFormat='{0:dd. MM. yyyy}'}" d:Text="07/20/2019" FontSize="Medium" Grid.Row="5" Grid.Column="1"/>
+    </Grid>
+
+</ContentPage>

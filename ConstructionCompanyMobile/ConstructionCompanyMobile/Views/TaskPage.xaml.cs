@@ -1,38 +1,35 @@
-﻿using System;
+﻿using ConstructionCompanyMobile.ViewModels;
+using ConstructionCompanyModel.ViewModels.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using ConstructionCompanyMobile.Models;
-using ConstructionCompanyMobile.ViewModels;
 
 namespace ConstructionCompanyMobile.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class ItemDetailPage : ContentPage
+    public partial class TaskPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        TaskViewModel viewModel;
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public TaskPage(TaskViewModel viewModel)
         {
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
         }
 
-        public ItemDetailPage()
+        public TaskPage()
         {
             InitializeComponent();
 
-            var item = new Item
+            var task = new TaskVM
             {
-                Text = "Item 1",
+                Title = "Task",
                 Description = "This is an item description."
             };
 
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new TaskViewModel(task);
             BindingContext = viewModel;
         }
     }

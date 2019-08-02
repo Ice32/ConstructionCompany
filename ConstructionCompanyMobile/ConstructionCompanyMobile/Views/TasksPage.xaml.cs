@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using ConstructionCompanyMobile.Models;
 using ConstructionCompanyMobile.ViewModels;
+using ConstructionCompanyModel.ViewModels.Tasks;
 using Xamarin.Forms;
 
 namespace ConstructionCompanyMobile.Views
@@ -22,11 +22,11 @@ namespace ConstructionCompanyMobile.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as TaskVM;
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new TaskPage(new TaskViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ConstructionCompanyModel.ViewModels.Workers;
+using ConstructionCompanyModel.ViewModels.Worksheets;
 
 namespace ConstructionCompanyModel.ViewModels.Tasks
 {
@@ -11,6 +12,8 @@ namespace ConstructionCompanyModel.ViewModels.Tasks
         public string Description { get; set; }
 
         public List<WorkerVM> Workers { get; set; }
+
+        public WorksheetVM Worksheet { get; set; }
 
         public override bool Equals(object obj)
         {

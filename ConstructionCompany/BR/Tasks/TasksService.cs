@@ -18,7 +18,7 @@ namespace ConstructionCompany.BR.Tasks
             {
                 return _repository.List(new TaskSpecification(search)).ToList();
             }
-            return _repository.List().ToList();
+            return _repository.List(new TaskSpecification()).ToList();
         }
     }
 }

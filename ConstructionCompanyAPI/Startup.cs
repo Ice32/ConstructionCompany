@@ -36,7 +36,10 @@ namespace ConstructionCompanyAPI
             services.AddMvcCore()
                 .AddApiExplorer()
                 .AddJsonFormatters()
-                .AddAuthorization();
+                .AddAuthorization()
+                .AddJsonOptions(
+                    options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
 
 
             ConfigureServicesCommon(services);

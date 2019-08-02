@@ -20,6 +20,9 @@
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\WorkersContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +30,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\EquipmentContentView.xaml.cs">
+      <DependentUpon>EquipmentContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TaskPage.xaml.cs">
+      <DependentUpon>TaskPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MaterialsContentView.xaml.cs">
+      <DependentUpon>MaterialsContentView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
