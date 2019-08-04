@@ -29,7 +29,7 @@ namespace ConstructionCompanyMobile.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Tasks:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        MenuPages.Add(id, new NavigationPage(new TasksPage()));
                         break;
                     case (int)MenuItemType.Logout:
                         Logout();

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:ConstructionCompanyMobile.ViewModels;assembly=ConstructionCompanyMobile"
              mc:Ignorable="d"
-             x:Class="ConstructionCompanyMobile.Views.ItemsPage"
+             x:Class="ConstructionCompanyMobile.Views.TasksPage"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
 
