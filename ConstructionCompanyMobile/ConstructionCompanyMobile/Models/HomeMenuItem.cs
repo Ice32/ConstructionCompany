@@ -3,8 +3,8 @@
     public enum MenuItemType
     {
         Tasks,
-        Logout,
-        Worksheets
+        Worksheets,
+        Logout
     }
     public class HomeMenuItem
     {
