@@ -20,8 +20,8 @@ namespace ConstructionCompanyMobile.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Tasks, Title="Zadaci" },
+                new HomeMenuItem {Id = MenuItemType.Logout, Title="Odjavi se" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

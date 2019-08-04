@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 using ConstructionCompanyMobile.Models;
+using ConstructionCompanyMobile.Util;
 using Xamarin.Forms;
 
 namespace ConstructionCompanyMobile.Views
@@ -18,7 +19,7 @@ namespace ConstructionCompanyMobile.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Tasks, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -27,12 +28,12 @@ namespace ConstructionCompanyMobile.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)MenuItemType.Tasks:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    case (int)MenuItemType.Logout:
+                        Logout();
+                        return;
                 }
             }
 
@@ -47,6 +48,14 @@ namespace ConstructionCompanyMobile.Views
 
                 IsPresented = false;
             }
+        }
+
+        private void Logout()
+        {
+            APIClient.SetCredentials(null, null);
+            CurrentUserManager.SetUser(null);
+
+            Application.Current.MainPage = new LoginPage();
         }
     }
 }
