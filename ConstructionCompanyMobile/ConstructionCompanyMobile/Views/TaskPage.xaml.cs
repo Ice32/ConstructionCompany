@@ -1,4 +1,5 @@
-﻿using ConstructionCompanyMobile.ViewModels;
+﻿using ConstructionCompanyMobile.Util;
+using ConstructionCompanyMobile.ViewModels;
 using ConstructionCompanyModel.ViewModels.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -17,6 +18,8 @@ namespace ConstructionCompanyMobile.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+
+            HideTaskRatingIfWorker();
         }
 
         public TaskPage()
@@ -31,6 +34,22 @@ namespace ConstructionCompanyMobile.Views
 
             viewModel = new TaskViewModel(task);
             BindingContext = viewModel;
+
+            HideTaskRatingIfWorker();
+        }
+
+        private void HideTaskRatingIfWorker()
+        {
+            if (CurrentUserManager.IsWorker())
+            {
+                HideTaskRating();
+            }
+        }
+
+        private void HideTaskRating()
+        {
+            TaskRatingPicker.IsVisible = false;
+            TaskRatingButton.IsVisible = false;
         }
     }
 }

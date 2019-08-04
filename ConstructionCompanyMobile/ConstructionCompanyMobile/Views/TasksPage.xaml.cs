@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using ConstructionCompanyMobile.ViewModels;
+﻿using ConstructionCompanyMobile.ViewModels;
 using ConstructionCompanyModel.ViewModels.Tasks;
+using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace ConstructionCompanyMobile.Views
@@ -41,12 +41,7 @@ namespace ConstructionCompanyMobile.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Tasks.Count == 0)
-            {
-                //viewModel.LoadTasksCommand.Execute(null);
-                viewModel.InitCommand.Execute(null);
-                    
-            }
+            viewModel.InitCommand.Execute(null);
         }
     }
 }

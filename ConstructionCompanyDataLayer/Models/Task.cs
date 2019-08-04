@@ -18,5 +18,7 @@ namespace ConstructionCompanyDataLayer.Models
 
         public int WorksheetId { get; set; }
         public Worksheet Worksheet { get; set; }
+
+        public int Rating { get; set; }
     }
 }

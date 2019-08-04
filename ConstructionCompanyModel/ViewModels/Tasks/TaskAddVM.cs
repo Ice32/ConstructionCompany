@@ -10,5 +10,7 @@ namespace ConstructionCompanyModel.ViewModels.Tasks
         public string Description { get; set; }
 
         public List<int> WorkerIds { get; set; }
+
+        public int Rating { get; set; }
     }
 }

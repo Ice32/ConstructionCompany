@@ -11,6 +11,8 @@ namespace ConstructionCompanyModel.ViewModels.Tasks
 
         public string Description { get; set; }
 
+        public int Rating { get; set; }
+
         public List<WorkerVM> Workers { get; set; }
 
         public WorksheetVM Worksheet { get; set; }

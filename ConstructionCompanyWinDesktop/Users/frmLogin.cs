@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.Managers;
-using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Services;
 using ConstructionCompanyWinDesktop.Util;
@@ -32,29 +31,29 @@ namespace ConstructionCompanyWinDesktop.Users
                 switch (userType)
                 {
                     case "manager":
-                    {
-                        ManagerVM user = await _usersService.GetCurrentUser<ManagerVM>();
-                        CurrentUserManager.SetUser(user);
-                        break;
-                    }
+                        {
+                            ManagerVM user = await _usersService.GetCurrentUser<ManagerVM>();
+                            CurrentUserManager.SetUser(user);
+                            break;
+                        }
 
                     case "worker":
-                    {
-                        MessageBox.Show("Pristup nije dozvoljen");
-                        return;
-                    }
+                        {
+                            MessageBox.Show("Pristup nije dozvoljen");
+                            return;
+                        }
 
                     default:
-                    {
-                        ConstructionSiteManagerVM user = await _usersService.GetCurrentUser<ConstructionSiteManagerVM>();
-                        CurrentUserManager.SetUser(user);
-                        break;
-                    }
+                        {
+                            ConstructionSiteManagerVM user = await _usersService.GetCurrentUser<ConstructionSiteManagerVM>();
+                            CurrentUserManager.SetUser(user);
+                            break;
+                        }
                 }
                 new frmIndex().Show();
                 Hide();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Neispravni podaci");
             }
