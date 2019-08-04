@@ -1,9 +1,8 @@
-﻿using ConstructionCompanyMobile.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
+using ConstructionCompanyMobile.Models;
+using ConstructionCompanyMobile.Util;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ConstructionCompanyMobile.Views
 {
@@ -18,11 +17,13 @@ namespace ConstructionCompanyMobile.Views
         {
             InitializeComponent();
 
-            menuItems = new List<HomeMenuItem>
+            menuItems = new List<HomeMenuItem>();
+            menuItems.Add(new HomeMenuItem {Id = MenuItemType.Tasks, Title="Zadaci" });
+            if (!CurrentUserManager.IsWorker())
             {
-                new HomeMenuItem {Id = MenuItemType.Tasks, Title="Zadaci" },
-                new HomeMenuItem {Id = MenuItemType.Logout, Title="Odjavi se" }
-            };
+                menuItems.Add(new HomeMenuItem {Id = MenuItemType.Worksheets, Title="Radni listovi" });
+            }
+            menuItems.Add(new HomeMenuItem {Id = MenuItemType.Logout, Title="Odjavi se" });
 
             ListViewMenu.ItemsSource = menuItems;
 

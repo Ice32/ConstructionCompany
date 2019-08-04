@@ -31,6 +31,9 @@ namespace ConstructionCompanyMobile.Views
                     case (int)MenuItemType.Tasks:
                         MenuPages.Add(id, new NavigationPage(new TasksPage()));
                         break;
+                    case (int)MenuItemType.Worksheets:
+                        MenuPages.Add(id, new NavigationPage(new WorksheetsPage()));
+                        break;
                     case (int)MenuItemType.Logout:
                         Logout();
                         return;
