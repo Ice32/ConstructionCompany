@@ -22,7 +22,7 @@ namespace ConstructionCompanyMobile.Views
             if (item == null)
                 return;
 
-            //await Navigation.PushAsync(new TaskPage(new TaskViewModel(item)));
+            await Navigation.PushAsync(new WorksheetPage(new WorksheetViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
