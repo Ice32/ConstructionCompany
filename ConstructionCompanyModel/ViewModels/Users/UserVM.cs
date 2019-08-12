@@ -17,6 +17,8 @@ namespace ConstructionCompanyModel.ViewModels.Users
 
         public RoleVM.RoleEnum Role { get; set; }
 
+        public bool Active { get; set; }
+
         public string FullName
         {
             get

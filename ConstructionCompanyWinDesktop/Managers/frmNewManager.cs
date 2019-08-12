@@ -37,7 +37,8 @@ namespace ConstructionCompanyWinDesktop.Managers
                     FirstName = txtUserFirstName.Text,
                     LastName = txtUserLastName.Text,
                     UserName = txtUserUsername.Text,
-                    Password = txtUserPassword.Text
+                    Password = txtUserPassword.Text,
+                    Active = true
                 },
             };
             if (_originalManager != null)

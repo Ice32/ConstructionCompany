@@ -107,8 +107,13 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<EquipmentVM, Equipment>().ReverseMap();
             CreateMap<EquipmentAddVM, Equipment>().ReverseMap();
 
-            CreateMap<UserVM, User>().ReverseMap();
-            CreateMap<UserAddVM, User>().ReverseMap();
+            CreateMap<User, UserVM>()
+                .ForMember(u => u.Active, mo => mo.MapFrom(u => !u.IsDeleted));
+            CreateMap<UserVM, User>()
+                .ForMember(u => u.IsDeleted, mo => mo.MapFrom(u => !u.Active));
+            CreateMap<UserAddVM, User>()
+                .ForMember(u => u.IsDeleted, mo => mo.MapFrom(u => !u.Active));
+            CreateMap<User, UserAddVM>();
             
             CreateMap<WorkerAddVM, Worker>().ReverseMap();
             CreateMap<WorkerVM, Worker>().ReverseMap();

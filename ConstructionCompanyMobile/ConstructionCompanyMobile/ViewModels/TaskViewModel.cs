@@ -92,7 +92,7 @@ namespace ConstructionCompanyMobile.ViewModels
                     Rating = SelectedRating
                 };
                 await _tasksService.Update(Task.Id, forUpdate);
-                await Application.Current.MainPage.DisplayAlert("Rezultat", "Zadatak ocijenjen", "ok");
+                await Application.Current.MainPage.DisplayAlert("Rezultat", "Zadatak ocijenjen", "Uredu");
             }
             catch (Exception ex)
             {

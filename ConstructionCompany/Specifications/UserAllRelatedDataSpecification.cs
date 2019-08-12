@@ -13,13 +13,13 @@ namespace ConstructionCompany.Specifications
         }
 
         public UserAllRelatedDataSpecification(string username)
-            : base(u => u.UserName == username)
+            : base(u => u.UserName == username && u.IsDeleted != true)
         {
             AddInclude("UserRoles.Role");
         }
         
         public UserAllRelatedDataSpecification(int id)
-            : base(u => u.Id == id)
+            : base(u => u.Id == id && u.IsDeleted != true)
         {
             AddInclude("UserRoles.Role");
         }

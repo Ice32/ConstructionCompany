@@ -31,6 +31,7 @@ namespace ConstructionCompanyWinDesktop.Users
             txtUserLastName.Text = worker.User.LastName;
             txtUserUsername.Text = worker.User.UserName;
             lblNewUser.Text = "Uredi korisnika";
+            chkActive.Checked = worker.User.Active;
         }
 
         private async void BtnUserSubmit_Click(object sender, EventArgs e)
@@ -42,7 +43,8 @@ namespace ConstructionCompanyWinDesktop.Users
                     FirstName = txtUserFirstName.Text,
                     LastName = txtUserLastName.Text,
                     UserName = txtUserUsername.Text,
-                    Password = txtUserPassword.Text
+                    Password = txtUserPassword.Text,
+                    Active = chkActive.Checked,
                 },
             };
             if (_originalWorker != null)

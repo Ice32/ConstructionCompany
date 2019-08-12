@@ -26,5 +26,7 @@ namespace ConstructionCompanyModel.ViewModels.Users
         public DateTime DateOfBirth { get; set; }
 
         public List<int> RoleIds { get; set; } = new List<int>();
+
+        public bool Active { get; set; }
     }
 }

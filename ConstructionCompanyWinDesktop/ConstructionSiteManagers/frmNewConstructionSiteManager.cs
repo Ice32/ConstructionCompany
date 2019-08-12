@@ -26,6 +26,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
             txtUserLastName.Text = constructionSiteManager.User.LastName;
             txtUserUsername.Text = constructionSiteManager.User.UserName;
             lblNewUser.Text = "Uredi korisnika";
+            chkActive.Checked = constructionSiteManager.User.Active;
         }
 
         private async void BtnUserSubmit_Click(object sender, EventArgs e)
@@ -37,7 +38,8 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
                     FirstName = txtUserFirstName.Text,
                     LastName = txtUserLastName.Text,
                     UserName = txtUserUsername.Text,
-                    Password = txtUserPassword.Text
+                    Password = txtUserPassword.Text,
+                    Active = chkActive.Checked
                 },
             };
             if (_originalConstructionSiteManager != null)

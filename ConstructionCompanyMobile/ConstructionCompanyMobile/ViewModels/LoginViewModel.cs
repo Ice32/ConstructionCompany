@@ -77,6 +77,7 @@ namespace ConstructionCompanyMobile.ViewModels
             }
             catch (Exception e)
             {
+                await Application.Current.MainPage.DisplayAlert("Greška", "Neispravni podaci", "Uredu");
                 Console.WriteLine(e.Message);
             }
         }

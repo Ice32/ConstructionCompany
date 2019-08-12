@@ -46,12 +46,15 @@
             this.txtUserPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnUserSubmit = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.chkActive = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNewUser
@@ -71,6 +74,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(195, 138);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -216,12 +220,33 @@
             this.btnUserSubmit.Location = new System.Drawing.Point(486, 798);
             this.btnUserSubmit.Name = "btnUserSubmit";
             this.btnUserSubmit.Size = new System.Drawing.Size(143, 47);
-            this.btnUserSubmit.TabIndex = 4;
+            this.btnUserSubmit.TabIndex = 6;
             this.btnUserSubmit.Text = "Spremi";
             this.btnUserSubmit.UseVisualStyleBackColor = true;
             this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
             // 
-            // frmNewUser
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.chkActive);
+            this.panel6.Location = new System.Drawing.Point(3, 444);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(481, 75);
+            this.panel6.TabIndex = 5;
+            // 
+            // chkActive
+            // 
+            this.chkActive.AutoSize = true;
+            this.chkActive.Checked = true;
+            this.chkActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActive.Location = new System.Drawing.Point(363, 43);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Size = new System.Drawing.Size(115, 29);
+            this.chkActive.TabIndex = 5;
+            this.chkActive.Text = "Aktivan";
+            this.chkActive.UseVisualStyleBackColor = true;
+            // 
+            // frmNewConstructionSiteManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,6 +268,8 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +295,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtUserPasswordConfirmation;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.CheckBox chkActive;
     }
 }

@@ -64,8 +64,11 @@ namespace ConstructionCompany.BR.Users
         
         public User Update(User user, string password)
         {
-            user.PasswordSalt = GenerateSalt();
-            user.PasswordHash = GenerateHash(user.PasswordSalt, password);
+            if (!string.IsNullOrEmpty(password))
+            {
+                user.PasswordSalt = GenerateSalt();
+                user.PasswordHash = GenerateHash(user.PasswordSalt, password);
+            }
 
             return _usersRepository.Update(user);
         }
