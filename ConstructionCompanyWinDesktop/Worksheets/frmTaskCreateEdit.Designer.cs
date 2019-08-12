@@ -139,7 +139,7 @@
             this.Controls.Add(this.txtTaskName);
             this.Controls.Add(this.lblTaskName);
             this.Name = "frmTaskCreateEdit";
-            this.Text = "frmTaskCreateEditcs";
+            this.Text = "Zadatak";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTaskCreateEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

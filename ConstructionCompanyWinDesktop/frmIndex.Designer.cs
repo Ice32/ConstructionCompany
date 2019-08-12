@@ -75,7 +75,7 @@
             this.odjavaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1341, 42);
+            this.menuStrip.Size = new System.Drawing.Size(1341, 40);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -284,7 +284,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmIndex";
-            this.Text = "frmIndex";
+            this.Text = "Građevinski dnevnik";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

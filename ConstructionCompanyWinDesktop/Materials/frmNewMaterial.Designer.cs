@@ -165,7 +165,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnMaterialSave);
             this.Name = "frmNewMaterial";
-            this.Text = "frmNewMaterial";
+            this.Text = "Materijal";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

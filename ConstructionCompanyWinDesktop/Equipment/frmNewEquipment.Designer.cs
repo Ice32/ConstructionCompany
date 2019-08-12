@@ -222,7 +222,7 @@
             this.Controls.Add(this.btnSaveEquipment);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmNewEquipment";
-            this.Text = "frmNewEquipment";
+            this.Text = "Oprema";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

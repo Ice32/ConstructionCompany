@@ -45,9 +45,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtUserPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnUserSubmit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.chkActive = new System.Windows.Forms.CheckBox();
+            this.btnUserSubmit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,9 +63,9 @@
             this.lblNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewUser.Location = new System.Drawing.Point(311, 67);
             this.lblNewUser.Name = "lblNewUser";
-            this.lblNewUser.Size = new System.Drawing.Size(237, 37);
+            this.lblNewUser.Size = new System.Drawing.Size(308, 37);
             this.lblNewUser.TabIndex = 0;
-            this.lblNewUser.Text = "Dodaj korisnika";
+            this.lblNewUser.Text = "Dodaj šefa gradilišta";
             // 
             // flowLayoutPanel1
             // 
@@ -214,17 +214,6 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Potvrdi lozinku";
             // 
-            // btnUserSubmit
-            // 
-            this.btnUserSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUserSubmit.Location = new System.Drawing.Point(486, 798);
-            this.btnUserSubmit.Name = "btnUserSubmit";
-            this.btnUserSubmit.Size = new System.Drawing.Size(143, 47);
-            this.btnUserSubmit.TabIndex = 6;
-            this.btnUserSubmit.Text = "Spremi";
-            this.btnUserSubmit.UseVisualStyleBackColor = true;
-            this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
-            // 
             // panel6
             // 
             this.panel6.AutoSize = true;
@@ -246,6 +235,17 @@
             this.chkActive.Text = "Aktivan";
             this.chkActive.UseVisualStyleBackColor = true;
             // 
+            // btnUserSubmit
+            // 
+            this.btnUserSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUserSubmit.Location = new System.Drawing.Point(486, 798);
+            this.btnUserSubmit.Name = "btnUserSubmit";
+            this.btnUserSubmit.Size = new System.Drawing.Size(143, 47);
+            this.btnUserSubmit.TabIndex = 6;
+            this.btnUserSubmit.Text = "Spremi";
+            this.btnUserSubmit.UseVisualStyleBackColor = true;
+            this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
+            // 
             // frmNewConstructionSiteManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -255,7 +255,7 @@
             this.Controls.Add(this.lblNewUser);
             this.Controls.Add(this.btnUserSubmit);
             this.Name = "frmNewConstructionSiteManager";
-            this.Text = "frmNewUser";
+            this.Text = "Šef gradilišta";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);

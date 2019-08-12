@@ -229,7 +229,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmNewConstructionSite";
-            this.Text = "frmNewConstructionSite";
+            this.Text = "Gradilište";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

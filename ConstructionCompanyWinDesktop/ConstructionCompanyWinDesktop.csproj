@@ -230,7 +230,7 @@
     <EmbeddedResource Include="Managers\frmConstructionSiteManagersList.resx">
       <DependentUpon>frmManagersList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\frmNewWorker.resx">
+    <EmbeddedResource Include="Managers\frmNewManager.resx">
       <DependentUpon>frmNewManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Materials\frmMaterialsList.resx">

@@ -30,7 +30,7 @@ namespace ConstructionCompanyWinDesktop.Users
             txtUserFirstName.Text = worker.User.FirstName;
             txtUserLastName.Text = worker.User.LastName;
             txtUserUsername.Text = worker.User.UserName;
-            lblNewUser.Text = "Uredi korisnika";
+            lblNewUser.Text = "Uredi radnika";
             chkActive.Checked = worker.User.Active;
         }
 

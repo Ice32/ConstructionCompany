@@ -122,7 +122,7 @@
             this.Controls.Add(this.btnLoginSubmit);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
+            this.Text = "Prijava";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);

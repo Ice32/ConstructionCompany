@@ -60,9 +60,9 @@
             this.lblNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewUser.Location = new System.Drawing.Point(311, 67);
             this.lblNewUser.Name = "lblNewUser";
-            this.lblNewUser.Size = new System.Drawing.Size(237, 37);
+            this.lblNewUser.Size = new System.Drawing.Size(315, 37);
             this.lblNewUser.TabIndex = 0;
-            this.lblNewUser.Text = "Dodaj korisnika";
+            this.lblNewUser.Text = "Dodaj administratora";
             // 
             // flowLayoutPanel1
             // 
@@ -221,7 +221,7 @@
             this.btnUserSubmit.UseVisualStyleBackColor = true;
             this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
             // 
-            // frmNewUser
+            // frmNewManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -230,7 +230,7 @@
             this.Controls.Add(this.lblNewUser);
             this.Controls.Add(this.btnUserSubmit);
             this.Name = "frmNewManager";
-            this.Text = "frmNewUser";
+            this.Text = "Administrator";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);

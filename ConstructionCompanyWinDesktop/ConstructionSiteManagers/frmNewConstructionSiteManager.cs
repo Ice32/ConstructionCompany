@@ -25,7 +25,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
             txtUserFirstName.Text = constructionSiteManager.User.FirstName;
             txtUserLastName.Text = constructionSiteManager.User.LastName;
             txtUserUsername.Text = constructionSiteManager.User.UserName;
-            lblNewUser.Text = "Uredi korisnika";
+            lblNewUser.Text = "Uredi šefa gradilišta";
             chkActive.Checked = constructionSiteManager.User.Active;
         }
 

@@ -25,7 +25,7 @@ namespace ConstructionCompanyWinDesktop.Managers
             txtUserFirstName.Text = manager.User.FirstName;
             txtUserLastName.Text = manager.User.LastName;
             txtUserUsername.Text = manager.User.UserName;
-            lblNewUser.Text = "Uredi korisnika";
+            lblNewUser.Text = "Uredi administratora";
         }
 
         private async void BtnUserSubmit_Click(object sender, EventArgs e)
