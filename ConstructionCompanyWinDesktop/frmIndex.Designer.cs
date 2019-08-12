@@ -54,6 +54,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odjaviSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -69,10 +71,11 @@
             this.šefoviGradilištaToolStripMenuItem,
             this.administratoriToolStripMenuItem,
             this.materijaliToolStripMenuItem,
-            this.opremaToolStripMenuItem});
+            this.opremaToolStripMenuItem,
+            this.odjavaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1264, 42);
+            this.menuStrip.Size = new System.Drawing.Size(1341, 42);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -245,7 +248,7 @@
             this.statusStrip.Location = new System.Drawing.Point(0, 829);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1264, 42);
+            this.statusStrip.Size = new System.Drawing.Size(1341, 42);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -255,11 +258,26 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(79, 32);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // odjavaToolStripMenuItem
+            // 
+            this.odjavaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.odjaviSeToolStripMenuItem});
+            this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
+            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(109, 38);
+            this.odjavaToolStripMenuItem.Text = "Odjava";
+            // 
+            // odjaviSeToolStripMenuItem
+            // 
+            this.odjaviSeToolStripMenuItem.Name = "odjaviSeToolStripMenuItem";
+            this.odjaviSeToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.odjaviSeToolStripMenuItem.Text = "Odjavi se";
+            this.odjaviSeToolStripMenuItem.Click += new System.EventHandler(this.OdjaviSeToolStripMenuItem_Click);
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 871);
+            this.ClientSize = new System.Drawing.Size(1341, 871);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -304,6 +322,8 @@
         private System.Windows.Forms.ToolStripMenuItem opremaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpremaSearchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EquipmentAddMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odjavaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odjaviSeToolStripMenuItem;
     }
 }
 

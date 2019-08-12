@@ -235,5 +235,14 @@ namespace ConstructionCompanyWinDesktop
             var creationForm = new frmNewEquipment(this);
             creationForm.ShowDialog();
         }
+
+        private void OdjaviSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            APIClient.SetCredentials(null, null);
+            CurrentUserManager.SetUser(null);
+
+            Close();
+            new frmLogin().Show();
+        }
     }
 }
