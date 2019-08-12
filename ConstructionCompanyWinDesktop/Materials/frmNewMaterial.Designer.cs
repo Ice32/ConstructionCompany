@@ -51,9 +51,9 @@
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(48, 134);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 58);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(713, 418);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(536, 327);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -62,12 +62,12 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(705, 119);
+            this.panel2.Size = new System.Drawing.Size(522, 77);
             this.panel2.TabIndex = 0;
             // 
             // txtMaterialName
             // 
-            this.txtMaterialName.Location = new System.Drawing.Point(229, 51);
+            this.txtMaterialName.Location = new System.Drawing.Point(229, 28);
             this.txtMaterialName.Name = "txtMaterialName";
             this.txtMaterialName.Size = new System.Drawing.Size(271, 31);
             this.txtMaterialName.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
-            this.label1.Location = new System.Drawing.Point(24, 51);
+            this.label1.Location = new System.Drawing.Point(24, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 25);
             this.label1.TabIndex = 0;
@@ -86,14 +86,14 @@
             // 
             this.panel1.Controls.Add(this.txtMaterialAmount);
             this.panel1.Controls.Add(this.lblMaterialTitle);
-            this.panel1.Location = new System.Drawing.Point(3, 128);
+            this.panel1.Location = new System.Drawing.Point(3, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 109);
+            this.panel1.Size = new System.Drawing.Size(522, 81);
             this.panel1.TabIndex = 1;
             // 
             // txtMaterialAmount
             // 
-            this.txtMaterialAmount.Location = new System.Drawing.Point(229, 51);
+            this.txtMaterialAmount.Location = new System.Drawing.Point(229, 27);
             this.txtMaterialAmount.Name = "txtMaterialAmount";
             this.txtMaterialAmount.Size = new System.Drawing.Size(271, 31);
             this.txtMaterialAmount.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             this.lblMaterialTitle.AutoSize = true;
             this.lblMaterialTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
-            this.lblMaterialTitle.Location = new System.Drawing.Point(24, 51);
+            this.lblMaterialTitle.Location = new System.Drawing.Point(24, 27);
             this.lblMaterialTitle.Name = "lblMaterialTitle";
             this.lblMaterialTitle.Size = new System.Drawing.Size(88, 25);
             this.lblMaterialTitle.TabIndex = 0;
@@ -112,16 +112,16 @@
             // 
             this.panel3.Controls.Add(this.listMaterialUnits);
             this.panel3.Controls.Add(this.lblMaterialUnit);
-            this.panel3.Location = new System.Drawing.Point(3, 243);
+            this.panel3.Location = new System.Drawing.Point(3, 173);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(705, 169);
+            this.panel3.Size = new System.Drawing.Size(522, 142);
             this.panel3.TabIndex = 2;
             // 
             // listMaterialUnits
             // 
             this.listMaterialUnits.FormattingEnabled = true;
             this.listMaterialUnits.ItemHeight = 25;
-            this.listMaterialUnits.Location = new System.Drawing.Point(229, 51);
+            this.listMaterialUnits.Location = new System.Drawing.Point(229, 22);
             this.listMaterialUnits.Name = "listMaterialUnits";
             this.listMaterialUnits.Size = new System.Drawing.Size(271, 104);
             this.listMaterialUnits.TabIndex = 2;
@@ -130,7 +130,7 @@
             // 
             this.lblMaterialUnit.AutoSize = true;
             this.lblMaterialUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
-            this.lblMaterialUnit.Location = new System.Drawing.Point(24, 51);
+            this.lblMaterialUnit.Location = new System.Drawing.Point(24, 22);
             this.lblMaterialUnit.Name = "lblMaterialUnit";
             this.lblMaterialUnit.Size = new System.Drawing.Size(92, 25);
             this.lblMaterialUnit.TabIndex = 0;
@@ -138,7 +138,7 @@
             // 
             // btnMaterialSave
             // 
-            this.btnMaterialSave.Location = new System.Drawing.Point(322, 592);
+            this.btnMaterialSave.Location = new System.Drawing.Point(216, 391);
             this.btnMaterialSave.Name = "btnMaterialSave";
             this.btnMaterialSave.Size = new System.Drawing.Size(132, 39);
             this.btnMaterialSave.TabIndex = 3;
@@ -150,7 +150,7 @@
             // 
             this.lblNewMaterial.AutoSize = true;
             this.lblNewMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewMaterial.Location = new System.Drawing.Point(296, 49);
+            this.lblNewMaterial.Location = new System.Drawing.Point(188, 9);
             this.lblNewMaterial.Name = "lblNewMaterial";
             this.lblNewMaterial.Size = new System.Drawing.Size(211, 37);
             this.lblNewMaterial.TabIndex = 1;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 668);
+            this.ClientSize = new System.Drawing.Size(559, 446);
             this.Controls.Add(this.lblNewMaterial);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnMaterialSave);

@@ -45,7 +45,7 @@
             // lblTaskName
             // 
             this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(67, 84);
+            this.lblTaskName.Location = new System.Drawing.Point(22, 23);
             this.lblTaskName.Name = "lblTaskName";
             this.lblTaskName.Size = new System.Drawing.Size(66, 25);
             this.lblTaskName.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // txtTaskName
             // 
-            this.txtTaskName.Location = new System.Drawing.Point(223, 78);
+            this.txtTaskName.Location = new System.Drawing.Point(178, 17);
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(259, 31);
             this.txtTaskName.TabIndex = 1;
@@ -62,7 +62,7 @@
             // lblTaskWorkers
             // 
             this.lblTaskWorkers.AutoSize = true;
-            this.lblTaskWorkers.Location = new System.Drawing.Point(67, 153);
+            this.lblTaskWorkers.Location = new System.Drawing.Point(22, 92);
             this.lblTaskWorkers.Name = "lblTaskWorkers";
             this.lblTaskWorkers.Size = new System.Drawing.Size(84, 25);
             this.lblTaskWorkers.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.listTaskWorkers.FormattingEnabled = true;
             this.listTaskWorkers.ItemHeight = 25;
-            this.listTaskWorkers.Location = new System.Drawing.Point(223, 153);
+            this.listTaskWorkers.Location = new System.Drawing.Point(178, 92);
             this.listTaskWorkers.Name = "listTaskWorkers";
             this.listTaskWorkers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listTaskWorkers.Size = new System.Drawing.Size(259, 104);
@@ -87,7 +87,7 @@
             // 
             // btnTaskSave
             // 
-            this.btnTaskSave.Location = new System.Drawing.Point(223, 504);
+            this.btnTaskSave.Location = new System.Drawing.Point(178, 443);
             this.btnTaskSave.Name = "btnTaskSave";
             this.btnTaskSave.Size = new System.Drawing.Size(104, 37);
             this.btnTaskSave.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             // txtTaskDescription
             // 
-            this.txtTaskDescription.Location = new System.Drawing.Point(223, 342);
+            this.txtTaskDescription.Location = new System.Drawing.Point(178, 281);
             this.txtTaskDescription.Multiline = true;
             this.txtTaskDescription.Name = "txtTaskDescription";
             this.txtTaskDescription.Size = new System.Drawing.Size(259, 105);
@@ -110,7 +110,7 @@
             // lblTaskDescription
             // 
             this.lblTaskDescription.AutoSize = true;
-            this.lblTaskDescription.Location = new System.Drawing.Point(67, 348);
+            this.lblTaskDescription.Location = new System.Drawing.Point(22, 287);
             this.lblTaskDescription.Name = "lblTaskDescription";
             this.lblTaskDescription.Size = new System.Drawing.Size(56, 25);
             this.lblTaskDescription.TabIndex = 6;
@@ -119,7 +119,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(218, 274);
+            this.label1.Location = new System.Drawing.Point(173, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(210, 25);
             this.label1.TabIndex = 8;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 598);
+            this.ClientSize = new System.Drawing.Size(482, 516);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTaskDescription);
             this.Controls.Add(this.lblTaskDescription);

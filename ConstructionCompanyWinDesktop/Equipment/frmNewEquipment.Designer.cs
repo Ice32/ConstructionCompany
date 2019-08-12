@@ -62,9 +62,9 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 106);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(650, 449);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(556, 449);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.lblEquipmentName);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(647, 71);
+            this.panel1.Size = new System.Drawing.Size(541, 71);
             this.panel1.TabIndex = 0;
             // 
             // txtEquipmentName
@@ -98,7 +98,7 @@
             this.panel2.Controls.Add(this.lblEquipmentSerialNumber);
             this.panel2.Location = new System.Drawing.Point(3, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(647, 71);
+            this.panel2.Size = new System.Drawing.Size(541, 71);
             this.panel2.TabIndex = 1;
             // 
             // txtEquipmentSerialNumber
@@ -123,7 +123,7 @@
             this.panel3.Controls.Add(this.lblEquipmentPurchaseDate);
             this.panel3.Location = new System.Drawing.Point(3, 157);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(647, 71);
+            this.panel3.Size = new System.Drawing.Size(541, 71);
             this.panel3.TabIndex = 2;
             // 
             // dtEquipmentPurchaseDate
@@ -148,7 +148,7 @@
             this.panel4.Controls.Add(this.lblEquipmentQuantity);
             this.panel4.Location = new System.Drawing.Point(3, 234);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(647, 67);
+            this.panel4.Size = new System.Drawing.Size(541, 67);
             this.panel4.TabIndex = 3;
             // 
             // numEquipmentQuantity
@@ -173,7 +173,7 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(3, 307);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(647, 130);
+            this.panel5.Size = new System.Drawing.Size(541, 130);
             this.panel5.TabIndex = 4;
             // 
             // txtEquipmentDescription
@@ -195,7 +195,7 @@
             // 
             // btnSaveEquipment
             // 
-            this.btnSaveEquipment.Location = new System.Drawing.Point(270, 575);
+            this.btnSaveEquipment.Location = new System.Drawing.Point(267, 504);
             this.btnSaveEquipment.Name = "btnSaveEquipment";
             this.btnSaveEquipment.Size = new System.Drawing.Size(132, 39);
             this.btnSaveEquipment.TabIndex = 5;
@@ -207,7 +207,7 @@
             // 
             this.lblNewEquipment.AutoSize = true;
             this.lblNewEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewEquipment.Location = new System.Drawing.Point(246, 42);
+            this.lblNewEquipment.Location = new System.Drawing.Point(226, 9);
             this.lblNewEquipment.Name = "lblNewEquipment";
             this.lblNewEquipment.Size = new System.Drawing.Size(210, 37);
             this.lblNewEquipment.TabIndex = 1;
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 627);
+            this.ClientSize = new System.Drawing.Size(601, 553);
             this.Controls.Add(this.lblNewEquipment);
             this.Controls.Add(this.btnSaveEquipment);
             this.Controls.Add(this.flowLayoutPanel1);

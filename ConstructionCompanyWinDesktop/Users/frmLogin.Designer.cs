@@ -45,9 +45,9 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(75, 27);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(632, 269);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(525, 119);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -57,12 +57,12 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(517, 69);
+            this.panel1.Size = new System.Drawing.Size(517, 37);
             this.panel1.TabIndex = 0;
             // 
             // txtLoginUsername
             // 
-            this.txtLoginUsername.Location = new System.Drawing.Point(245, 35);
+            this.txtLoginUsername.Location = new System.Drawing.Point(245, 3);
             this.txtLoginUsername.Name = "txtLoginUsername";
             this.txtLoginUsername.Size = new System.Drawing.Size(269, 31);
             this.txtLoginUsername.TabIndex = 1;
@@ -70,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 41);
+            this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 25);
             this.label1.TabIndex = 0;
@@ -81,14 +81,14 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.txtLoginPassword);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(3, 78);
+            this.panel2.Location = new System.Drawing.Point(3, 46);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 69);
+            this.panel2.Size = new System.Drawing.Size(517, 51);
             this.panel2.TabIndex = 1;
             // 
             // txtLoginPassword
             // 
-            this.txtLoginPassword.Location = new System.Drawing.Point(245, 35);
+            this.txtLoginPassword.Location = new System.Drawing.Point(245, 17);
             this.txtLoginPassword.Name = "txtLoginPassword";
             this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.Size = new System.Drawing.Size(269, 31);
@@ -97,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 41);
+            this.label2.Location = new System.Drawing.Point(24, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 25);
             this.label2.TabIndex = 0;
@@ -105,7 +105,7 @@
             // 
             // btnLoginSubmit
             // 
-            this.btnLoginSubmit.Location = new System.Drawing.Point(323, 399);
+            this.btnLoginSubmit.Location = new System.Drawing.Point(212, 149);
             this.btnLoginSubmit.Name = "btnLoginSubmit";
             this.btnLoginSubmit.Size = new System.Drawing.Size(124, 39);
             this.btnLoginSubmit.TabIndex = 2;
@@ -118,10 +118,11 @@
             this.AcceptButton = this.btnLoginSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(564, 205);
             this.Controls.Add(this.btnLoginSubmit);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

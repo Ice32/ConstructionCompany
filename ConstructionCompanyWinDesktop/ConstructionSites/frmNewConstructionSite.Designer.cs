@@ -59,9 +59,12 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 87);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(572, 561);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(548, 478);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -70,7 +73,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 104);
+            this.panel1.Size = new System.Drawing.Size(523, 79);
             this.panel1.TabIndex = 0;
             // 
             // txtConstructionSiteTitle
@@ -93,14 +96,14 @@
             // 
             this.panel2.Controls.Add(this.txtConstructionSiteAddress);
             this.panel2.Controls.Add(this.lblConstructionSiteAddress);
-            this.panel2.Location = new System.Drawing.Point(3, 113);
+            this.panel2.Location = new System.Drawing.Point(3, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(554, 104);
+            this.panel2.Size = new System.Drawing.Size(523, 68);
             this.panel2.TabIndex = 1;
             // 
             // txtConstructionSiteAddress
             // 
-            this.txtConstructionSiteAddress.Location = new System.Drawing.Point(264, 38);
+            this.txtConstructionSiteAddress.Location = new System.Drawing.Point(264, 21);
             this.txtConstructionSiteAddress.Name = "txtConstructionSiteAddress";
             this.txtConstructionSiteAddress.Size = new System.Drawing.Size(235, 31);
             this.txtConstructionSiteAddress.TabIndex = 1;
@@ -118,7 +121,7 @@
             // 
             this.lblNewConstructionSite.AutoSize = true;
             this.lblNewConstructionSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewConstructionSite.Location = new System.Drawing.Point(188, 9);
+            this.lblNewConstructionSite.Location = new System.Drawing.Point(187, 9);
             this.lblNewConstructionSite.Name = "lblNewConstructionSite";
             this.lblNewConstructionSite.Size = new System.Drawing.Size(229, 37);
             this.lblNewConstructionSite.TabIndex = 1;
@@ -128,9 +131,9 @@
             // 
             this.panel3.Controls.Add(this.txtConstructionSiteDescription);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(21, 310);
+            this.panel3.Location = new System.Drawing.Point(3, 162);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(554, 127);
+            this.panel3.Size = new System.Drawing.Size(523, 127);
             this.panel3.TabIndex = 2;
             // 
             // txtConstructionSiteDescription
@@ -153,7 +156,7 @@
             // btnSaveConstructionSite
             // 
             this.btnSaveConstructionSite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveConstructionSite.Location = new System.Drawing.Point(221, 669);
+            this.btnSaveConstructionSite.Location = new System.Drawing.Point(221, 536);
             this.btnSaveConstructionSite.Name = "btnSaveConstructionSite";
             this.btnSaveConstructionSite.Size = new System.Drawing.Size(132, 39);
             this.btnSaveConstructionSite.TabIndex = 5;
@@ -165,9 +168,9 @@
             // 
             this.panel5.Controls.Add(this.listConstructionSiteManager);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(21, 527);
+            this.panel5.Location = new System.Drawing.Point(3, 388);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(554, 104);
+            this.panel5.Size = new System.Drawing.Size(525, 75);
             this.panel5.TabIndex = 4;
             // 
             // listConstructionSiteManager
@@ -200,9 +203,9 @@
             // 
             this.panel4.Controls.Add(this.numConstructionSiteWorth);
             this.panel4.Controls.Add(this.lblConstructionSiteWorth);
-            this.panel4.Location = new System.Drawing.Point(21, 417);
+            this.panel4.Location = new System.Drawing.Point(3, 295);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(554, 104);
+            this.panel4.Size = new System.Drawing.Size(525, 87);
             this.panel4.TabIndex = 3;
             // 
             // numConstructionSiteWorth
@@ -221,12 +224,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 720);
-            this.Controls.Add(this.panel5);
+            this.ClientSize = new System.Drawing.Size(587, 587);
             this.Controls.Add(this.btnSaveConstructionSite);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblNewConstructionSite);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmNewConstructionSite";
             this.Text = "Gradilište";
