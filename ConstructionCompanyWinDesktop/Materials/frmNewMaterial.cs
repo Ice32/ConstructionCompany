@@ -14,12 +14,14 @@ namespace ConstructionCompanyWinDesktop.Materials
         private readonly Form _parent;
         private readonly APIService<MaterialVM, MaterialAddVM, MaterialAddVM> _materialsService = new APIService<MaterialVM, MaterialAddVM, MaterialAddVM>("materials");
         private readonly MaterialVM _originalMaterial;
+        private readonly ValidationUtil _validationUtil;
 
         public frmNewMaterial(Form parent)
         {
             InitializeComponent();
             _parent = parent;
             SetUnits();
+            _validationUtil = new ValidationUtil(errorProvider1);
         }
         
         public frmNewMaterial(MaterialVM material, Form parent) : this(parent)
@@ -27,7 +29,7 @@ namespace ConstructionCompanyWinDesktop.Materials
             _originalMaterial = material;
 
             txtMaterialName.Text = material.Name;
-            txtMaterialAmount.Text = material.Amount.ToString(CultureInfo.CurrentCulture);
+            numMaterialQuantity.Value = Convert.ToDecimal(material.Amount);
 
             lblNewMaterial.Text = "Uredi materijal";
 
@@ -49,10 +51,14 @@ namespace ConstructionCompanyWinDesktop.Materials
 
         private async void BtnSaveMaterial_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren())
+            {
+                return;
+            }
             var material = new MaterialAddVM
             {
                 Name = txtMaterialName.Text,
-                Amount = Convert.ToDouble(txtMaterialAmount.Text),
+                Amount = Convert.ToDouble(numMaterialQuantity.Value),
                 Unit = (MeasurementUnit)((ListBoxItem)listMaterialUnits.SelectedItem).Id
             };
             if (_originalMaterial != null)
@@ -67,6 +73,12 @@ namespace ConstructionCompanyWinDesktop.Materials
             Form listForm = new frmMaterialsList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
             Close();
             listForm.Show();
+        }
+
+        private void TxtMaterialName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            _validationUtil.AssertLength(3, textBox, e);
         }
     }
 }

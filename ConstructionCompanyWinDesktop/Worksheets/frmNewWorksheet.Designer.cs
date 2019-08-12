@@ -31,6 +31,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblWorksheetCreateEditHeader = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtWorksheetDate = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +50,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.listWorksheetConstructionSite = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtWorksheetRemarks = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.userControlWorksheetTasks = new ConstructionCompanyWinDesktop.Worksheets.worksheetTasksUserControl();
             this.userControlWorksheetMaterials = new ConstructionCompanyWinDesktop.Worksheets.worksheetMaterialsUserControl();
             this.userControlWorksheetEquipment = new ConstructionCompanyWinDesktop.Worksheets.worksheetEquipmentUserControl();
@@ -59,6 +61,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWorksheetCreateEditHeader
@@ -89,7 +92,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             // 
             // btnSaveEditWorksheet
             // 
-            this.btnSaveEditWorksheet.Location = new System.Drawing.Point(338, 1135);
+            this.btnSaveEditWorksheet.Location = new System.Drawing.Point(338, 1145);
             this.btnSaveEditWorksheet.Name = "btnSaveEditWorksheet";
             this.btnSaveEditWorksheet.Size = new System.Drawing.Size(143, 47);
             this.btnSaveEditWorksheet.TabIndex = 8;
@@ -230,6 +233,10 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.txtWorksheetRemarks.Size = new System.Drawing.Size(500, 126);
             this.txtWorksheetRemarks.TabIndex = 11;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // userControlWorksheetTasks
             // 
             this.userControlWorksheetTasks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -269,7 +276,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(775, 1192);
+            this.ClientSize = new System.Drawing.Size(775, 1204);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.lblWorksheetCreateEditHeader);
             this.Controls.Add(this.btnSaveEditWorksheet);
@@ -289,6 +296,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +325,6 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         private System.Windows.Forms.Panel panel6;
         private worksheetEquipmentUserControl userControlWorksheetEquipment;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -15,12 +15,14 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
         private readonly ConstructionSiteVM _originalConstructionSite;
         private readonly APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM> _constructionSitesService = new APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM>("constructionSites");
         private readonly APIService<ConstructionSiteManagerVM, object, object> _constructionSitesManagersService = new APIService<ConstructionSiteManagerVM, object, object>("constructionSiteManagers");
+        private readonly ValidationUtil _validationUtil;
 
         public frmNewConstructionSite(Form parent)
         {
             InitializeComponent();
             _parent = parent;
             LoadConstructionSiteManagers();
+            _validationUtil = new ValidationUtil(errorProvider1);
         }
 
         public frmNewConstructionSite(ConstructionSiteVM constructionSite, Form parent) : this(parent)
@@ -59,13 +61,18 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
 
         private async void BtnSaveConstructionSite_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren())
+            {
+                return;
+            }
             var constructionSite = new ConstructionSiteAddVM
             {
                 Title = txtConstructionSiteTitle.Text,
                 Description = txtConstructionSiteDescription.Text,
                 ProjectWorth = numConstructionSiteWorth.Value,
                 Address = txtConstructionSiteAddress.Text,
-                ConstructionSiteManagerId = ((ListBoxItem)listConstructionSiteManager.SelectedItem).Id
+                ConstructionSiteManagerId = ((ListBoxItem)listConstructionSiteManager.SelectedItem).Id,
+                CreatedById = CurrentUserManager.GetUser().Id
             };
             if (_originalConstructionSite != null)
             {
@@ -79,6 +86,24 @@ namespace ConstructionCompanyWinDesktop.ConstructionSites
             Form listForm = new frmConstructionSitesList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true};
             Close();
             listForm.Show();
+        }
+
+        private void TxtConstructionSiteTitle_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            _validationUtil.AssertLength(3, textBox, e);
+        }
+
+        private void TxtConstructionSiteDescription_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            _validationUtil.AssertLength(3, textBox, e);
+        }
+
+        private void ListConstructionSiteManager_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            _validationUtil.AssertItemSelected(comboBox, e);
         }
     }
 }

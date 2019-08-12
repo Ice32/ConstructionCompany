@@ -107,14 +107,17 @@ namespace ConstructionCompanyWinDesktop.Worksheets
 
         private void BtnTaskSave_Click(object sender, EventArgs e)
         {
-            _originalTask.Title = _taskCopy.Title;
-            _originalTask.WorkerIds = new List<int>();
-            foreach (ListBoxItem selectedItem in listTaskWorkers.SelectedItems)
+            if (ValidateChildren())
             {
-                _originalTask.WorkerIds.Add(selectedItem.Id);
+                _originalTask.Title = _taskCopy.Title;
+                _originalTask.WorkerIds = new List<int>();
+                foreach (ListBoxItem selectedItem in listTaskWorkers.SelectedItems)
+                {
+                    _originalTask.WorkerIds.Add(selectedItem.Id);
+                }
+                _originalTask.Description = txtTaskDescription.Text;
+                Close();
             }
-            _originalTask.Description = txtTaskDescription.Text;
-            Close();
         }
 
         private void TxtTaskName_Validating(object sender, CancelEventArgs e)

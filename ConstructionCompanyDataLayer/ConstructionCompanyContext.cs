@@ -101,7 +101,7 @@ namespace ConstructionCompanyDataLayer
                 .HasForeignKey(ur => ur.UserId);
             
             modelBuilder.Entity<User>()
-                .HasAlternateKey(u => u.UserName);
+                .HasIndex(u => u.UserName).IsUnique();
         }
     }
 }

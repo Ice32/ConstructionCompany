@@ -101,9 +101,9 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             WorksheetAddVM worksheet = new WorksheetAddVM
             {
                 Date = dtWorksheetDate.Value,
-                Tasks = _tasks,
-                Materials = _materials,
-                Equipment = _equipment,
+                Tasks = _tasks.Where(t => t.Title != default).ToList(),
+                Materials = _materials.Where(m => m.MaterialId != default).ToList(),
+                Equipment = _equipment.Where(eq => eq.EquipmentId != default).ToList(),
                 ConstructionSiteId = ((ListBoxItem)listWorksheetConstructionSite.SelectedItem).Id,
                 Remarks = txtWorksheetRemarks.Text
             };

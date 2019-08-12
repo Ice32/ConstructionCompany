@@ -14,6 +14,11 @@ namespace ConstructionCompanyWinDesktop.Util
             _user = userVM;
         }
 
+        public static IUserType GetUser()
+        {
+            return _user;
+        }
+
         public static bool IsManager()
         {
             return _user is ManagerVM;

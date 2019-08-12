@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNewUser = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.btnUserSubmit = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -55,6 +57,7 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNewUser
@@ -78,7 +81,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(504, 510);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(533, 510);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -88,7 +91,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(486, 84);
+            this.panel2.Size = new System.Drawing.Size(520, 84);
             this.panel2.TabIndex = 0;
             // 
             // txtUserFirstName
@@ -97,6 +100,7 @@
             this.txtUserFirstName.Name = "txtUserFirstName";
             this.txtUserFirstName.Size = new System.Drawing.Size(291, 31);
             this.txtUserFirstName.TabIndex = 0;
+            this.txtUserFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserFirstName_Validating);
             // 
             // label2
             // 
@@ -113,7 +117,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(3, 93);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 84);
+            this.panel1.Size = new System.Drawing.Size(520, 84);
             this.panel1.TabIndex = 1;
             // 
             // txtUserLastName
@@ -122,6 +126,7 @@
             this.txtUserLastName.Name = "txtUserLastName";
             this.txtUserLastName.Size = new System.Drawing.Size(291, 31);
             this.txtUserLastName.TabIndex = 1;
+            this.txtUserLastName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserLastName_Validating);
             // 
             // label3
             // 
@@ -138,7 +143,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(3, 183);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(486, 81);
+            this.panel3.Size = new System.Drawing.Size(520, 81);
             this.panel3.TabIndex = 2;
             // 
             // txtUserUsername
@@ -147,6 +152,7 @@
             this.txtUserUsername.Name = "txtUserUsername";
             this.txtUserUsername.Size = new System.Drawing.Size(291, 31);
             this.txtUserUsername.TabIndex = 2;
+            this.txtUserUsername.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserUsername_Validating);
             // 
             // label4
             // 
@@ -163,7 +169,7 @@
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(3, 270);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(486, 81);
+            this.panel4.Size = new System.Drawing.Size(520, 81);
             this.panel4.TabIndex = 3;
             // 
             // txtUserPassword
@@ -173,6 +179,7 @@
             this.txtUserPassword.PasswordChar = '*';
             this.txtUserPassword.Size = new System.Drawing.Size(291, 31);
             this.txtUserPassword.TabIndex = 3;
+            this.txtUserPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserPassword_Validating);
             // 
             // label5
             // 
@@ -189,7 +196,7 @@
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(3, 357);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(486, 81);
+            this.panel5.Size = new System.Drawing.Size(520, 81);
             this.panel5.TabIndex = 4;
             // 
             // txtUserPasswordConfirmation
@@ -199,6 +206,7 @@
             this.txtUserPasswordConfirmation.PasswordChar = '*';
             this.txtUserPasswordConfirmation.Size = new System.Drawing.Size(291, 31);
             this.txtUserPasswordConfirmation.TabIndex = 4;
+            this.txtUserPasswordConfirmation.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserPasswordConfirmation_Validating);
             // 
             // label6
             // 
@@ -241,11 +249,15 @@
             this.btnUserSubmit.UseVisualStyleBackColor = true;
             this.btnUserSubmit.Click += new System.EventHandler(this.BtnUserSubmit_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmNewConstructionSiteManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 628);
+            this.ClientSize = new System.Drawing.Size(547, 628);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblNewUser);
             this.Controls.Add(this.btnUserSubmit);
@@ -265,6 +277,7 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +305,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.CheckBox chkActive;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

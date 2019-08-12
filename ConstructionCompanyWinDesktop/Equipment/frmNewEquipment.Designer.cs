@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtEquipmentName = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSaveEquipment = new System.Windows.Forms.Button();
             this.lblNewEquipment = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,6 +55,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEquipmentQuantity)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -64,7 +67,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(556, 449);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(575, 449);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -73,7 +76,7 @@
             this.panel1.Controls.Add(this.lblEquipmentName);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(541, 71);
+            this.panel1.Size = new System.Drawing.Size(562, 71);
             this.panel1.TabIndex = 0;
             // 
             // txtEquipmentName
@@ -82,6 +85,7 @@
             this.txtEquipmentName.Name = "txtEquipmentName";
             this.txtEquipmentName.Size = new System.Drawing.Size(307, 31);
             this.txtEquipmentName.TabIndex = 2;
+            this.txtEquipmentName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEquipmentName_Validating);
             // 
             // lblEquipmentName
             // 
@@ -98,7 +102,7 @@
             this.panel2.Controls.Add(this.lblEquipmentSerialNumber);
             this.panel2.Location = new System.Drawing.Point(3, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(541, 71);
+            this.panel2.Size = new System.Drawing.Size(562, 71);
             this.panel2.TabIndex = 1;
             // 
             // txtEquipmentSerialNumber
@@ -123,7 +127,7 @@
             this.panel3.Controls.Add(this.lblEquipmentPurchaseDate);
             this.panel3.Location = new System.Drawing.Point(3, 157);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(541, 71);
+            this.panel3.Size = new System.Drawing.Size(562, 71);
             this.panel3.TabIndex = 2;
             // 
             // dtEquipmentPurchaseDate
@@ -148,12 +152,17 @@
             this.panel4.Controls.Add(this.lblEquipmentQuantity);
             this.panel4.Location = new System.Drawing.Point(3, 234);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(541, 67);
+            this.panel4.Size = new System.Drawing.Size(562, 67);
             this.panel4.TabIndex = 3;
             // 
             // numEquipmentQuantity
             // 
             this.numEquipmentQuantity.Location = new System.Drawing.Point(205, 21);
+            this.numEquipmentQuantity.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numEquipmentQuantity.Name = "numEquipmentQuantity";
             this.numEquipmentQuantity.Size = new System.Drawing.Size(120, 31);
             this.numEquipmentQuantity.TabIndex = 1;
@@ -173,7 +182,7 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(3, 307);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(541, 130);
+            this.panel5.Size = new System.Drawing.Size(562, 130);
             this.panel5.TabIndex = 4;
             // 
             // txtEquipmentDescription
@@ -213,6 +222,10 @@
             this.lblNewEquipment.TabIndex = 1;
             this.lblNewEquipment.Text = "Nova oprema";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmNewEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -235,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numEquipmentQuantity)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +274,6 @@
         private System.Windows.Forms.TextBox txtEquipmentDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtEquipmentPurchaseDate;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

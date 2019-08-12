@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtMaterialName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtMaterialAmount = new System.Windows.Forms.TextBox();
+            this.numMaterialQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblMaterialTitle = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listMaterialUnits = new System.Windows.Forms.ListBox();
             this.lblMaterialUnit = new System.Windows.Forms.Label();
             this.btnMaterialSave = new System.Windows.Forms.Button();
             this.lblNewMaterial = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialQuantity)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -53,7 +57,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 58);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(536, 327);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(547, 327);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -62,7 +66,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(522, 77);
+            this.panel2.Size = new System.Drawing.Size(540, 77);
             this.panel2.TabIndex = 0;
             // 
             // txtMaterialName
@@ -71,6 +75,7 @@
             this.txtMaterialName.Name = "txtMaterialName";
             this.txtMaterialName.Size = new System.Drawing.Size(271, 31);
             this.txtMaterialName.TabIndex = 0;
+            this.txtMaterialName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMaterialName_Validating);
             // 
             // label1
             // 
@@ -84,19 +89,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtMaterialAmount);
+            this.panel1.Controls.Add(this.numMaterialQuantity);
             this.panel1.Controls.Add(this.lblMaterialTitle);
             this.panel1.Location = new System.Drawing.Point(3, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 81);
+            this.panel1.Size = new System.Drawing.Size(540, 81);
             this.panel1.TabIndex = 1;
             // 
-            // txtMaterialAmount
+            // numMaterialQuantity
             // 
-            this.txtMaterialAmount.Location = new System.Drawing.Point(229, 27);
-            this.txtMaterialAmount.Name = "txtMaterialAmount";
-            this.txtMaterialAmount.Size = new System.Drawing.Size(271, 31);
-            this.txtMaterialAmount.TabIndex = 1;
+            this.numMaterialQuantity.Location = new System.Drawing.Point(229, 25);
+            this.numMaterialQuantity.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numMaterialQuantity.Name = "numMaterialQuantity";
+            this.numMaterialQuantity.Size = new System.Drawing.Size(120, 31);
+            this.numMaterialQuantity.TabIndex = 2;
             // 
             // lblMaterialTitle
             // 
@@ -114,7 +124,7 @@
             this.panel3.Controls.Add(this.lblMaterialUnit);
             this.panel3.Location = new System.Drawing.Point(3, 173);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(522, 142);
+            this.panel3.Size = new System.Drawing.Size(540, 142);
             this.panel3.TabIndex = 2;
             // 
             // listMaterialUnits
@@ -156,11 +166,15 @@
             this.lblNewMaterial.TabIndex = 1;
             this.lblNewMaterial.Text = "Novi materijal";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmNewMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 446);
+            this.ClientSize = new System.Drawing.Size(567, 446);
             this.Controls.Add(this.lblNewMaterial);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnMaterialSave);
@@ -171,8 +185,10 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialQuantity)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +200,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblMaterialTitle;
         private System.Windows.Forms.Label lblNewMaterial;
-        private System.Windows.Forms.TextBox txtMaterialAmount;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtMaterialName;
         private System.Windows.Forms.Label label1;
@@ -192,5 +207,7 @@
         private System.Windows.Forms.ListBox listMaterialUnits;
         private System.Windows.Forms.Label lblMaterialUnit;
         private System.Windows.Forms.Button btnMaterialSave;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.NumericUpDown numMaterialQuantity;
     }
 }

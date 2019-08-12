@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtConstructionSiteTitle = new System.Windows.Forms.TextBox();
@@ -35,24 +36,26 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtConstructionSiteAddress = new System.Windows.Forms.TextBox();
             this.lblConstructionSiteAddress = new System.Windows.Forms.Label();
-            this.lblNewConstructionSite = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtConstructionSiteDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnSaveConstructionSite = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.numConstructionSiteWorth = new System.Windows.Forms.NumericUpDown();
+            this.lblConstructionSiteWorth = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.listConstructionSiteManager = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblConstructionSiteWorth = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.numConstructionSiteWorth = new System.Windows.Forms.NumericUpDown();
+            this.lblNewConstructionSite = new System.Windows.Forms.Label();
+            this.btnSaveConstructionSite = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numConstructionSiteWorth)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -64,7 +67,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 49);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(548, 478);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(563, 478);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -73,7 +76,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 79);
+            this.panel1.Size = new System.Drawing.Size(551, 79);
             this.panel1.TabIndex = 0;
             // 
             // txtConstructionSiteTitle
@@ -82,6 +85,7 @@
             this.txtConstructionSiteTitle.Name = "txtConstructionSiteTitle";
             this.txtConstructionSiteTitle.Size = new System.Drawing.Size(235, 31);
             this.txtConstructionSiteTitle.TabIndex = 1;
+            this.txtConstructionSiteTitle.Validating += new System.ComponentModel.CancelEventHandler(this.TxtConstructionSiteTitle_Validating);
             // 
             // label2
             // 
@@ -98,7 +102,7 @@
             this.panel2.Controls.Add(this.lblConstructionSiteAddress);
             this.panel2.Location = new System.Drawing.Point(3, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(523, 68);
+            this.panel2.Size = new System.Drawing.Size(551, 68);
             this.panel2.TabIndex = 1;
             // 
             // txtConstructionSiteAddress
@@ -117,23 +121,13 @@
             this.lblConstructionSiteAddress.TabIndex = 0;
             this.lblConstructionSiteAddress.Text = "Adresa";
             // 
-            // lblNewConstructionSite
-            // 
-            this.lblNewConstructionSite.AutoSize = true;
-            this.lblNewConstructionSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewConstructionSite.Location = new System.Drawing.Point(187, 9);
-            this.lblNewConstructionSite.Name = "lblNewConstructionSite";
-            this.lblNewConstructionSite.Size = new System.Drawing.Size(229, 37);
-            this.lblNewConstructionSite.TabIndex = 1;
-            this.lblNewConstructionSite.Text = "Novo gradilište";
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txtConstructionSiteDescription);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(3, 162);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(523, 127);
+            this.panel3.Size = new System.Drawing.Size(551, 127);
             this.panel3.TabIndex = 2;
             // 
             // txtConstructionSiteDescription
@@ -143,6 +137,7 @@
             this.txtConstructionSiteDescription.Name = "txtConstructionSiteDescription";
             this.txtConstructionSiteDescription.Size = new System.Drawing.Size(235, 84);
             this.txtConstructionSiteDescription.TabIndex = 1;
+            this.txtConstructionSiteDescription.Validating += new System.ComponentModel.CancelEventHandler(this.TxtConstructionSiteDescription_Validating);
             // 
             // label4
             // 
@@ -153,59 +148,13 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Opis radova";
             // 
-            // btnSaveConstructionSite
-            // 
-            this.btnSaveConstructionSite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveConstructionSite.Location = new System.Drawing.Point(221, 536);
-            this.btnSaveConstructionSite.Name = "btnSaveConstructionSite";
-            this.btnSaveConstructionSite.Size = new System.Drawing.Size(132, 39);
-            this.btnSaveConstructionSite.TabIndex = 5;
-            this.btnSaveConstructionSite.Text = "Spremi";
-            this.btnSaveConstructionSite.UseVisualStyleBackColor = true;
-            this.btnSaveConstructionSite.Click += new System.EventHandler(this.BtnSaveConstructionSite_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.listConstructionSiteManager);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(3, 388);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(525, 75);
-            this.panel5.TabIndex = 4;
-            // 
-            // listConstructionSiteManager
-            // 
-            this.listConstructionSiteManager.FormattingEnabled = true;
-            this.listConstructionSiteManager.Location = new System.Drawing.Point(267, 23);
-            this.listConstructionSiteManager.Name = "listConstructionSiteManager";
-            this.listConstructionSiteManager.Size = new System.Drawing.Size(235, 33);
-            this.listConstructionSiteManager.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Šef gradilišta";
-            // 
-            // lblConstructionSiteWorth
-            // 
-            this.lblConstructionSiteWorth.AutoSize = true;
-            this.lblConstructionSiteWorth.Location = new System.Drawing.Point(34, 26);
-            this.lblConstructionSiteWorth.Name = "lblConstructionSiteWorth";
-            this.lblConstructionSiteWorth.Size = new System.Drawing.Size(191, 25);
-            this.lblConstructionSiteWorth.TabIndex = 0;
-            this.lblConstructionSiteWorth.Text = "Vrijednost projekta";
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.numConstructionSiteWorth);
             this.panel4.Controls.Add(this.lblConstructionSiteWorth);
             this.panel4.Location = new System.Drawing.Point(3, 295);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(525, 87);
+            this.panel4.Size = new System.Drawing.Size(551, 87);
             this.panel4.TabIndex = 3;
             // 
             // numConstructionSiteWorth
@@ -219,6 +168,67 @@
             this.numConstructionSiteWorth.Name = "numConstructionSiteWorth";
             this.numConstructionSiteWorth.Size = new System.Drawing.Size(235, 31);
             this.numConstructionSiteWorth.TabIndex = 1;
+            // 
+            // lblConstructionSiteWorth
+            // 
+            this.lblConstructionSiteWorth.AutoSize = true;
+            this.lblConstructionSiteWorth.Location = new System.Drawing.Point(34, 26);
+            this.lblConstructionSiteWorth.Name = "lblConstructionSiteWorth";
+            this.lblConstructionSiteWorth.Size = new System.Drawing.Size(191, 25);
+            this.lblConstructionSiteWorth.TabIndex = 0;
+            this.lblConstructionSiteWorth.Text = "Vrijednost projekta";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.listConstructionSiteManager);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Location = new System.Drawing.Point(3, 388);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(551, 75);
+            this.panel5.TabIndex = 4;
+            // 
+            // listConstructionSiteManager
+            // 
+            this.listConstructionSiteManager.FormattingEnabled = true;
+            this.listConstructionSiteManager.Location = new System.Drawing.Point(267, 23);
+            this.listConstructionSiteManager.Name = "listConstructionSiteManager";
+            this.listConstructionSiteManager.Size = new System.Drawing.Size(235, 33);
+            this.listConstructionSiteManager.TabIndex = 1;
+            this.listConstructionSiteManager.Validating += new System.ComponentModel.CancelEventHandler(this.ListConstructionSiteManager_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Šef gradilišta";
+            // 
+            // lblNewConstructionSite
+            // 
+            this.lblNewConstructionSite.AutoSize = true;
+            this.lblNewConstructionSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConstructionSite.Location = new System.Drawing.Point(187, 9);
+            this.lblNewConstructionSite.Name = "lblNewConstructionSite";
+            this.lblNewConstructionSite.Size = new System.Drawing.Size(229, 37);
+            this.lblNewConstructionSite.TabIndex = 1;
+            this.lblNewConstructionSite.Text = "Novo gradilište";
+            // 
+            // btnSaveConstructionSite
+            // 
+            this.btnSaveConstructionSite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSaveConstructionSite.Location = new System.Drawing.Point(221, 536);
+            this.btnSaveConstructionSite.Name = "btnSaveConstructionSite";
+            this.btnSaveConstructionSite.Size = new System.Drawing.Size(132, 39);
+            this.btnSaveConstructionSite.TabIndex = 5;
+            this.btnSaveConstructionSite.Text = "Spremi";
+            this.btnSaveConstructionSite.UseVisualStyleBackColor = true;
+            this.btnSaveConstructionSite.Click += new System.EventHandler(this.BtnSaveConstructionSite_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmNewConstructionSite
             // 
@@ -237,11 +247,12 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numConstructionSiteWorth)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +278,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtConstructionSiteAddress;
         private System.Windows.Forms.NumericUpDown numConstructionSiteWorth;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -35,5 +35,18 @@ namespace ConstructionCompanyWinDesktop.Util
             _errorProvider.SetError(listBox, null);
             return true;
         }
+
+        public bool AssertItemSelected(ComboBox comboBox, System.ComponentModel.CancelEventArgs e)
+        {
+            if (comboBox.SelectedValue == default)
+            {
+                _errorProvider.SetError(comboBox, "Odaberi vrijednost");
+                e.Cancel = true;
+                return false;
+            }
+
+            _errorProvider.SetError(comboBox, null);
+            return true;
+        }
     }
 }

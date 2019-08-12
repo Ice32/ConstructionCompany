@@ -20,6 +20,8 @@ namespace ConstructionCompanyModel.ViewModels.ConstructionSites
         
         public int ConstructionSiteManagerId { get; set; }
 
+        public int CreatedById { get; set; }
+
         //public List<ConstructionSiteSiteManager> ConstructionSiteManagers { get; set; }
     }
 }
