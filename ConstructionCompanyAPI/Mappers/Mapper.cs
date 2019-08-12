@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using ConstructionCompany;
+using ConstructionCompany.BR.Workers;
 using ConstructionCompanyDataLayer.Models;
 using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.ConstructionSites;
@@ -11,6 +12,7 @@ using ConstructionCompanyModel.ViewModels.Managers;
 using ConstructionCompanyModel.ViewModels.Tasks;
 using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyModel.ViewModels.Workers;
+using ConstructionCompanyModel.ViewModels.WorkerSuggestions;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using MeasurementUnit = ConstructionCompanyModel.ViewModels.Worksheets.MeasurementUnit;
 
@@ -118,6 +120,7 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<ConstructionSiteManagerVM, ConstructionSiteManager>().ReverseMap();
 
             CreateMap<TaskSearchVM, TaskSearch>();
+            CreateMap<WorkerSuggestion, WorkerSuggestionVM>();
         }
     }
 }

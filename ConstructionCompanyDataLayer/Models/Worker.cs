@@ -14,5 +14,22 @@ namespace ConstructionCompanyDataLayer.Models
         public List<WorkerTask> WorkerTasks { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        
+        public override bool Equals(object obj)
+        {
+            var item = obj as Worker;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return Id.Equals(item.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

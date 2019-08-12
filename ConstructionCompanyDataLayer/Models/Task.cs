@@ -7,7 +7,7 @@ namespace ConstructionCompanyDataLayer.Models
     public class Task
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Title { get; set; }
 
@@ -20,5 +20,22 @@ namespace ConstructionCompanyDataLayer.Models
         public Worksheet Worksheet { get; set; }
 
         public int Rating { get; set; }
+        
+        public override bool Equals(object obj)
+        {
+            var item = obj as Task;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return Id.Equals(item.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

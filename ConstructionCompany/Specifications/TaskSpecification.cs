@@ -32,5 +32,14 @@ namespace ConstructionCompany.Specifications
             AddInclude("Worksheet.WorksheetMaterials.Material");
             AddInclude("Worksheet.WorksheetEquipment.Equipment");
         }
+
+        public TaskSpecification(string title)
+            : base(t => t.Title == title)
+        {
+            AddInclude("WorkerTasks.Worker.User");
+            AddInclude("Worksheet.ConstructionSite");
+            AddInclude("Worksheet.WorksheetMaterials.Material");
+            AddInclude("Worksheet.WorksheetEquipment.Equipment");
+        }
     }
 }

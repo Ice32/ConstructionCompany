@@ -5,6 +5,7 @@ using ConstructionCompany;
 using ConstructionCompany.BR;
 using ConstructionCompany.BR.Tasks;
 using ConstructionCompany.BR.Users;
+using ConstructionCompany.BR.Workers;
 using ConstructionCompany.BR.Worksheets;
 using ConstructionCompany.Specifications;
 using ConstructionCompanyAPI.Security;
@@ -82,16 +83,15 @@ namespace ConstructionCompanyAPI
             services.AddScoped<IService<Material, object>, BaseService<Material, object, MaterialSpecification>>();
             services.AddScoped<IService<Equipment, object>, BaseService<Equipment, object, EquipmentSpecification>>();
             services.AddScoped<IService<Task, object>, BaseService<Task, object, TaskSpecification>>();
-            services.AddScoped<IService<Worker, object>, BaseService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<IService<Worksheet, object>, WorksheetService>();
             services.AddScoped<IService<ConstructionSiteManager, object>, BaseService<ConstructionSiteManager, object, ConstructionSiteManagerSpecification>>();
             services.AddScoped<IService<User, object>, BaseService<User, object, UserAllRelatedDataSpecification>>();
+            services.AddScoped<IWorkersSuggestionEngine, WorkersSuggestionEngine>();
             
             services.AddScoped<ICRUDService<ConstructionSite, object>, BaseCRUDService<ConstructionSite, object, ConstructionSiteAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Material, object>, BaseCRUDService<Material, object, MaterialSpecification>>();
             services.AddScoped<ICRUDService<Equipment, object>, BaseCRUDService<Equipment, object, EquipmentSpecification>>();
             services.AddScoped<ICRUDService<Task, TaskSearch>, TasksService>();
-            services.AddScoped<ICRUDService<Worker, object>, BaseCRUDService<Worker, object, WorkerAllRelatedDataSpecification>>();
             services.AddScoped<ICRUDService<Worksheet, object>, WorksheetService>();
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IUserTypeService<Worker>, BaseUserTypeService<Worker, WorkerAllRelatedDataSpecification>>();
