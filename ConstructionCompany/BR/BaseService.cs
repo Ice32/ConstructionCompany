@@ -21,8 +21,8 @@ namespace ConstructionCompany.BR
 
         public virtual List<TDatabase> Get(TSearch search)
         {
-
-            List<TDatabase> list = _repository.List(new TDefaultSpecification()).ToList();
+            var defaultSpecification = (TDefaultSpecification)Activator.CreateInstance(typeof(TDefaultSpecification), search);
+            List<TDatabase> list = _repository.List(defaultSpecification).ToList();
 
             return list;
 

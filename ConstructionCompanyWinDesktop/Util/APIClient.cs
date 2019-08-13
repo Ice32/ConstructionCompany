@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -40,6 +41,18 @@ namespace ConstructionCompanyWinDesktop.Util
             response.EnsureSuccessStatusCode();
             string responseData = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseData);
+        }
+        
+        public async Task<T> Get<T>(string url, IDictionary<string, string> search)
+        {
+            var formUrlEncodedContent = new FormUrlEncodedContent(search);
+            string urlEncodedString = await formUrlEncodedContent.ReadAsStringAsync();
+
+            if (!string.IsNullOrEmpty(urlEncodedString))
+            {
+                return await Get<T>(url + "?" + urlEncodedString);
+            }
+            return await Get<T>(url);
         }
         
         public async Task<T> Post<T>(string url, object data)

@@ -17,5 +17,11 @@ namespace ConstructionCompany.Specifications
         {
             AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
         }
+        
+        public ConstructionSiteAllRelatedDataSpecification(ConstructionSiteSearch search)
+            : base(c => (search.Name != default ? c.Title.Contains(search.Name) : true))
+        {
+            AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ConstructionCompany;
 using ConstructionCompany.BR;
 using ConstructionCompanyAPI.Controllers.Generics;
 using ConstructionCompanyDataLayer.Models;
@@ -8,9 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers
 {
-    public class EquipmentController : BaseCRUDController<EquipmentVM, Equipment, object, object, EquipmentAddVM, EquipmentAddVM>
+    public class EquipmentController : BaseCRUDController<EquipmentVM, Equipment, EquipmentSearchVM, EquipmentSearch, EquipmentAddVM, EquipmentAddVM>
     {
-        public EquipmentController(ICRUDService<Equipment, object> service, IMapper mapper) : base(service, mapper)
+        public EquipmentController(ICRUDService<Equipment, EquipmentSearch> service, IMapper mapper) : base(service, mapper)
         {
         }
         

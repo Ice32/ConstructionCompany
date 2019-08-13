@@ -11,7 +11,8 @@ namespace ConstructionCompanyWinDesktop.Equipment
 
         private List<EquipmentVM> _equipment;
         private readonly APIService<EquipmentVM, EquipmentAddVM, EquipmentAddVM> _equipmentService = new APIService<EquipmentVM, EquipmentAddVM, EquipmentAddVM>("equipment");
-
+        private string _nameSearch = "";
+        private string _serialNumberSearch = "";
         public frmEquipmentList()
         {
             InitializeComponent();
@@ -22,7 +23,16 @@ namespace ConstructionCompanyWinDesktop.Equipment
 
         private async void LoadData()
         {
-            _equipment = await _equipmentService.GetAll();
+            var search = new Dictionary<string, string>();
+            if (_nameSearch != default)
+            {
+                search.Add("Name", _nameSearch);
+            }
+            if (_serialNumberSearch != default)
+            {
+                search.Add("SerialNumber", _serialNumberSearch);
+            }
+            _equipment = await _equipmentService.GetAll(search);
             var mappedResults = _equipment.Select(m => new
             {
                 m.Id,
@@ -48,6 +58,18 @@ namespace ConstructionCompanyWinDesktop.Equipment
             EquipmentVM equipment = _equipment.FirstOrDefault(w => w.Id == selectedId);
             var editForm = new frmNewEquipment(equipment, MdiParent);
             editForm.Show();
+        }
+
+        private void TextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+            _nameSearch = ((TextBox)sender).Text;
+            LoadData();
+        }
+
+        private void TextBox2_TextChanged(object sender, System.EventArgs e)
+        {
+            _serialNumberSearch = ((TextBox)sender).Text;
+            LoadData();
         }
     }
 }

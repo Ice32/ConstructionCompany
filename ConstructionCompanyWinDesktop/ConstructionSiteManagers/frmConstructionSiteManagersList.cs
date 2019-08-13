@@ -10,6 +10,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
     {
         private readonly APIService<ConstructionSiteManagerVM, ConstructionSiteManagerAddVM, ConstructionSiteManagerAddVM> _csmService = new APIService<ConstructionSiteManagerVM, ConstructionSiteManagerAddVM, ConstructionSiteManagerAddVM>("constructionSiteManagers");
         private List<ConstructionSiteManagerVM> _constructionSiteManagers;
+        private string _nameSearch = "";
         public frmConstructionSiteManagersList()
         {
             InitializeComponent();
@@ -18,7 +19,12 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
         
         private async void LoadData()
         {
-            _constructionSiteManagers = await _csmService.GetAll();
+            var search = new Dictionary<string, string>();
+            if (_nameSearch != default)
+            {
+                search.Add("Name", _nameSearch);
+            }
+            _constructionSiteManagers = await _csmService.GetAll(search);
             var mappedResults = _constructionSiteManagers.Select(u => new
             {
                 u.Id,
@@ -41,6 +47,12 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
             ConstructionSiteManagerVM constructionSiteManager = _constructionSiteManagers.First(w => w.Id == selectedId);
             var editForm = new frmNewConstructionSiteManager(constructionSiteManager, MdiParent);
             editForm.Show();
+        }
+
+        private void TextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+            _nameSearch = ((TextBox)sender).Text;
+            LoadData();
         }
     }
 }

@@ -35,6 +35,10 @@
             this.Equipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtWorksheetDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbConstructionSites = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +46,9 @@
             // 
             this.dgvMain.AllowUserToAddRows = false;
             this.dgvMain.AllowUserToDeleteRows = false;
+            this.dgvMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -50,15 +57,14 @@
             this.Equipment,
             this.Remarks,
             this.Date});
-            this.dgvMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMain.Location = new System.Drawing.Point(0, 0);
+            this.dgvMain.Location = new System.Drawing.Point(0, 45);
             this.dgvMain.MultiSelect = false;
             this.dgvMain.Name = "dgvMain";
             this.dgvMain.ReadOnly = true;
             this.dgvMain.RowHeadersWidth = 82;
             this.dgvMain.RowTemplate.Height = 33;
             this.dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMain.Size = new System.Drawing.Size(1512, 783);
+            this.dgvMain.Size = new System.Drawing.Size(1512, 738);
             this.dgvMain.TabIndex = 1;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMain_CellClick);
             // 
@@ -117,11 +123,49 @@
             this.Date.ReadOnly = true;
             this.Date.Width = 200;
             // 
+            // dtWorksheetDate
+            // 
+            this.dtWorksheetDate.Location = new System.Drawing.Point(446, 4);
+            this.dtWorksheetDate.Name = "dtWorksheetDate";
+            this.dtWorksheetDate.Size = new System.Drawing.Size(394, 31);
+            this.dtWorksheetDate.TabIndex = 2;
+            // 
+            // cmbConstructionSites
+            // 
+            this.cmbConstructionSites.FormattingEnabled = true;
+            this.cmbConstructionSites.Location = new System.Drawing.Point(121, 6);
+            this.cmbConstructionSites.Name = "cmbConstructionSites";
+            this.cmbConstructionSites.Size = new System.Drawing.Size(172, 33);
+            this.cmbConstructionSites.TabIndex = 3;
+            this.cmbConstructionSites.Text = "Gradilište";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Gradilište";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(366, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Datum";
+            // 
             // frmWorksheetsList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1512, 783);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbConstructionSites);
+            this.Controls.Add(this.dtWorksheetDate);
             this.Controls.Add(this.dgvMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmWorksheetsList";
@@ -129,6 +173,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -140,6 +185,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DateTimePicker dtWorksheetDate;
+        private System.Windows.Forms.ComboBox cmbConstructionSites;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

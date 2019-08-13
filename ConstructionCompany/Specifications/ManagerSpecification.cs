@@ -24,6 +24,10 @@ namespace ConstructionCompany.Specifications
             AddInclude(cs => cs.User);
         }
         
-        
+        public ManagerSpecification(UserSearch search)
+            : base(w => search.Name != default ? (w.User.FirstName.Contains(search.Name) || w.User.LastName.Contains(search.Name) || w.User.UserName.Contains(search.Name)) : true)
+        {
+            AddInclude(cs => cs.User);
+        }
     }
 }

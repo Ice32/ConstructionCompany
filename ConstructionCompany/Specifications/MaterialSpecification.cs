@@ -15,5 +15,10 @@ namespace ConstructionCompany.Specifications
             : base(c => c.Id == id)
         {
         }
+        
+        public MaterialSpecification(MaterialSearch search)
+            : base(c => search.Name != default ? c.Name.Contains(search.Name) : true)
+        {
+        }
     }
 }

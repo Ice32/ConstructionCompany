@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+using System.Linq;
+using ConstructionCompany.Specifications;
 using ConstructionCompanyDataLayer;
 using ConstructionCompanyDataLayer.Models;
 
 namespace ConstructionCompany.BR.Users
 {
-    public class BaseUserTypeService<T, TDefaultSpecification> : BaseService<T, object, TDefaultSpecification>, IUserTypeService<T> where T : class, IUserType where TDefaultSpecification : BaseSpecification<T>, new()
+    public class BaseUserTypeService<T, TDefaultSpecification> : BaseService<T, UserSearch, TDefaultSpecification>, IUserTypeService<T> where T : class, IUserType where TDefaultSpecification : BaseSpecification<T>, new()
     {
         private readonly IUsersService _usersService;
 
@@ -29,5 +32,14 @@ namespace ConstructionCompany.BR.Users
             return updatedUserType;
         }
 
+//        public override List<T> Get(UserSearch search)
+//        {
+//            if (search.Name != default)
+//            {
+//                return _repository.List(new UserAllRelatedDataSpecification(search)).ToList();
+//            }
+////            return _repository.List(new TaskSpecification()).ToList();
+//            return base.Get(search);
+//        }
     }
 }

@@ -125,6 +125,12 @@ namespace ConstructionCompanyAPI.Mappers
             CreateMap<ConstructionSiteManagerVM, ConstructionSiteManager>().ReverseMap();
 
             CreateMap<TaskSearchVM, TaskSearch>();
+            CreateMap<ConstructionSiteSearchVM, ConstructionSiteSearch>();
+            CreateMap<EquipmentSearchVM, EquipmentSearch>();
+            CreateMap<MaterialSearchVM, MaterialSearch>();
+            CreateMap<UserSearchVM, UserSearch>();
+            CreateMap<WorksheetSearchVM, WorksheetSearch>();
+
             CreateMap<WorkerSuggestion, WorkerSuggestionVM>();
         }
     }

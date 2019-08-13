@@ -10,6 +10,7 @@ namespace ConstructionCompanyWinDesktop.Users
     {
         private readonly APIService<WorkerVM, WorkerAddVM, WorkerAddVM> _workersService = new APIService<WorkerVM, WorkerAddVM, WorkerAddVM>("workers");
         private List<WorkerVM> _workers;
+        private string _nameSearch = "";
         public frmWorkersList()
         {
             InitializeComponent();
@@ -18,7 +19,13 @@ namespace ConstructionCompanyWinDesktop.Users
         
         private async void LoadData()
         {
-            _workers = await _workersService.GetAll();
+            var search = new Dictionary<string, string>();
+            if (_nameSearch != default)
+            {
+                search.Add("Name", _nameSearch);
+            }
+
+            _workers = await _workersService.GetAll(search);
             var mappedResults = _workers.Select(u => new
             {
                 u.Id,
@@ -41,6 +48,12 @@ namespace ConstructionCompanyWinDesktop.Users
             WorkerVM worker = _workers.First(w => w.Id == selectedId);
             var editForm = new frmNewWorker(worker, MdiParent);
             editForm.Show();
+        }
+
+        private void TextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+            _nameSearch = ((TextBox)sender).Text;
+            LoadData();
         }
     }
 }

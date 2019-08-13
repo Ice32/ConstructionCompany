@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ConstructionCompanyModel.ViewModels.ConstructionSites;
 using ConstructionCompanyModel.ViewModels.Workers;
 using ConstructionCompanyModel.ViewModels.Worksheets;
 using ConstructionCompanyWinDesktop.Services;
@@ -11,7 +13,10 @@ namespace ConstructionCompanyWinDesktop
     public partial class frmWorksheetsList : Form
     {
         private readonly APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM> _worksheetsService = new APIService<WorksheetVM, WorksheetAddVM, WorksheetAddVM>("worksheets");
+        private readonly APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM> _constructionSitesService = new APIService<ConstructionSiteVM, ConstructionSiteAddVM, ConstructionSiteAddVM>("constructionSites");
         private List<WorksheetVM> _worksheets;
+        private int _selectedConstructionSiteId;
+        private DateTime _selectedDate;
 
         public frmWorksheetsList()
         {
@@ -21,7 +26,46 @@ namespace ConstructionCompanyWinDesktop
 
         private async void LoadData()
         {
-            _worksheets = await _worksheetsService.GetAll();
+            List<ConstructionSiteVM> constructionSites = await _constructionSitesService.GetAll();
+            cmbConstructionSites.DataSource = constructionSites;
+            cmbConstructionSites.DisplayMember = "Title";
+            cmbConstructionSites.ValueMember = "Id";
+            cmbConstructionSites.SelectedIndex = -1;
+            cmbConstructionSites.Text = "Gradilište";
+
+            //cmbConstructionSites.SelectedValue = _material.MaterialId;
+            cmbConstructionSites.SelectedIndexChanged += (sender, args) =>
+            {
+                int selectedConstructionSiteId = (int)cmbConstructionSites.SelectedValue;
+                _selectedConstructionSiteId = selectedConstructionSiteId;
+                LoadWorksheets();
+            };
+
+            dtWorksheetDate.ValueChanged += (sender, args) =>
+            {
+                DateTime selectedValue = (DateTime)dtWorksheetDate.Value;
+                _selectedDate = selectedValue;
+                LoadWorksheets();
+            };
+
+            LoadWorksheets();
+        }
+
+        private async void LoadWorksheets()
+        {
+            var search = new Dictionary<string, string>();
+            if (_selectedConstructionSiteId != default)
+            {
+                search.Add("constructionSiteId", _selectedConstructionSiteId.ToString());
+            }
+
+            if (_selectedDate != default)
+            {
+                search.Add("date", _selectedDate.ToString());
+            }
+
+
+            _worksheets = await _worksheetsService.GetAll(search);
             var mappedResults = _worksheets.Select(w =>
             {
                 List<WorkerVM> workers = w.Tasks.SelectMany(t => t.Workers).Distinct().ToList();
@@ -29,7 +73,7 @@ namespace ConstructionCompanyWinDesktop
                 {
                     ConstructionSite = w.ConstructionSite.Title,
                     Equipment = w.Equipment != null ? string.Join(", ", w.Equipment.Select(e => e.Name)) : "",
-                    Workers = string.Join(", ",workers.Select(worker => worker.User.FirstName + ' ' + worker.User.LastName)),
+                    Workers = string.Join(", ", workers.Select(worker => worker.User.FirstName + ' ' + worker.User.LastName)),
                     w.Remarks,
                     w.Date,
                     w.Id,

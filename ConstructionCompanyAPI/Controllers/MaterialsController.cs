@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ConstructionCompany;
 using ConstructionCompany.BR;
 using ConstructionCompanyAPI.Controllers.Generics;
 using ConstructionCompanyDataLayer.Models;
@@ -8,9 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionCompanyAPI.Controllers
 {
-    public class MaterialsController : BaseCRUDController<MaterialVM, Material, object, object, MaterialAddVM, MaterialAddVM>
+    public class MaterialsController : BaseCRUDController<MaterialVM, Material, MaterialSearchVM, MaterialSearch, MaterialAddVM, MaterialAddVM>
     {
-        public MaterialsController(ICRUDService<Material, object> service, IMapper mapper) : base(service, mapper)
+        public MaterialsController(ICRUDService<Material, MaterialSearch> service, IMapper mapper) : base(service, mapper)
         {
         }
         

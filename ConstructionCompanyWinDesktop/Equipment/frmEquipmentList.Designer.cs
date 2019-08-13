@@ -35,6 +35,10 @@
             this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipmentList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +46,9 @@
             // 
             this.dgvEquipmentList.AllowUserToAddRows = false;
             this.dgvEquipmentList.AllowUserToDeleteRows = false;
+            this.dgvEquipmentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquipmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquipmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -50,13 +57,12 @@
             this.PurchaseDate,
             this.Quantity,
             this.Description});
-            this.dgvEquipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEquipmentList.Location = new System.Drawing.Point(0, 0);
+            this.dgvEquipmentList.Location = new System.Drawing.Point(0, 50);
             this.dgvEquipmentList.Name = "dgvEquipmentList";
             this.dgvEquipmentList.ReadOnly = true;
             this.dgvEquipmentList.RowHeadersWidth = 82;
             this.dgvEquipmentList.RowTemplate.Height = 33;
-            this.dgvEquipmentList.Size = new System.Drawing.Size(800, 450);
+            this.dgvEquipmentList.Size = new System.Drawing.Size(800, 400);
             this.dgvEquipmentList.TabIndex = 0;
             this.dgvEquipmentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMain_CellClick);
             // 
@@ -115,17 +121,56 @@
             this.Description.ReadOnly = true;
             this.Description.Width = 200;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(84, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(150, 31);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Naziv";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(397, 6);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(150, 31);
+            this.textBox2.TabIndex = 6;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(267, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Serijski broj";
+            // 
             // frmEquipmentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEquipmentList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEquipmentList";
             this.Text = "frmEquipmentList";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipmentList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,5 +183,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

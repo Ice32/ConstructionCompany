@@ -20,6 +20,11 @@ namespace ConstructionCompanyWinDesktop.Services
             return Client.Get<List<T>>();
         }
         
+        public Task<List<T>> GetAll(IDictionary<string, string> search)
+        {
+            return Client.Get<List<T>>("", search);
+        }
+        
         public Task<T> Create(TInsertion data)
         {
             return Client.Post<T>("", data);

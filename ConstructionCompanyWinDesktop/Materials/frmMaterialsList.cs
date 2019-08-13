@@ -10,6 +10,7 @@ namespace ConstructionCompanyWinDesktop.Materials
     {
         private List<MaterialVM> _materials;
         private readonly APIService<MaterialVM, MaterialAddVM, MaterialAddVM> _materialsService = new APIService<MaterialVM, MaterialAddVM, MaterialAddVM>("materials");
+        private string _nameSearch = "";
 
         public frmMaterialsList()
         {
@@ -21,7 +22,12 @@ namespace ConstructionCompanyWinDesktop.Materials
 
         private async void LoadData()
         {
-            _materials = await _materialsService.GetAll();
+            var search = new Dictionary<string, string>();
+            if (_nameSearch != default)
+            {
+                search.Add("Name", _nameSearch);
+            }
+            _materials = await _materialsService.GetAll(search);
             var mappedResults = _materials.Select(m => new
             {
                 m.Id,
@@ -45,6 +51,12 @@ namespace ConstructionCompanyWinDesktop.Materials
             MaterialVM material = _materials.FirstOrDefault(w => w.Id == selectedId);
             var editForm = new frmNewMaterial(material, MdiParent);
             editForm.Show();
+        }
+
+        private void TextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+            _nameSearch = ((TextBox)sender).Text;
+            LoadData();
         }
     }
 }
