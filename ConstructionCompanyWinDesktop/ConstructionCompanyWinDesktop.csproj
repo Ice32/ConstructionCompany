@@ -267,14 +267,14 @@
     <EmbeddedResource Include="Worksheets\frmWorksheetsList.resx">
       <DependentUpon>frmWorksheetsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Worksheets\worksheetEquipmentItemUserControl.resx">
+      <DependentUpon>worksheetEquipmentItemUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\worksheetEquipmentUserControl.resx">
       <DependentUpon>worksheetEquipmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\worksheetMaterialsUserControl .resx">
       <DependentUpon>worksheetMaterialsUserControl .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Worksheets\worksheetEquipmentItemlUserControl.resx">
-      <DependentUpon>worksheetEquipmentItemUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worksheets\worksheetTasksUserControl.resx">
       <DependentUpon>worksheetTasksUserControl.cs</DependentUpon>

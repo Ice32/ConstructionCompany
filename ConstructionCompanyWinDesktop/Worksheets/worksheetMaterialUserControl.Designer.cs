@@ -39,6 +39,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             // 
             // cmbWorksheetMaterial
             // 
+            this.cmbWorksheetMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorksheetMaterial.FormattingEnabled = true;
             this.cmbWorksheetMaterial.Location = new System.Drawing.Point(3, 15);
             this.cmbWorksheetMaterial.Name = "cmbWorksheetMaterial";
@@ -47,7 +48,7 @@ namespace ConstructionCompanyWinDesktop.Worksheets
             // 
             // numWorksheetMaterialAmount
             // 
-            this.numWorksheetMaterialAmount.Location = new System.Drawing.Point(214, 19);
+            this.numWorksheetMaterialAmount.Location = new System.Drawing.Point(214, 16);
             this.numWorksheetMaterialAmount.Name = "numWorksheetMaterialAmount";
             this.numWorksheetMaterialAmount.Size = new System.Drawing.Size(120, 31);
             this.numWorksheetMaterialAmount.TabIndex = 2;

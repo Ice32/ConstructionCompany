@@ -40,7 +40,7 @@ namespace ConstructionCompanyAPI.Mappers
                     {
                         Id = we.EquipmentId,
                         Quantity = we.Quantity,
-                        Name = we.Equipment.Name,
+                        Name = we.Equipment != null ? we.Equipment.Name : "",
                     }));
                 });
             CreateMap<WorksheetVM, Worksheet>();

@@ -33,37 +33,36 @@ namespace ConstructionCompanyWinDesktop.Worksheets
         {
             this.cmbWorksheetEquipment = new System.Windows.Forms.ComboBox();
             this.numWorksheetMaterialAmount = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize) (this.numWorksheetMaterialAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWorksheetMaterialAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbWorksheetEquipment
             // 
+            this.cmbWorksheetEquipment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorksheetEquipment.FormattingEnabled = true;
-            this.cmbWorksheetEquipment.Location = new System.Drawing.Point(3, 19);
-            this.cmbWorksheetEquipment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbWorksheetEquipment.Location = new System.Drawing.Point(3, 15);
             this.cmbWorksheetEquipment.Name = "cmbWorksheetEquipment";
-            this.cmbWorksheetEquipment.Size = new System.Drawing.Size(222, 40);
+            this.cmbWorksheetEquipment.Size = new System.Drawing.Size(205, 33);
             this.cmbWorksheetEquipment.TabIndex = 0;
             // 
             // numWorksheetMaterialAmount
             // 
-            this.numWorksheetMaterialAmount.Location = new System.Drawing.Point(232, 24);
-            this.numWorksheetMaterialAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numWorksheetMaterialAmount.Location = new System.Drawing.Point(214, 16);
             this.numWorksheetMaterialAmount.Name = "numWorksheetMaterialAmount";
-            this.numWorksheetMaterialAmount.Size = new System.Drawing.Size(130, 39);
+            this.numWorksheetMaterialAmount.Size = new System.Drawing.Size(120, 31);
             this.numWorksheetMaterialAmount.TabIndex = 2;
             // 
-            // worksheetEquipmentItemlUserControl
+            // worksheetEquipmentItemUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.numWorksheetMaterialAmount);
             this.Controls.Add(this.cmbWorksheetEquipment);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "worksheetEquipmentItemUserControl";
-            this.Size = new System.Drawing.Size(479, 79);
-            ((System.ComponentModel.ISupportInitialize) (this.numWorksheetMaterialAmount)).EndInit();
+            this.Size = new System.Drawing.Size(442, 62);
+            ((System.ComponentModel.ISupportInitialize)(this.numWorksheetMaterialAmount)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
