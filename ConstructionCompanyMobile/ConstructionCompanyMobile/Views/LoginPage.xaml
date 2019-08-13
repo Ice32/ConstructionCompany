@@ -13,11 +13,11 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Username"/>
+            <Label Text="Korisničko ime"/>
             <Entry Text="{Binding Username}"></Entry>
-            <Label Text="Password"/>
+            <Label Text="Lozinka"/>
             <Entry Text="{Binding Password}" IsPassword="True"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"></Button>
+            <Button Text="Prijava" Command="{Binding LoginCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
