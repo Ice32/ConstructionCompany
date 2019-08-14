@@ -13,7 +13,6 @@ namespace ConstructionCompanyMobile
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new LoginPage();
         }
 
