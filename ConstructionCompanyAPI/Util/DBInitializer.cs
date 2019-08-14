@@ -28,24 +28,24 @@ namespace ConstructionCompanyAPI.Util
                     FirstName = "second",
                     LastName = "worker",
                     UserName = "worker",
-                    PasswordHash = "W2Ib07DMfJfwTFOYAZS7d1FMgC4=",
-                    PasswordSalt = "i1sHJ8xUM3GPBovTx8Ih2g=="
+                    PasswordHash = "HrEd3CFWp+zwKGpf+n7rblDWVAg=",
+                    PasswordSalt = "T5/gHC7uLOVnv4QK8USapw=="
                 },
                 new User
                 {
                     FirstName = "manager",
                     LastName = "manager",
                     UserName = "manager",
-                    PasswordHash = "ZkAEkrkIixbsdvgZKVbzxmTTdNY=",
-                    PasswordSalt = "tTs76CTiFJv2Ui4DbCKGhA=="
+                    PasswordHash = "HrEd3CFWp+zwKGpf+n7rblDWVAg=",
+                    PasswordSalt = "T5/gHC7uLOVnv4QK8USapw=="
                 },
                 new User
                 {
                     FirstName = "fourth",
                     LastName = "csm",
                     UserName = "construction_site_manager",
-                    PasswordHash = "ZJ1FI+0GG8Up3pxR4dvzJp3shCI=",
-                    PasswordSalt = "Gyy8X03oLag0cDzxbzZOmQ=="
+                    PasswordHash = "HrEd3CFWp+zwKGpf+n7rblDWVAg=",
+                    PasswordSalt = "T5/gHC7uLOVnv4QK8USapw=="
                 }
             };
             Worker[] workers = {
