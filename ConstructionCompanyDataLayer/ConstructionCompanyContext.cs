@@ -15,7 +15,7 @@ namespace ConstructionCompanyDataLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=GradjevinskiDnevnik;Trusted_Connection=true;MultipleActiveResultSets=true;User ID=;Password=");
+            optionsBuilder.UseSqlServer("Server=.;Database=150135;Trusted_Connection=true;MultipleActiveResultSets=true;User ID=;Password=");
         }
 
         public DbSet<ConstructionSite> ConstructionSites { get; set; }
