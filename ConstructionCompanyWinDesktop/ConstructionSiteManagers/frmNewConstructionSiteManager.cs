@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
+﻿using ConstructionCompanyModel.ViewModels.ConstructionSiteManagers;
 using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyWinDesktop.Services;
 using ConstructionCompanyWinDesktop.Util;
+using System;
+using System.Windows.Forms;
 
 namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
 {
@@ -20,7 +20,7 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
             _parent = parent;
             _validationUtil = new ValidationUtil(errorProvider1);
         }
-        
+
         public frmNewConstructionSiteManager(ConstructionSiteManagerVM constructionSiteManager, Form parent) : this(parent)
         {
             _originalConstructionSiteManager = constructionSiteManager;
@@ -49,18 +49,29 @@ namespace ConstructionCompanyWinDesktop.ConstructionSiteManagers
                     Active = chkActive.Checked
                 },
             };
-            if (_originalConstructionSiteManager != null)
+            try
             {
-                manager.Id = _originalConstructionSiteManager.Id;
-                manager.User.Id = _originalConstructionSiteManager.User.Id;
-                await _constructionSiteManagersService.Update(_originalConstructionSiteManager.Id, manager);
+                if (_originalConstructionSiteManager != null)
+                {
+                    manager.Id = _originalConstructionSiteManager.Id;
+                    manager.User.Id = _originalConstructionSiteManager.User.Id;
+                    await _constructionSiteManagersService.Update(_originalConstructionSiteManager.Id, manager);
+                }
+                else
+                {
+                    await _constructionSiteManagersService.Create(manager);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await _constructionSiteManagersService.Create(manager);
+                if (ex.Message.Contains("Bad Request"))
+                {
+                    MessageBox.Show("Korisničko ime se koristi");
+                    return;
+                }
             }
 
-            Form listForm = new frmConstructionSiteManagersList{ MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };
+            Form listForm = new frmConstructionSiteManagersList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };
             Close();
             listForm.Show();
         }

@@ -4,9 +4,9 @@ using ConstructionCompanyDataLayer.Models;
 namespace ConstructionCompany.Specifications
 {
 
-    public class WorksheetAllRelatedDataSpecification : BaseSpecification<Worksheet>
+    public class WorksheetSpecification : BaseSpecification<Worksheet>
     {
-        public WorksheetAllRelatedDataSpecification()
+        public WorksheetSpecification()
             : base(c => true)
         {
             AddInclude(w => w.ConstructionSite);
@@ -15,7 +15,7 @@ namespace ConstructionCompany.Specifications
             AddInclude("WorksheetEquipment.Equipment");
         }
 
-        public WorksheetAllRelatedDataSpecification(int id)
+        public WorksheetSpecification(int id)
             : base(c => c.Id == id)
         {
             AddInclude(w => w.ConstructionSite);
@@ -24,7 +24,7 @@ namespace ConstructionCompany.Specifications
             AddInclude("WorksheetEquipment.Equipment");
         }
         
-        public WorksheetAllRelatedDataSpecification(WorksheetSearch search)
+        public WorksheetSpecification(WorksheetSearch search)
             : base(c => (search.Date != default ? c.Date.Date.Equals(search.Date.Date) : true) && (search.ConstructionSiteId != default ? c.ConstructionSiteId == search.ConstructionSiteId : true))
         {
             AddInclude(w => w.ConstructionSite);

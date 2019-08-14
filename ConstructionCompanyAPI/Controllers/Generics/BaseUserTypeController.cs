@@ -17,27 +17,41 @@ namespace ConstructionCompanyAPI.Controllers.Generics
         }
         
         [HttpPost]
-        public virtual T Insert(TInsert request)
+        public virtual IActionResult Insert(TInsert request)
         {
-            var toInsert = _mapper.Map<TDatabase>(request);
-            TDatabase inserted = _userTypeService.Insert(toInsert, request.User.Password);
-
-            return _mapper.Map<T>(inserted);
+            try
+            {
+                var toInsert = _mapper.Map<TDatabase>(request);
+                TDatabase inserted = _userTypeService.Insert(toInsert, request.User.Password);
+                return Ok(inserted);
+            }
+            catch (DuplicateUsernameException ex)
+            {
+                return BadRequest("Duplicate username");  
+            }
         }
         
         [HttpPut("{id}")]
-        public virtual T Update(int id, [FromBody]TInsert request)
+        public virtual IActionResult Update(int id, [FromBody]TInsert request)
 
         {
-            TDatabase existing = _service.GetById(id);
-            if (existing == null)
+            try
             {
-                throw new HttpRequestException();
+                TDatabase existing = _service.GetById(id);
+                if (existing == null)
+                {
+                    throw new HttpRequestException();
+                }
+
+                TDatabase toUpdate = _mapper.Map(request, existing);
+                _userTypeService.Update(toUpdate, request.User.Password);
+                TDatabase updated = _service.GetById(id);
+                return Ok(_mapper.Map<T>(updated));
             }
-            TDatabase toUpdate = _mapper.Map(request, existing);
-            _userTypeService.Update(toUpdate, request.User.Password);
-            TDatabase updated = _service.GetById(id);
-            return _mapper.Map<T>(updated);
+            catch (DuplicateUsernameException ex)
+            {
+                return BadRequest("Duplicate username");
+            }
         }
     }
 }

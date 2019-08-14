@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using ConstructionCompanyModel.ViewModels.Managers;
+﻿using ConstructionCompanyModel.ViewModels.Managers;
 using ConstructionCompanyModel.ViewModels.Users;
 using ConstructionCompanyWinDesktop.Services;
 using ConstructionCompanyWinDesktop.Util;
+using System;
+using System.Windows.Forms;
 
 namespace ConstructionCompanyWinDesktop.Managers
 {
@@ -20,7 +20,7 @@ namespace ConstructionCompanyWinDesktop.Managers
             _parent = parent;
             _validationUtil = new ValidationUtil(errorProvider1);
         }
-        
+
         public frmNewManager(ManagerVM manager, Form parent) : this(parent)
         {
             _originalManager = manager;
@@ -48,18 +48,28 @@ namespace ConstructionCompanyWinDesktop.Managers
                     Active = true
                 },
             };
-            if (_originalManager != null)
+            try
             {
-                manager.Id = _originalManager.Id;
-                manager.User.Id = _originalManager.User.Id;
-                await _managersService.Update(_originalManager.Id, manager);
+                if (_originalManager != null)
+                {
+                    manager.Id = _originalManager.Id;
+                    manager.User.Id = _originalManager.User.Id;
+                    await _managersService.Update(_originalManager.Id, manager);
+                }
+                else
+                {
+                    await _managersService.Create(manager);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await _managersService.Create(manager);
+                if (ex.Message.Contains("Bad Request"))
+                {
+                    MessageBox.Show("Korisničko ime se koristi");
+                    return;
+                }
             }
-
-            Form listForm = new frmManagersList{ MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };
+            Form listForm = new frmManagersList { MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };
             Close();
             listForm.Show();
         }

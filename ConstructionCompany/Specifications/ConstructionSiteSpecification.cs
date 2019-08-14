@@ -4,21 +4,21 @@ using ConstructionCompanyDataLayer.Models;
 namespace ConstructionCompany.Specifications
 {
 
-    public class ConstructionSiteAllRelatedDataSpecification : BaseSpecification<ConstructionSite>
+    public class ConstructionSiteSpecification : BaseSpecification<ConstructionSite>
     {
-        public ConstructionSiteAllRelatedDataSpecification()
+        public ConstructionSiteSpecification()
             : base(c => true)
         {
             AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
         }
 
-        public ConstructionSiteAllRelatedDataSpecification(int id)
+        public ConstructionSiteSpecification(int id)
             : base(c => c.Id == id)
         {
             AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");
         }
         
-        public ConstructionSiteAllRelatedDataSpecification(ConstructionSiteSearch search)
+        public ConstructionSiteSpecification(ConstructionSiteSearch search)
             : base(c => (search.Name != default ? c.Title.Contains(search.Name) : true))
         {
             AddInclude("ConstructionSiteManagers.ConstructionSiteManager.User");

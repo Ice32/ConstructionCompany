@@ -4,21 +4,21 @@ using ConstructionCompanyDataLayer.Models;
 namespace ConstructionCompany.Specifications
 {
 
-    public class UserAllRelatedDataSpecification : BaseSpecification<User>
+    public class UserSpecification : BaseSpecification<User>
     {
-        public UserAllRelatedDataSpecification()
+        public UserSpecification()
             : base(c => true)
         {
             AddInclude("UserRoles.Role");
         }
 
-        public UserAllRelatedDataSpecification(string username)
-            : base(u => u.UserName == username && u.IsDeleted != true)
+        public UserSpecification(string username)
+            : base(u => u.UserName == username)
         {
             AddInclude("UserRoles.Role");
         }
         
-        public UserAllRelatedDataSpecification(int id)
+        public UserSpecification(int id)
             : base(u => u.Id == id && u.IsDeleted != true)
         {
             AddInclude("UserRoles.Role");

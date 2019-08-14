@@ -31,7 +31,7 @@ namespace ConstructionCompany.BR.Users
                 return constructionSiteManager;
             }
             
-            Worker worker = _workersRepository.GetSingle(new WorkerAllRelatedDataSpecification(user));
+            Worker worker = _workersRepository.GetSingle(new WorkerSpecification(user));
             return worker;
         }
     }

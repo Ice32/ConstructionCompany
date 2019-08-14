@@ -13,17 +13,17 @@ namespace ConstructionCompanyAPI.Controllers
         public WorkersController(IUserTypeService<Worker> service, IMapper mapper) : base(service, mapper)
         {
         }
-        
+
         [HttpPost]
         [Authorize(Roles = "Manager")]
-        public override WorkerVM Insert(WorkerAddVM request)
+        public override IActionResult Insert(WorkerAddVM request)
         {
             return base.Insert(request);
         }
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Manager")]
-        public override WorkerVM Update(int id, WorkerAddVM request)
+        public override IActionResult Update(int id, WorkerAddVM request)
         {
             return base.Update(id, request);
         }

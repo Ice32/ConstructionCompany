@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 using ConstructionCompany.Specifications;
@@ -7,7 +8,7 @@ using ConstructionCompanyDataLayer.Models;
 
 namespace ConstructionCompany.BR.Users
 {
-    public class UsersService: BaseService<User, object, UserAllRelatedDataSpecification>, IUsersService
+    public class UsersService: BaseService<User, object, UserSpecification>, IUsersService
     {
         private readonly IRepository<User> _usersRepository;
 
@@ -18,9 +19,9 @@ namespace ConstructionCompany.BR.Users
 
         public User GetUserFromCredentials(string username, string password)
         {
-            User user = _usersRepository.GetSingle(new UserAllRelatedDataSpecification(username));
+            User user = _usersRepository.GetSingle(new UserSpecification(username));
 
-            if (user != null)
+            if (user != null && !user.IsDeleted)
             {
                 var newHash = GenerateHash(user.PasswordSalt, password);
 
@@ -53,9 +54,18 @@ namespace ConstructionCompany.BR.Users
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
-        
+
+        private void AssertUserDoesntExist(string username, int? id = null)
+        {
+            User user = _usersRepository.GetSingle(new UserSpecification(username));
+            if (user != null && user.Id != id)
+            {
+                throw new DuplicateUsernameException();
+            }
+        }
         public User Insert(User user, string password)
         {
+            AssertUserDoesntExist(user.UserName);
             user.PasswordSalt = GenerateSalt();
             user.PasswordHash = GenerateHash(user.PasswordSalt, password);
 
@@ -64,6 +74,7 @@ namespace ConstructionCompany.BR.Users
         
         public User Update(User user, string password)
         {
+            AssertUserDoesntExist(user.UserName, user.Id);
             if (!string.IsNullOrEmpty(password))
             {
                 user.PasswordSalt = GenerateSalt();

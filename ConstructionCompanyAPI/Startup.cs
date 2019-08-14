@@ -79,22 +79,22 @@ namespace ConstructionCompanyAPI
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            services.AddScoped<IService<ConstructionSite, ConstructionSiteSearch>, BaseService<ConstructionSite, ConstructionSiteSearch, ConstructionSiteAllRelatedDataSpecification>>();
+            services.AddScoped<IService<ConstructionSite, ConstructionSiteSearch>, BaseService<ConstructionSite, ConstructionSiteSearch, ConstructionSiteSpecification>>();
             services.AddScoped<IService<Material, MaterialSearch>, BaseService<Material, MaterialSearch, MaterialSpecification>>();
             services.AddScoped<IService<Equipment, EquipmentSearch>, BaseService<Equipment, EquipmentSearch, EquipmentSpecification>>();
             services.AddScoped<IService<Task, TaskSearch>, BaseService<Task, TaskSearch, TaskSpecification>>();
             services.AddScoped<IService<Worksheet, WorksheetSearch>, WorksheetService>();
             services.AddScoped<IService<ConstructionSiteManager, UserSearch>, BaseService<ConstructionSiteManager, UserSearch, ConstructionSiteManagerSpecification>>();
-            services.AddScoped<IService<User, object>, BaseService<User, object, UserAllRelatedDataSpecification>>();
+            services.AddScoped<IService<User, object>, BaseService<User, object, UserSpecification>>();
             services.AddScoped<IWorkersSuggestionEngine, WorkersSuggestionEngine>();
             
-            services.AddScoped<ICRUDService<ConstructionSite, ConstructionSiteSearch>, BaseCRUDService<ConstructionSite, ConstructionSiteSearch, ConstructionSiteAllRelatedDataSpecification>>();
+            services.AddScoped<ICRUDService<ConstructionSite, ConstructionSiteSearch>, BaseCRUDService<ConstructionSite, ConstructionSiteSearch, ConstructionSiteSpecification>>();
             services.AddScoped<ICRUDService<Material, MaterialSearch>, BaseCRUDService<Material, MaterialSearch, MaterialSpecification>>();
             services.AddScoped<ICRUDService<Equipment, EquipmentSearch>, BaseCRUDService<Equipment, EquipmentSearch, EquipmentSpecification>>();
             services.AddScoped<ICRUDService<Task, TaskSearch>, TasksService>();
             services.AddScoped<ICRUDService<Worksheet, WorksheetSearch>, WorksheetService>();
             services.AddScoped<IUsersService, UsersService>();
-            services.AddScoped<IUserTypeService<Worker>, BaseUserTypeService<Worker, WorkerAllRelatedDataSpecification>>();
+            services.AddScoped<IUserTypeService<Worker>, BaseUserTypeService<Worker, WorkerSpecification>>();
             services.AddScoped<IUserTypeService<ConstructionSiteManager>, BaseUserTypeService<ConstructionSiteManager, ConstructionSiteManagerSpecification>>();
             services.AddScoped<IUserTypeService<Manager>, BaseUserTypeService<Manager, ManagerSpecification>>();
             

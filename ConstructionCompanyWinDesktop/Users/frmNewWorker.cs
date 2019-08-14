@@ -53,15 +53,25 @@ namespace ConstructionCompanyWinDesktop.Users
                     Active = chkActive.Checked,
                 },
             };
-            if (_originalWorker != null)
+            try
             {
-                worker.Id = _originalWorker.Id;
-                worker.User.Id = _originalWorker.User.Id;
-                await _workersService.Update(_originalWorker.Id, worker);
-            }
-            else
+                if (_originalWorker != null)
+                {
+                    worker.Id = _originalWorker.Id;
+                    worker.User.Id = _originalWorker.User.Id;
+                    await _workersService.Update(_originalWorker.Id, worker);
+                }
+                else
+                {
+                    await _workersService.Create(worker);
+                }
+            } catch(Exception ex)
             {
-                await _workersService.Create(worker);
+                if (ex.Message.Contains("Bad Request"))
+                {
+                    MessageBox.Show("Korisničko ime se koristi");
+                    return;
+                }
             }
 
             Form listForm = new frmWorkersList{ MdiParent = _parent, Dock = DockStyle.Fill, AutoSize = true };

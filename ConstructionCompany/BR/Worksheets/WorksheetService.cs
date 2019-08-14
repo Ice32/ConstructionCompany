@@ -4,7 +4,7 @@ using ConstructionCompanyDataLayer.Models;
 
 namespace ConstructionCompany.BR.Worksheets
 {
-    public class WorksheetService : BaseCRUDService<Worksheet, WorksheetSearch, WorksheetAllRelatedDataSpecification>
+    public class WorksheetService : BaseCRUDService<Worksheet, WorksheetSearch, WorksheetSpecification>
     {
         private readonly IRepository<Material> _materialsRepository;
         public WorksheetService(IRepository<Worksheet> repository, IRepository<Material> materialsRepository) : base(repository)
