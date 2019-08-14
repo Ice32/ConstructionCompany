@@ -46,6 +46,8 @@ namespace ConstructionCompanyMobile.ViewModels
             ConstructionSites = new ObservableCollection<ConstructionSiteVM>();
             InitCommand = new Command(async () =>
             {
+                ClearFilters();
+
                 await ExecuteLoadTasksCommand();
                 await ExecuteLoadWorkersCommand();
                 await ExecuteLoadConstructionSitesCommand();
@@ -136,6 +138,12 @@ namespace ConstructionCompanyMobile.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void ClearFilters()
+        {
+            _selectedWorker = null;
+            _selectedConstructionSite = null;
         }
     }
 }
